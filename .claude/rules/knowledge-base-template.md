@@ -27,6 +27,8 @@ paths:
 
 ## Lecture Progression
 
+**Canonical source:** `Course_Map.md` at repo root holds the full 36-day progression (dates, topics, slide paths, builds-on links). The table below tracks only notation/method per lecture as decks get built.
+
 | # | Title | Core Question | Key Notation | Key Method |
 |---|-------|--------------|-------------|------------|
 | 1 | Introduction to Health Economics | Is health care special? What are its 6 characteristics? | $H$, HC, $f(\cdot)$ | Positive vs normative analysis |

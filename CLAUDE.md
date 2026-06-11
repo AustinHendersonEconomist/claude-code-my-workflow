@@ -21,11 +21,14 @@
 ```
 Econ-306-S2-2026/
 ├── CLAUDE.MD                         # This file
+├── Course_Map.md                     # CANONICAL 36-day map: dates, topics, slide paths, readings
 ├── .claude/                          # Rules, skills, agents, hooks
 ├── Bibliography_base.bib             # Centralized bibliography
 ├── Figures/                          # Figures and images
 ├── Preambles/econ306_preamble.tex    # Shared LaTeX preamble (theme + macros)
-├── Slides/                           # Beamer .tex files (one per lecture day)
+├── Syllabus/                         # LaTeX syllabus (ECON306_Syllabus_S2_2026.tex)
+├── Slides/                           # Beamer .tex files
+│   └── days/                         # One .tex per lecture day, W{ww}D{d}_{slug}.tex (Phase 3)
 ├── scripts/                          # Utility scripts + R code
 ├── quality_reports/                  # Plans, session logs, merge reports
 ├── explorations/                     # Research sandbox (see rules)
@@ -107,6 +110,13 @@ TEXINPUTS=../Preambles:$TEXINPUTS xelatex -interaction=nonstopmode file.tex
 
 ## Current Project State
 
-| Lecture | Beamer | Key Content |
-|---------|--------|-------------|
-| W01D1: Intro to Health Economics | `Slides/day 1 claude test.tex` | What is health economics, 6 special characteristics, market failure |
+**Course structure (locked 2026-06-12, rev. 2):** 12 weeks = Part I health wks 1–7 (in-class test Fri 28 Aug, W7D3, test-only session) + Part II evaluation wks 8–9 + Part III education wks 10–11 + wk 12 wrap-up (D1) with D2–D3 reserved. Lectures Wed/Thu/Fri; tutorials every other week, Mon (55U213) or Fri (T204) 10–10:50 am. All dates signed off — `Course_Map.md` is CANONICAL and overrides the plan's original skeleton where they differ.
+
+| Artifact | File | Status |
+|----------|------|--------|
+| Master plan (Phases 1–6) | `quality_reports/plans/zazzy-noodling-feather.md` | APPROVED; Phases 1–2 done |
+| Course map (36 days) | `Course_Map.md` | Complete; dates signed off |
+| LaTeX syllabus | `Syllabus/ECON306_Syllabus_S2_2026.tex` | Compiles clean (7 pp) |
+| W01D1 lecture | `Slides/day 1 claude test.tex` | Quality benchmark; becomes `Slides/days/W01D1_course_intro.tex` in Phase 3 |
+| Per-day slide split | `Slides/days/` | Phase 3 (next) |
+| Readings refresh + bib | `Bibliography_base.bib` | Phase 4 |
