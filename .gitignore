@@ -35,6 +35,7 @@ __pycache__/
 # OS files
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # Claude Code local files (not shared across machines)
 .claude/settings.local.json
@@ -47,9 +48,6 @@ CLAUDE.local.md
 *.swp
 *.swo
 *~
-
-# Quarto rendering artifacts
-.quarto/
 
 # Output artifacts — uncomment lines below based on your preference
 # *.rds

@@ -53,4 +53,4 @@ paths:
 ## Single Source of Truth
 
 **The Beamer `.tex` file is the authoritative source for ALL TikZ diagrams.**
-Edit TikZ in the Beamer file FIRST, then copy verbatim to `extract_tikz.tex`.
+Edit TikZ in the Beamer file only. Do not maintain separate copies.

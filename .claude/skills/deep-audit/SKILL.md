@@ -29,7 +29,7 @@ Run a comprehensive consistency audit across the entire repository, fix all issu
 Launch these 4 agents simultaneously using `Task` with `subagent_type=general-purpose`:
 
 #### Agent 1: Guide Content Accuracy
-Focus: `guide/workflow-guide.qmd`
+Focus: `guide/` and `docs/index.html`
 - All numeric claims match reality (skill count, agent count, rule count, hook count)
 - All file paths mentioned actually exist on disk
 - All skill/agent/rule names match actual directory names
@@ -59,8 +59,8 @@ Focus: `.claude/skills/*/SKILL.md` and `.claude/rules/*.md`
 - All templates referenced in rules/guide exist in `templates/`
 
 #### Agent 4: Cross-Document Consistency
-Focus: `README.md`, `docs/index.html`, `docs/workflow-guide.html`
-- All feature counts agree across all 3 documents
+Focus: `README.md`, `docs/index.html`
+- All feature counts agree across documents
 - All links point to valid targets
 - License section matches LICENSE file
 - Directory tree matches actual structure
@@ -73,7 +73,6 @@ Categorize each finding:
 - **False alarm**: Discard (document WHY it's false for future rounds)
 
 Common false alarms to watch for:
-- Quarto callout `## Title` inside `:::` divs — this is standard syntax, NOT a heading bug
 - `allowed-tools` linter warning — known linter bug (Claude Code issue #25380), field IS valid
 - Counts in old session logs — these are historical records, not user-facing docs
 
@@ -84,13 +83,9 @@ Apply fixes in parallel where possible. For each fix:
 2. Apply the fix
 3. Verify the fix (grep for stale values, check syntax)
 
-### PHASE 4: Re-render if Guide Changed
+### PHASE 4: Re-verify if Docs Changed
 
-If `guide/workflow-guide.qmd` was modified:
-```bash
-quarto render guide/workflow-guide.qmd
-cp guide/workflow-guide.html docs/workflow-guide.html
-```
+If `docs/index.html` was modified, check that all links and counts remain consistent.
 
 ### PHASE 5: Loop or Declare Clean
 
@@ -130,7 +125,7 @@ After each round, report:
 | # | Severity | File | Issue | Status |
 |---|----------|------|-------|--------|
 | 1 | Critical | file.py:42 | Description | Fixed |
-| 2 | Medium | file.qmd:100 | Description | Fixed |
+| 2 | Medium | file.tex:100 | Description | Fixed |
 
 ### Verification
 - [ ] No stale counts (grep confirms)
