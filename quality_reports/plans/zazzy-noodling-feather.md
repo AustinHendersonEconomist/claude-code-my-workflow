@@ -1,6 +1,11 @@
 # ECON306 S2 2026 — Full Course Build-Out Master Plan
 
-**Status:** APPROVED (2026-06-11)
+**Status:** APPROVED (2026-06-11) — **AMENDED 2026-06-12 after Austin's syllabus review.** The "New Course Skeleton" tables below are SUPERSEDED on these points; `Course_Map.md` is canonical:
+- Part I extends to **weeks 1–7**: W7D1 = NZ health system history deep-dive, W7D2 = Part I review, **W7D3 (Fri 28 Aug) = in-class test only** (no lecture, no new reading)
+- Part II compresses to **weeks 8–9** (6 days), starting after the mid-semester break; Part III education stays weeks 10–11; **W12D1 = course wrap-up; W12D2–D3 reserved** (make-up/guest speaker)
+- Tutorials run dual-slot: Mon 10–10:50 (55U213) or Fri 10–10:50 (T204). T4 = test debrief + allocation intuitions; T5 = PHARMAC CUA; **T6 = "Life advice — applying MCDM to your own life" (1000minds)**
+- Required readings shown upright, optional in italics (no ★); syllabus now carries a full Reading List section
+- Phase 4 priority: readings on the **history of NZ health and education systems** (reasoning behind structural forms/priorities); flag to revisit after Tutorial 1 — possible consolidation to Friday-only tutorials
 **Date:** 2026-06-11
 **Planned by:** Fable 5 (high-level only) — **execution phases run by cheaper models (Sonnet/Haiku) in separate sessions, using this plan + the Course Map as the contract.**
 

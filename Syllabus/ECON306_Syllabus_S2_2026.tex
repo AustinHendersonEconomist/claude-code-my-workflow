@@ -1,0 +1,585 @@
+% ============================================================
+%  ECON306: The Economics of Health and Education
+%  Course Syllabus — Semester 2, 2026
+%  University of Otago — Department of Economics
+%
+%  NOTE: This is an article-class document. Do NOT \input the
+%  Beamer preamble. Otago colours are defined locally below.
+%  Compile with XeLaTeX (3-pass + bibtex if needed):
+%    cd Syllabus
+%    xelatex -interaction=nonstopmode ECON306_Syllabus_S2_2026.tex
+%    xelatex -interaction=nonstopmode ECON306_Syllabus_S2_2026.tex
+%    xelatex -interaction=nonstopmode ECON306_Syllabus_S2_2026.tex
+% ============================================================
+
+\documentclass[11pt, a4paper]{article}
+
+% ─── Fonts & Encoding ───────────────────────────────────────
+\usepackage{fontspec}
+\setmainfont{Calibri}
+\setsansfont{Calibri}
+\setmonofont{Consolas}
+
+% ─── Otago Colours (defined locally — not from Beamer preamble) ─
+\usepackage{xcolor}
+\definecolor{OtagoBlue}{HTML}{003057}
+\definecolor{OtagoGold}{HTML}{A8923A}
+\definecolor{TextGrey}{HTML}{3A3A3A}
+\definecolor{AccentBlue}{HTML}{2B6CB0}
+\definecolor{LightBg}{HTML}{F7F9FC}
+
+% ─── Layout ─────────────────────────────────────────────────
+\usepackage[
+  top=2.5cm, bottom=2.5cm,
+  left=2.5cm, right=2.5cm,
+  headheight=22.5pt
+]{geometry}
+\usepackage{microtype}
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0pt}
+
+% ─── Tables ─────────────────────────────────────────────────
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{colortbl}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+% ─── Graphics & Layout ──────────────────────────────────────
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.5em, topsep=0.3em, itemsep=0.1em}
+\setlist[enumerate]{leftmargin=1.5em, topsep=0.3em, itemsep=0.1em}
+
+% ─── Hyperlinks ─────────────────────────────────────────────
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor  = AccentBlue,
+  urlcolor   = AccentBlue,
+  citecolor  = AccentBlue,
+  pdftitle   = {ECON306 Syllabus S2 2026},
+  pdfauthor  = {Austin Henderson},
+}
+
+% ─── Section Formatting ─────────────────────────────────────
+\usepackage{titlesec}
+\titleformat{\section}
+  {\large\bfseries\color{OtagoBlue}}
+  {}
+  {0em}
+  {}
+  [\textcolor{OtagoGold}{\titlerule[1.5pt]}]
+
+\titleformat{\subsection}
+  {\normalsize\bfseries\color{OtagoBlue}}
+  {}
+  {0em}
+  {}
+
+\titlespacing{\section}{0pt}{1.2em}{0.4em}
+\titlespacing{\subsection}{0pt}{0.8em}{0.2em}
+
+% ─── Header / Footer ────────────────────────────────────────
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{OtagoBlue}{\textbf{ECON306 — S2 2026}}}
+\fancyhead[R]{\small\textcolor{TextGrey}{University of Otago}}
+\fancyfoot[C]{\small\textcolor{TextGrey}{\thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\textcolor{OtagoGold}{\hrule width\headwidth height\headrulewidth}}
+
+% ─── Callout boxes ──────────────────────────────────────────
+\usepackage{mdframed}
+\mdfdefinestyle{infostyle}{
+  linecolor=OtagoBlue,
+  linewidth=1pt,
+  backgroundcolor=LightBg,
+  innertopmargin=8pt, innerbottommargin=8pt,
+  innerleftmargin=10pt, innerrightmargin=10pt,
+  skipabove=0.6em, skipbelow=0.6em,
+}
+\mdfdefinestyle{goldstyle}{
+  linecolor=OtagoGold,
+  linewidth=1.5pt,
+  backgroundcolor=OtagoGold!6,
+  innertopmargin=8pt, innerbottommargin=8pt,
+  innerleftmargin=10pt, innerrightmargin=10pt,
+  skipabove=0.6em, skipbelow=0.6em,
+}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+% ─── Title Block ────────────────────────────────────────────
+\begin{tikzpicture}[remember picture, overlay]
+  \fill[OtagoBlue]
+    (current page.north west)
+    rectangle ([yshift=-6.0cm] current page.north east);
+\end{tikzpicture}
+
+\vspace*{-0.5cm}
+{\color{white}
+  \Huge\bfseries ECON306\par
+  \Large\normalfont The Economics of Health and Education\par
+  \vspace{0.4em}
+  \normalsize Department of Economics \textbullet\ University of Otago \textbullet\ Semester 2, 2026\par
+}
+
+\vspace{1.8cm}
+
+% ─── Course Details Box ─────────────────────────────────────
+\begin{mdframed}[style=infostyle]
+\begin{tabular}{@{}L{3.5cm} L{10cm}@{}}
+\textbf{Lecturer}    & Austin Henderson \\
+\textbf{Office}      & Room 603, Commerce Building \\
+\textbf{Email}       & \href{mailto:Austin.henderson@otago.ac.nz}{Austin.henderson@otago.ac.nz} \\
+\textbf{Office hours}& After class, or by appointment \\[0.4em]
+\textbf{Lectures}    & Wednesday 8:00--8:50\,am \textbar\ Thursday 5:00--5:50\,pm \textbar\ Friday 1:00--1:50\,pm \\
+\textbf{Tutorials}   & Every other week from Week~2 (six total): Monday 10:00--10:50\,am in 55U213 \emph{or} Friday 10:00--10:50\,am in T204 \\
+\textbf{Online}      & Brightspace (Aoroa) — slides, readings, grades, announcements \\
+\textbf{Pre-requisite}& ECON201 or ECON271 (or equivalent) \\
+\end{tabular}
+\end{mdframed}
+
+% ============================================================
+\section{Welcome to ECON306}
+% ============================================================
+
+After social welfare, health and education are the largest areas of government spending in most modern economies. Together, health and education account for approximately 13\% of New Zealand's GDP, making this course directly relevant to some of the most consequential policy decisions of our time. Healthcare in particular is a rapidly growing sector of the economy, meaning you are increasingly likely to find work in healthcare — and not necessarily as a provider.
+
+ECON306 applies the tools of microeconomics to the health and education sectors, including government policy, economic evaluation, and individual decision-making. The analytical techniques you will develop here are valuable in a wide range of careers in health agencies, treasury, consulting, health care management, education policy, and beyond.
+
+The course has three parts:
+\begin{itemize}
+  \item \textbf{Part I} (Weeks 1--7): The Economics of Health and Health Care
+  \item \textbf{Part II} (Weeks 8--9): Health Economic Evaluation and Decision-Making
+  \item \textbf{Part III} (Weeks 10--11): The Economics of Education
+  \item \textbf{Week 12}: Course wrap-up; remaining days held in reserve
+\end{itemize}
+
+% ============================================================
+\section{Course Objectives}
+% ============================================================
+
+\begin{enumerate}
+  \item Apply the microeconomic tools and concepts from first- and second-year Economics to the topics of health and education, including contemporary NZ and global policy issues.
+  \item Introduce new microeconomic tools and concepts as required — including cost-utility analysis, Quality-Adjusted Life Years (QALYs), Value of Statistical Life, and Multi-Criteria Decision Analysis.
+  \item Equip you with the skills to understand and critique economic evaluations of health care interventions, and to apply these evaluation skills to any economic project appraisal.
+  \item Develop analytical and decision-making skills, including quantitative proficiencies in discounting, cost-effectiveness calculations, and uncertainty analysis.
+  \item Engage critically with New Zealand-specific institutions: PHARMAC, ACC, Te Whatu Ora, the NZ Student Loan Scheme, and New Zealand Superannuation.
+\end{enumerate}
+
+% ============================================================
+\section{Learning Resources}
+% ============================================================
+
+\subsection{Brightspace (Aoroa)}
+All course materials including lecture slides, required readings, tutorial handouts, assignment details, grades, and announcements will be posted on Brightspace (Aoroa). Check it regularly. Ensure your University email forwards to an account you use daily.
+
+\subsection{Lecture Slides}
+Slides will be posted on Brightspace prior to each lecture. If you miss a lecture, you are expected to catch up using the posted slides, recording, and required readings.
+
+\subsection{Required Reading}
+Each week has a set of Required Readings available via eReserve on Brightspace. These must be completed \emph{before} the relevant lecture, and there will be weekly quizzes on the reading, due by Wednesday of each week (a 30\% late penalty applies thereafter). \emph{Optional readings appear in italics} wherever they are listed; everything else is required. The readings are a curated selection from textbooks, news articles, and academic journals. You will not be required to purchase a textbook. A full Reading List appears at the end of this document.
+
+\subsection{Further Reading}
+Optional Further Reading is listed each week for students who wish to go deeper. I strongly encourage any student who is curious about a career in or related to health (broadly speaking) to engage with these readings, but they are not strictly necessary and will not be examined. Most are available online through the University Library (\url{otago.ac.nz/library}) or in the Medical Library (Sayers Building, 290 Great King St).
+
+% ============================================================
+\section{Workload Expectations}
+% ============================================================
+
+ECON306 is an 18-point course. Using the University's rule of thumb, you should plan to devote approximately 12 hours per week to this course during semester:
+\begin{itemize}
+  \item 3 hours: lectures (Wednesday, Thursday, Friday)
+  \item $\approx$1 hour: tutorial (every other week, averaged across semester)
+  \item 8--9 hours: your own reading, study, assessment preparation, and revision
+\end{itemize}
+
+This is a significant commitment. The reward is a thorough grounding in some of the most policy-relevant areas of applied economics.
+
+% ============================================================
+\section{Tutorials}
+% ============================================================
+
+There are six tutorials, held every other week beginning in Week~2. Two sessions run in each tutorial week — \textbf{Monday 10:00--10:50\,am (55U213)} and \textbf{Friday 10:00--10:50\,am (T204)} — and you will be allocated to one of them. I would prefer if you attended the same session every tutorial week to help balance the numbers. Please reach out if the time does not work and you would like to change.
+
+Tutorials in ECON306 are structured for active participation with debates, case studies, and group problem-solving. Please prepare thoroughly by completing the required readings and working through the tutorial questions before attending. The tutorials are a great way for me to get to know you — what you find interesting, what you find challenging, and what you would like to get out of the course.
+
+\begin{tabularx}{\textwidth}{@{} C{0.5cm} C{1.3cm} C{2.3cm} X L{2.6cm} @{}}
+\toprule
+\textbf{T} & \textbf{Week} & \textbf{Dates} & \textbf{Topic} & \textbf{Format} \\
+\midrule
+1 & Week 2 & Mon 20 Jul / Fri 24 Jul & Wagstaff model: comparative statics — worked examples and discussion & Think-Pair-Share; whiteboard \\
+\addlinespace
+2 & Week 4 & Mon 3 Aug / Fri 7 Aug & Is it good that an increasing share of the economy goes to healthcare for the elderly? & Formal debate \\
+\addlinespace
+3 & Week 6 & Mon 17 Aug / Fri 21 Aug & ``Bob's Party'' (Logan 1986) case study; NZ health system reform & Case discussion; policy critique \\
+\addlinespace
+4 & Week 8 & Mon 7 Sep / Fri 11 Sep & Test debrief; how \emph{should} we allocate the health budget? Allocation intuitions vs.\ economic criteria & Group discussion \\
+\addlinespace
+5 & Week 10 & Mon 21 Sep / Fri 25 Sep & PHARMAC case studies — applying cost-utility analysis to real funding decisions & Small-group CUA \\
+\addlinespace
+6 & Week 12 & Mon 5 Oct / Fri 9 Oct & Life advice — applying MCDM to your own life: what do you value, what to do, where to live (1000minds) & Individual 1000minds exercise; group discussion \\
+\bottomrule
+\end{tabularx}
+
+% ============================================================
+\section{Assessment}
+% ============================================================
+
+Unless otherwise stated, all aspects of the course — lectures, tutorials, and required readings — are examinable. Assessment details, guidelines, and dates will be discussed in lectures and posted on Brightspace.
+
+\begin{center}
+\begin{tabular}{L{3.2cm} C{1.5cm} L{9cm}}
+\toprule
+\textbf{Component} & \textbf{Weight} & \textbf{Details} \\
+\midrule
+In-Class Test & 15\% & Covers Part I of the course (Weeks 1--7). Held in Friday's class, Week~7 — \textbf{Friday 28 August 2026}. There is no lecture and no new reading that day; the session is the test. \\
+\addlinespace
+Reading Quizzes & 10\% & Weekly quizzes on the required reading, posted on Brightspace (Aoroa). Each quiz must be completed by \textbf{Wednesday of that week}; late completions incur a 30\% penalty. \\
+\addlinespace
+Assignment & 15\% & PHARMAC-style funding brief covering Part~II. Distributed in Week~8. \textbf{Due Monday 5 October 2026, 9:00\,am}, submitted via Brightspace. \\
+\addlinespace
+Final Exam & 55\% & Two-hour exam. Potentially covers all material from lectures, tutorials, and required readings across the entirety of the course, with slightly more emphasis on material after the in-class test. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Plussage}
+
+Plussage means that your grade will be calculated using two different weighting approaches and you will receive the higher of the two grades:
+\begin{itemize}
+  \item \textbf{(a) Default weights:} as in the table above (in-class test 15\%, reading quizzes 10\%, assignment 15\%, final exam 55\%).
+  \item \textbf{(b) Up-weighted final exam:} the in-class test is down-weighted to 0\% and the final exam is weighted up correspondingly (i.e., the final exam absorbs the 15\% previously allocated to the in-class test, giving it a weight of 70\%, with reading quizzes 10\% and assignment 15\%).
+\end{itemize}
+
+Plussage is automatic — you do not need to apply for it.
+
+\subsection{Grading Scale}
+
+\begin{center}
+\begin{tabular}{ccccccccccc}
+\toprule
+A+ & A & A-- & B+ & B & B-- & C+ & C & C-- & D & E \\
+\midrule
+90--100 & 85--89 & 80--84 & 75--79 & 70--74 & 65--69 & 60--64 & 55--59 & 50--54 & 40--49 & $<$40 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ============================================================
+\section{Academic Integrity}
+% ============================================================
+
+Academic integrity means being honest in your studying and assessments. Academic misconduct — including plagiarism, unauthorised collaboration, copying, or taking unauthorised material into a test — is taken very seriously by the University.
+
+You are responsible for understanding and following the University's Academic Integrity Policy. For more information: \url{otago.ac.nz/study/academicintegrity}
+
+% ============================================================
+\section{Student Feedback and Communication}
+% ============================================================
+
+\subsection{Class Representatives}
+
+Volunteers for class representative roles will be called for early in semester. The class rep system provides a vehicle for communicating student views on the teaching and delivery of the course. Class rep contact details will be posted on Brightspace.
+
+\subsection{Concerns About the Course}
+
+Please feel free to speak to me directly if you have any concerns. Alternatively, contact the class representative, who will follow up with departmental staff. If concerns remain unresolved, University channels are available — contact the departmental administrator or head of department for guidance.
+
+% ============================================================
+\section{Course Overview and Weekly Schedule}
+% ============================================================
+
+Readings listed in the schedule are \textbf{required} and must be completed \emph{before} the relevant lecture; \emph{optional readings appear in italics}. Full citations are in the Reading List at the end of this document. Each day ID below maps directly to its slide source file in \texttt{Slides/days/} in the course repository --- e.g.\ day W1\,D1 $\rightarrow$ \texttt{W01D1\_course\_intro.tex}. The full listing is in \texttt{Course\_Map.md}.
+
+% ─── Part I header ──────────────────────────────────────────
+\vspace{0.8em}
+\begin{mdframed}[style=goldstyle]
+\textbf{\large\color{OtagoBlue} Part I — The Economics of Health and Health Care} \hfill \textit{Weeks 1--7}
+\end{mdframed}
+
+\small
+\begin{longtable}{@{} >{\bfseries\raggedright}p{1.3cm} >{\raggedright}p{2.1cm} >{\raggedright\arraybackslash}p{5.0cm} >{\raggedright\arraybackslash}p{5.2cm} @{}}
+\toprule
+\normalfont\textbf{Day} & \textbf{Date} & \textbf{Topic} & \textbf{Readings} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{l}{\textit{(continued)}} \\
+\toprule
+\normalfont\textbf{Day} & \textbf{Date} & \textbf{Topic} & \textbf{Readings} \\
+\midrule
+\endhead
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+
+% Week 1
+W1 D1 & Wed 15 Jul & Course welcome; what is health economics; six special characteristics; case for govt involvement & Alchian \& Allen pp.~75--6; Santerre \& Neun pp.~18--21 \\
+W1 D2 & Thu 16 Jul & Positive vs.\ normative analysis; the health care ``problem'' facing NZ; international spending context & --- \\
+W1 D3 & Fri 17 Jul & What is health?; health production function; determinants of health; Te Tiriti \& M\={a}ori health & --- \\
+\midrule
+
+% Week 2
+W2 D1 & Wed 22 Jul & Economic vs.\ non-economic models of health demand; Grossman health capital; Wagstaff introduction & Wagstaff (1986) \\
+W2 D2 & Thu 23 Jul & Wagstaff model: indifference curves, health production function, budget constraint & (see Wed) \\
+W2 D3 & Fri 24 Jul & Comparative statics (price, income, ageing, education); limitations; principal--agent preview & (see Wed) \\
+\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{14.5cm}@{}}{\textit{\quad Tutorial 1 — Mon 20 Jul / Fri 24 Jul: Wagstaff comparative statics (Think-Pair-Share; whiteboard work)}} \\
+\midrule
+
+% Week 3
+W3 D1 & Wed 29 Jul & Invisible hand baseline; normative vs.\ positive theories of intervention & Donaldson \& Gerard Ch.~3; Feldstein pp.~437--42; Rice \& Unruh pp.~161--9 \\
+W3 D2 & Thu 30 Jul & Market failures: natural monopoly, moral hazard, adverse selection, externalities & (see Wed) \\
+W3 D3 & Fri 31 Jul & Positive theories: regulatory capture; SID hypothesis \& evidence; DTC advertising in NZ & (see Wed) \\
+\midrule
+
+% Week 4
+W4 D1 & Wed 5 Aug & Demographic transition; NZ's ageing population; why ageing matters economically & WHO \textit{World Report on Ageing}; \textit{The Economist}: ``The silver tsunami'' \\
+W4 D2 & Thu 6 Aug & Age profile of health spending; compression vs.\ expansion of morbidity; NZ Super \& retirement debate & (see Wed) \\
+W4 D3 & Fri 7 Aug & International responses; dementia \& multi-morbidity; economics of prevention; OLG models & (see Wed) \\
+\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{14.5cm}@{}}{\textit{\quad Tutorial 2 — Mon 3 Aug / Fri 7 Aug: Is it good that an increasing share of the economy goes to healthcare for the elderly?}} \\
+\midrule
+
+% Week 5
+W5 D1 & Wed 12 Aug & Why insurance exists; risk aversion \& expected utility; actuarially fair premiums \& pooling & Feldstein Ch.~6 \\
+W5 D2 & Thu 13 Aug & Ex-ante/ex-post moral hazard; adverse selection; Rothschild--Stiglitz model & (see Wed) \\
+W5 D3 & Fri 14 Aug & Public vs.\ private design; NZ hybrid (Te Whatu Ora, ACC, Southern Cross); copays, deductibles & (see Wed) \\
+\midrule
+
+% Week 6
+W6 D1 & Wed 19 Aug & Hospitals as economic institutions; Jacobs taxonomy; Newhouse non-profit model & Santerre \& Neun pp.~406--12; McPake \& Normand Ch.~21; Ashton et al.\ (2005); Kerr (1975); Logan (1986) \\
+W6 D2 & Thu 20 Aug & Incentives in health care (Kerr's folly); classifying systems: Beveridge, Bismarck, private & (see Wed) \\
+W6 D3 & Fri 21 Aug & Measuring health system performance: Commonwealth Fund rankings, international comparisons; the US paradox & (see Wed) \\
+\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{14.5cm}@{}}{\textit{\quad Tutorial 3 — Mon 17 Aug / Fri 21 Aug: ``Bob's Party'' case study + NZ reform debate}} \\
+\midrule
+
+% Week 7
+W7 D1 & Wed 26 Aug & The NZ health system in depth: history of reforms (1938 Social Security Act to Te Whatu Ora) and the reasoning behind its structural choices & Readings to be announced on Brightspace \\
+W7 D2 & Thu 27 Aug & Part I review and synthesis; practice questions & Review all Part I readings \\
+\rowcolor{OtagoGold!12}
+W7 D3 & \textbf{Fri 28 Aug} & \textbf{In-class test (15\%)} — covers all of Part~I. No lecture; no new reading. & --- \\
+\midrule
+\multicolumn{4}{c}{\cellcolor{OtagoBlue!10}\textbf{MID-SEMESTER BREAK — Monday 31 August to Friday 4 September 2026}} \\
+\end{longtable}
+
+\normalsize
+
+% ─── Part II header ─────────────────────────────────────────
+\vspace{0.4em}
+\begin{mdframed}[style=goldstyle]
+\textbf{\large\color{OtagoBlue} Part II — Health Economic Evaluation and Decision-Making} \hfill \textit{Weeks 8--9}
+\end{mdframed}
+
+\small
+\begin{longtable}{@{} >{\bfseries\raggedright}p{1.3cm} >{\raggedright}p{2.1cm} >{\raggedright\arraybackslash}p{5.0cm} >{\raggedright\arraybackslash}p{5.2cm} @{}}
+\toprule
+\normalfont\textbf{Day} & \textbf{Date} & \textbf{Topic} & \textbf{Readings} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{l}{\textit{(continued)}} \\
+\toprule
+\normalfont\textbf{Day} & \textbf{Date} & \textbf{Topic} & \textbf{Readings} \\
+\midrule
+\endhead
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+
+% Week 8
+W8 D1 & Wed 9 Sep & Allocating the health budget; the four types of economic evaluation (CMA/CBA/CEA/CUA); PHARMAC and the NZ framework & Devlin \& Hansen (2000) NZ Treasury WP; Kernick (1998) \textit{BMJ} 316 \\
+W8 D2 & Thu 10 Sep & Valuing human life: human capital, implied valuation, WTP/VSL & \textit{The Economist}: ``The price of a life'' (1993); Kobelt pp.~75--99; Drummond et al.\ Ch.~2 \\
+W8 D3 & Fri 11 Sep & Discounting \& time value; decision-making under risk vs.\ uncertainty & Salvatore Ch.~14; \textit{The Economist}: ``Apocalypse maybe'' (1996) \\
+\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{14.5cm}@{}}{\textit{\quad Tutorial 4 — Mon 7 Sep / Fri 11 Sep: test debrief; allocation intuitions vs.\ economic criteria. \textbf{Assignment distributed this week.}}} \\
+\midrule
+
+% Week 9
+W9 D1 & Wed 16 Sep & QALYs and the EQ-5D-5L; eliciting utility weights (VAS/TTO/SG); applying CUA: ICERs, cost-per-QALY, the PHARMAC threshold & Kobelt: ``Cost-utility analysis'' pp.~75--89; Fairfax NZ News (2013) \\
+W9 D2 & Thu 17 Sep & Equity: fair innings, distributional value judgements, social preferences; league tables; dementia \& end-of-life & (see Wed) \\
+W9 D3 & Fri 18 Sep & Is QALY-max enough? MCDA concepts \& methods (PAPRIKA, 1000minds); discrete choice experiments; ISPOR good practice & Buchanan \& O'Connell (2006) \textit{HBR}; Hansen \& Devlin (2019); Golan \& Hansen (2012) \\
+\end{longtable}
+
+\normalsize
+
+% ─── Part III header ────────────────────────────────────────
+\vspace{0.4em}
+\begin{mdframed}[style=goldstyle]
+\textbf{\large\color{OtagoBlue} Part III — The Economics of Education} \hfill \textit{Weeks 10--11}
+\end{mdframed}
+
+\small
+\begin{longtable}{@{} >{\bfseries\raggedright}p{1.3cm} >{\raggedright}p{2.1cm} >{\raggedright\arraybackslash}p{5.0cm} >{\raggedright\arraybackslash}p{5.2cm} @{}}
+\toprule
+\normalfont\textbf{Day} & \textbf{Date} & \textbf{Topic} & \textbf{Readings} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{l}{\textit{(continued)}} \\
+\toprule
+\normalfont\textbf{Day} & \textbf{Date} & \textbf{Topic} & \textbf{Readings} \\
+\midrule
+\endhead
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+
+% Week 10
+W10 D1 & Wed 23 Sep & Education as an economic good; similarities/differences vs.\ health; market failures in education & Hansen: ``Borrowing to learn, or learning to borrow?''; Ehrenberg \& Smith Ch.~9 \\
+W10 D2 & Thu 24 Sep & NZ education system; student loan scheme economics (income-contingent, interest-free) & (see Wed) \\
+W10 D3 & Fri 25 Sep & Human capital: NPV \& IRR; NZ age-earnings profiles; MOOCs \& lifelong learning & \textit{The Economist}: ``Creative destruction'' (2014); ``The digital degree'' (2014); ``Established providers'' (2017) \\
+\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{14.5cm}@{}}{\textit{\quad Tutorial 5 — Mon 21 Sep / Fri 25 Sep: PHARMAC case studies — applying CUA to real funding decisions}} \\
+\midrule
+
+% Week 11
+W11 D1 & Wed 30 Sep & Signalling theory (Spence 1973); separating equilibria & \textit{The Economist}: ``Secrets and agents'' (Jul 2016) \\
+W11 D2 & Thu 1 Oct & Human capital vs.\ signalling: evidence; sheepskin effects & (see Wed) \\
+W11 D3 & Fri 2 Oct & Private vs.\ social returns (NZ); user-pays vs.\ public funding & (see Wed) \\
+\end{longtable}
+
+\normalsize
+
+% ─── Revision week header ───────────────────────────────────
+\vspace{0.4em}
+\begin{mdframed}[style=goldstyle]
+\textbf{\large\color{OtagoBlue} Course Wrap-Up} \hfill \textit{Week 12}
+\end{mdframed}
+
+\small
+\begin{longtable}{@{} >{\bfseries\raggedright}p{1.3cm} >{\raggedright}p{2.1cm} >{\raggedright\arraybackslash}p{5.0cm} >{\raggedright\arraybackslash}p{5.2cm} @{}}
+\toprule
+\normalfont\textbf{Day} & \textbf{Date} & \textbf{Topic} & \textbf{Readings} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{l}{\textit{(continued)}} \\
+\toprule
+\normalfont\textbf{Day} & \textbf{Date} & \textbf{Topic} & \textbf{Readings} \\
+\midrule
+\endhead
+\midrule
+\endfoot
+\bottomrule
+\endlastfoot
+
+% Week 12
+W12 D1 & Wed 7 Oct & Connecting the three parts; six special characteristics revisited; exam expectations & Review all required readings \\
+W12 D2 & Thu 8 Oct & \emph{Reserved — make-up day or guest speaker (to be confirmed)} & --- \\
+W12 D3 & Fri 9 Oct & \emph{Reserved — make-up day or guest speaker (to be confirmed)} & --- \\
+\multicolumn{4}{@{}>{\raggedright\arraybackslash}p{14.5cm}@{}}{\textit{\quad Tutorial 6 — Mon 5 Oct / Fri 9 Oct: Life advice — applying MCDM to your own life (1000minds). \textbf{Assignment due Mon 9:00\,am.}}} \\
+\end{longtable}
+
+\normalsize
+
+% ─── Key Dates Summary ──────────────────────────────────────
+\vspace{0.6em}
+\begin{mdframed}[style=infostyle]
+\textbf{\color{OtagoBlue} Key Assessment Dates}
+
+\begin{tabular}{@{}L{5cm} L{8cm}@{}}
+\textbf{Reading Quizzes (10\%)} & Weekly; due Wednesday of each week (30\% late penalty) \\
+\textbf{In-Class Test (15\%)} & Friday 28 August 2026, Week~7 (no lecture that day) \\
+\textbf{Assignment Due (15\%)}& Monday 5 October 2026, 9:00\,am \\
+\textbf{Final Exam Period}    & 19 October -- 7 November 2026 \\
+\end{tabular}
+\end{mdframed}
+
+% ============================================================
+\section{Reading List}
+% ============================================================
+
+All required readings are available via eReserve on Brightspace. \emph{Optional readings appear in italics.} This list will be expanded and finalised on Brightspace before semester begins.
+
+\subsection{Week 1 — Introduction to Health Economics}
+\begin{itemize}
+  \item Alchian, A.\ \& Allen, W., ``Need versus demand'' and ``Alleged exceptions to the law of demand'', pp.~75--76 in \textit{Exchange and Production: Theory in Use}, Wadsworth, 1964.
+  \item Santerre, R.E.\ \& Neun, S.P., ``The theories X and Y of health economics'', pp.~18--21 in \textit{Health Economics: Theories, Insights and Industry Studies}, Dryden Press, 2000.
+  \item \emph{The Economist, ``Catching up'' (January 2013).}
+  \item \emph{Folland, S., Goodman, A.C.\ \& Stano, M., \textit{The Economics of Health and Health Care}, Ch.~5.}
+  \item \emph{Hansen, P.\ \& Graham, P., ``Human organ transplants''.}
+\end{itemize}
+
+\subsection{Week 2 — The Demand for Health and Health Care}
+\begin{itemize}
+  \item Wagstaff, A.\ (1986), \textit{Journal of Epidemiology and Community Health}, 40, 1--11.
+\end{itemize}
+
+\subsection{Week 3 — The Role of Government and Supplier-Induced Demand}
+\begin{itemize}
+  \item Donaldson, C.\ \& Gerard, K., Ch.~3.
+  \item Feldstein, P., pp.~437--442.
+  \item Rice, T.\ \& Unruh, L., pp.~161--169.
+\end{itemize}
+
+\subsection{Week 4 — Demographics, Ageing, and Population Health}
+\begin{itemize}
+  \item World Health Organization, \textit{World Report on Ageing and Health} (selected chapters).
+  \item \textit{The Economist}, ``The silver tsunami''.
+\end{itemize}
+
+\subsection{Week 5 — Microeconomics of Health Insurance}
+\begin{itemize}
+  \item Feldstein, P., Ch.~6 (the demand for health insurance).
+\end{itemize}
+
+\subsection{Week 6 — Hospital Behaviour and Health Systems}
+\begin{itemize}
+  \item Santerre, R.E.\ \& Neun, S.P., pp.~406--412.
+  \item McPake, B.\ \& Normand, C., Ch.~21.
+  \item Ashton, T., Mays, N.\ \& Devlin, N.\ (2005).
+  \item Kerr, S.\ (1975), ``On the folly of rewarding A, while hoping for B'', \textit{Academy of Management Journal}, 18(4), 769--783.
+  \item Logan (1986), ``Bob's Party'' (Tutorial~3 reading).
+\end{itemize}
+
+\subsection{Week 7 — The NZ Health System in Depth; Part I Review}
+\begin{itemize}
+  \item Readings on the history and structure of the NZ health system — to be announced on Brightspace.
+\end{itemize}
+
+\subsection{Week 8 — Economic Evaluation, Valuing Life, and Discounting}
+\begin{itemize}
+  \item Devlin, N.\ \& Hansen, P.\ (2000), NZ Treasury Working Paper 00/4.
+  \item Kernick, D.\ (1998), \textit{BMJ}, 316, 1663--1665.
+  \item \textit{The Economist}, ``The price of a life'' (December 1993).
+  \item Kobelt, G., pp.~75--99.
+  \item Drummond, M.\ et al., Ch.~2.
+  \item Salvatore, D., Ch.~14 excerpts (discounting).
+  \item \textit{The Economist}, ``Apocalypse maybe'' (March 1996).
+\end{itemize}
+
+\subsection{Week 9 — QALYs, Equity, and Multi-Criteria Decision Analysis}
+\begin{itemize}
+  \item Kobelt, G., ``Cost-utility analysis'', pp.~75--89.
+  \item Fairfax NZ News, ``Outgoing drug boss says it's not easy to play God'' (September 2013).
+  \item Buchanan, L.\ \& O'Connell, A.\ (2006), \textit{Harvard Business Review}, 84, 32--41.
+  \item Hansen, P.\ \& Devlin, N.\ (2019), \textit{Oxford Research Encyclopedia of Economics and Finance}.
+  \item Golan, O.\ \& Hansen, P.\ (2012), \textit{Israel Journal of Health Policy Research}, 1, 44.
+\end{itemize}
+
+\subsection{Week 10 — Introduction to the Economics of Education}
+\begin{itemize}
+  \item Hansen, P., ``Borrowing to learn, or learning to borrow?''
+  \item \textit{The Economist}, ``Creative destruction'' (June 2014).
+  \item \textit{The Economist}, ``The digital degree'' (June 2014).
+  \item \textit{The Economist}, ``Established providers v new contenders'' (January 2017).
+  \item Ehrenberg, R.\ \& Smith, R., Ch.~9.
+\end{itemize}
+
+\subsection{Week 11 — Signalling Theory and Returns to Education}
+\begin{itemize}
+  \item \textit{The Economist}, ``Secrets and agents'' (July 2016).
+\end{itemize}
+
+\vspace{1em}
+\begin{center}
+\textit{I hope you enjoy ECON306!}
+\end{center}
+
+\end{document}
