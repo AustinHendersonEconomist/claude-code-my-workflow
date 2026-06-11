@@ -1,0 +1,154 @@
+% ============================================================
+%  ECON306: Shared Preamble — The Economics of Health and Education
+%  University of Otago — Semester 2, 2026
+%
+%  SHARED BY ALL ECON306 DAY DECKS.
+%  Input this file immediately after \documentclass in each deck:
+%    \input{../Preambles/econ306_preamble.tex}
+%  Do NOT include \documentclass or per-deck metadata here.
+% ============================================================
+
+% ─── Theme & Colours ────────────────────────────────────────
+\usetheme{default}
+\usecolortheme{default}
+\usefonttheme{professionalfonts}
+\definecolor{OtagoBlue}{HTML}{003057}
+\definecolor{OtagoGold}{HTML}{A8923A}
+\definecolor{TextGrey}{HTML}{3A3A3A}
+\definecolor{AccentBlue}{HTML}{2B6CB0}
+\definecolor{LightBg}{HTML}{F7F9FC}
+
+\setbeamercolor{frametitle}{fg=OtagoBlue, bg=white}
+\setbeamercolor{title}{fg=OtagoBlue}
+\setbeamercolor{subtitle}{fg=OtagoGold}
+\setbeamercolor{author}{fg=TextGrey}
+\setbeamercolor{date}{fg=TextGrey}
+\setbeamercolor{institute}{fg=TextGrey}
+\setbeamercolor{normal text}{fg=TextGrey, bg=white}
+\setbeamercolor{item}{fg=OtagoBlue}
+\setbeamercolor{subitem}{fg=AccentBlue}
+\setbeamercolor{block title}{bg=OtagoBlue!12, fg=OtagoBlue}
+\setbeamercolor{block body}{bg=OtagoBlue!5, fg=TextGrey}
+\setbeamercolor{alertblock title}{bg=OtagoGold!20, fg=OtagoBlue}
+\setbeamercolor{alertblock body}{bg=OtagoGold!8, fg=TextGrey}
+\setbeamercolor{alerted text}{fg=OtagoGold!80!black}
+\setbeamercolor{structure}{fg=OtagoBlue}
+
+\setbeamertemplate{frametitle}{%
+	\vspace{0.35em}%
+	\textbf{\insertframetitle}\par%
+	\vspace{0.05em}%
+	\textcolor{OtagoGold}{\rule{\textwidth}{0.6pt}}}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{%
+	\leavevmode\hbox{%
+		\begin{beamercolorbox}[wd=.40\paperwidth,ht=2.5ex,dp=1.5ex,leftskip=.3cm]{author in head/foot}%
+			\textcolor{TextGrey}{\footnotesize ECON306 \textbullet\ University of Otago}%
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.47\paperwidth,ht=2.5ex,dp=1.5ex,center]{title in head/foot}%
+			\textcolor{TextGrey}{\footnotesize \insertshorttitle}%
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.13\paperwidth,ht=2.5ex,dp=1.5ex,rightskip=.3cm,right]{date in head/foot}%
+			\textcolor{TextGrey}{\footnotesize \insertframenumber\,/\,\inserttotalframenumber}%
+	\end{beamercolorbox}}\vskip0pt}
+
+\setbeamertemplate{itemize item}{\textcolor{OtagoGold}{\small$\blacktriangleright$}}
+\setbeamertemplate{itemize subitem}{\textcolor{AccentBlue}{\small$\triangleright$}}
+\setbeamertemplate{enumerate item}{\textcolor{OtagoBlue}{\small\bfseries\insertenumlabel.}}
+
+\setbeamertemplate{title page}{%
+	\begin{tikzpicture}[remember picture,overlay]
+		\fill[OtagoBlue] (current page.north west)
+		rectangle ([yshift=-0.38\paperheight]current page.north east);
+	\end{tikzpicture}
+	\vspace{0.06\paperheight}
+	\begin{beamercolorbox}[wd=\textwidth, sep=0pt]{title}
+		{\color{white}\Large\textbf{\inserttitle}}\\[0.4em]
+		{\color{OtagoGold}\large\insertsubtitle}
+	\end{beamercolorbox}
+	\vspace{1.4em}
+	\begin{beamercolorbox}[wd=\textwidth, sep=0pt]{author}
+		{\color{TextGrey}\normalsize\insertauthor}\\[0.2em]
+		{\color{TextGrey}\small\insertinstitute}\\[0.2em]
+		{\color{TextGrey}\small\insertdate}
+\end{beamercolorbox}}
+
+% ─── Packages ──────────────────────────────────────────────
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{xcolor}
+\hypersetup{colorlinks=true, linkcolor=AccentBlue, urlcolor=AccentBlue,
+	citecolor=AccentBlue, pdfauthor={Austin Henderson},
+	pdftitle={ECON306 S2 2026}}
+
+% ─── Images folder ─────────────────────────────────────────
+%  Place all slide images in the 'images/' subfolder next to each deck.
+%  Usage: \includegraphics[width=0.85\textwidth]{figure_name}
+\graphicspath{{images/}}
+
+% ─── Reusable macros ───────────────────────────────────────
+% Recap slide at start of each lecture
+\newcommand{\recapslide}[1]{%
+	\begin{frame}{Recap: What Did We Cover Last Time?}
+		\begin{block}{Key points from last lecture}
+			\begin{itemize}#1\end{itemize}
+		\end{block}
+\end{frame}}
+
+% Plan slide at start of each lecture
+\newcommand{\planslide}[2]{%
+	\begin{frame}{Today's Plan — #1}
+		\begin{columns}
+			\column{0.6\textwidth}
+			\begin{itemize}#2\end{itemize}
+			\column{0.38\textwidth}
+			\begin{alertblock}{Reading}
+				\footnotesize See Brightspace (Aoroa) for required readings before this lecture.
+			\end{alertblock}
+		\end{columns}
+\end{frame}}
+
+% Summary slide at end of each lecture
+\newcommand{\summaryside}[1]{%
+	\begin{frame}{Lecture Summary}
+		\begin{exampleblock}{Key takeaways}
+			\begin{itemize}#1\end{itemize}
+		\end{exampleblock}
+		\vspace{0.5em}
+		{\footnotesize\textcolor{OtagoGold}{\textbf{Brightspace (Aoroa):}} slides, readings, and any announcements posted there.}
+\end{frame}}
+
+% NZ spotlight box
+\newcommand{\nzbox}[2]{%
+	\begin{alertblock}{\includegraphics[height=0.8em]{nz_flag_icon}\hspace{0.3em} NZ Spotlight: #1}
+		#2
+\end{alertblock}}
+
+% Tutorial callout
+\newcommand{\tutorialbox}[1]{%
+	\begin{block}{\textbf{Tutorial This Week}}
+		#1
+\end{block}}
+
+% ─── Section dividers ──────────────────────────────────────
+\AtBeginSection[]{
+	\begin{frame}[plain]
+		\begin{tikzpicture}[remember picture,overlay]
+			\fill[OtagoBlue!95] (current page.north west)
+			rectangle (current page.south east);
+			\node[anchor=center, text=white, font=\Large\bfseries,
+			text width=0.9\paperwidth, align=center]
+			at (current page.center) {\insertsectionhead};
+			\node[anchor=south, text=OtagoGold, font=\normalsize,
+			text width=0.9\paperwidth, align=center]
+			at ([yshift=2.5cm]current page.south) {ECON306 — University of Otago};
+		\end{tikzpicture}
+\end{frame}}
