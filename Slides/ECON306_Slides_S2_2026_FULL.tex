@@ -1,0 +1,4049 @@
+% ============================================================
+%  ECON306: The Economics of Health and Education
+%  University of Otago — Semester 2, 2026
+%  Lecturer: Austin Henderson
+%  LaTeX Beamer — Clean Minimal Academic Style
+%  Compiled: \today
+% ============================================================
+
+\documentclass[aspectratio=169, 12pt]{beamer}
+
+% ─── Theme & Colours ────────────────────────────────────────
+\usetheme{default}
+\usecolortheme{default}
+\usefonttheme{professionalfonts}
+\definecolor{OtagoBlue}{HTML}{003057}
+\definecolor{OtagoGold}{HTML}{A8923A}
+\definecolor{TextGrey}{HTML}{3A3A3A}
+\definecolor{AccentBlue}{HTML}{2B6CB0}
+\definecolor{LightBg}{HTML}{F7F9FC}
+
+\setbeamercolor{frametitle}{fg=OtagoBlue, bg=white}
+\setbeamercolor{title}{fg=OtagoBlue}
+\setbeamercolor{subtitle}{fg=OtagoGold}
+\setbeamercolor{author}{fg=TextGrey}
+\setbeamercolor{date}{fg=TextGrey}
+\setbeamercolor{institute}{fg=TextGrey}
+\setbeamercolor{normal text}{fg=TextGrey, bg=white}
+\setbeamercolor{item}{fg=OtagoBlue}
+\setbeamercolor{subitem}{fg=AccentBlue}
+\setbeamercolor{block title}{bg=OtagoBlue!12, fg=OtagoBlue}
+\setbeamercolor{block body}{bg=OtagoBlue!5, fg=TextGrey}
+\setbeamercolor{alertblock title}{bg=OtagoGold!20, fg=OtagoBlue}
+\setbeamercolor{alertblock body}{bg=OtagoGold!8, fg=TextGrey}
+\setbeamercolor{alerted text}{fg=OtagoGold!80!black}
+\setbeamercolor{structure}{fg=OtagoBlue}
+
+\setbeamertemplate{frametitle}{%
+  \vspace{0.35em}%
+  \textbf{\insertframetitle}\par%
+  \vspace{0.05em}%
+  \textcolor{OtagoGold}{\rule{\textwidth}{0.6pt}}}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{%
+  \leavevmode\hbox{%
+    \begin{beamercolorbox}[wd=.40\paperwidth,ht=2.5ex,dp=1.5ex,leftskip=.3cm]{author in head/foot}%
+      \textcolor{TextGrey}{\footnotesize ECON306 \textbullet\ University of Otago}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.47\paperwidth,ht=2.5ex,dp=1.5ex,center]{title in head/foot}%
+      \textcolor{TextGrey}{\footnotesize \insertshorttitle}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.13\paperwidth,ht=2.5ex,dp=1.5ex,rightskip=.3cm,right]{date in head/foot}%
+      \textcolor{TextGrey}{\footnotesize \insertframenumber\,/\,\inserttotalframenumber}%
+    \end{beamercolorbox}}\vskip0pt}
+
+\setbeamertemplate{itemize item}{\textcolor{OtagoGold}{\small$\blacktriangleright$}}
+\setbeamertemplate{itemize subitem}{\textcolor{AccentBlue}{\small$\triangleright$}}
+\setbeamertemplate{enumerate item}{\textcolor{OtagoBlue}{\small\bfseries\insertenumlabel.}}
+
+\setbeamertemplate{title page}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[OtagoBlue] (current page.north west)
+      rectangle ([yshift=-0.38\paperheight]current page.north east);
+  \end{tikzpicture}
+  \vspace{0.06\paperheight}
+  \begin{beamercolorbox}[wd=\textwidth, sep=0pt]{title}
+    {\color{white}\Large\textbf{\inserttitle}}\\[0.4em]
+    {\color{OtagoGold}\large\insertsubtitle}
+  \end{beamercolorbox}
+  \vspace{1.4em}
+  \begin{beamercolorbox}[wd=\textwidth, sep=0pt]{author}
+    {\color{TextGrey}\normalsize\insertauthor}\\[0.2em]
+    {\color{TextGrey}\small\insertinstitute}\\[0.2em]
+    {\color{TextGrey}\small\insertdate}
+  \end{beamercolorbox}}
+
+% ─── Packages ──────────────────────────────────────────────
+\usepackage{tikz}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{xcolor}
+\hypersetup{colorlinks=true, linkcolor=AccentBlue, urlcolor=AccentBlue,
+            citecolor=AccentBlue, pdfauthor={Austin Henderson},
+            pdftitle={ECON306 S2 2026}}
+
+% ─── Images folder ─────────────────────────────────────────
+%  Place all slide images in the 'images/' subfolder next to main.tex
+%  Usage: \includegraphics[width=0.85\textwidth]{figure_name}
+\graphicspath{{images/}}
+
+% ─── Reusable macros ───────────────────────────────────────
+% Recap slide at start of each lecture
+\newcommand{\recapslide}[1]{%
+  \begin{frame}{Recap: What Did We Cover Last Time?}
+    \begin{block}{Key points from last lecture}
+      \begin{itemize}#1\end{itemize}
+    \end{block}
+  \end{frame}}
+
+% Plan slide at start of each lecture
+\newcommand{\planslide}[2]{%
+  \begin{frame}{Today's Plan — #1}
+    \begin{columns}
+      \column{0.6\textwidth}
+      \begin{itemize}#2\end{itemize}
+      \column{0.38\textwidth}
+      \begin{alertblock}{Reading}
+        \footnotesize See Brightspace (Aoroa) for required readings before this lecture.
+      \end{alertblock}
+    \end{columns}
+  \end{frame}}
+
+% Summary slide at end of each lecture
+\newcommand{\summaryside}[1]{%
+  \begin{frame}{Lecture Summary}
+    \begin{exampleblock}{Key takeaways}
+      \begin{itemize}#1\end{itemize}
+    \end{exampleblock}
+    \vspace{0.5em}
+    {\footnotesize\textcolor{OtagoGold}{\textbf{Brightspace (Aoroa):}} slides, readings, and any announcements posted there.}
+  \end{frame}}
+
+% NZ spotlight box
+\newcommand{\nzbox}[2]{%
+  \begin{alertblock}{\includegraphics[height=0.8em]{nz_flag_icon}\hspace{0.3em} NZ Spotlight: #1}
+    #2
+  \end{alertblock}}
+
+% Tutorial callout
+\newcommand{\tutorialbox}[1]{%
+  \begin{block}{\textbf{Tutorial This Week}}
+    #1
+  \end{block}}
+
+% ─── Section dividers ──────────────────────────────────────
+\AtBeginSection[]{
+  \begin{frame}[plain]
+    \begin{tikzpicture}[remember picture,overlay]
+      \fill[OtagoBlue!95] (current page.north west)
+        rectangle (current page.south east);
+      \node[anchor=center, text=white, font=\Large\bfseries,
+            text width=0.9\paperwidth, align=center]
+        at (current page.center) {\insertsectionhead};
+      \node[anchor=south, text=OtagoGold, font=\normalsize,
+            text width=0.9\paperwidth, align=center]
+        at ([yshift=2.5cm]current page.south) {ECON306 — University of Otago};
+    \end{tikzpicture}
+  \end{frame}}
+
+% ─── Document metadata ─────────────────────────────────────
+\title[ECON306: Health \& Education Economics]{ECON306\\The Economics of Health and Education}
+\subtitle{Semester 2, 2026}
+\author{Austin Henderson}
+\institute{Department of Economics\\University of Otago}
+\date{Semester 2 — July to October 2026}
+
+% ============================================================
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+
+% ────────────────────────────────────────────────────────────
+% w00_intro
+% ────────────────────────────────────────────────────────────
+% ============================================================
+%  w00_intro.tex — Course Overview & Logistics
+% ============================================================
+
+\section*{Welcome to ECON306}
+
+% ---- Course info ----
+\begin{frame}{Course Information}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \textbf{Lectures} (3 per week)\\[0.3em]
+      \begin{tabular}{ll}
+        Tuesday & 12:00--12:50pm \\
+        Thursday & 1:00--1:50pm \\
+        Friday & 11:00--11:50am \\
+      \end{tabular}\\[0.8em]
+      \textbf{Tutorials} (every other week)\\
+      \begin{tabular}{ll}
+        Monday & 9:00--9:50am \emph{or} \\
+                & 12:00--12:50pm \\
+      \end{tabular}\\[0.4em]
+      {\footnotesize Starting Week 2 — six tutorials total}
+    \column{0.42\textwidth}
+      \begin{block}{Contact}
+        \textbf{Austin Henderson}\\
+        Room 603, Commerce Building\\
+        \href{mailto:austin.henderson@otago.ac.nz}{austin.henderson@otago.ac.nz}\\[0.4em]
+        \emph{Office hours:} after class\\
+        or by appointment
+      \end{block}
+      \begin{alertblock}{Online resources}
+        \textbf{Brightspace (Aoroa)}\\
+        {\footnotesize Slides, readings, grades, announcements}
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+% ---- About me ----
+\begin{frame}{A Bit About Me}
+  \begin{itemize}
+    \item From the west coast of the US (Los Angeles, San Diego, Seattle)
+    \item Lots of subject matter changes: religious studies, then neuroeconomics, then behavioral economics, now health. Life and careers are seldom straightforward.
+    \item Pivoted to health economics at the start of the COVID-19 pandemic --- I saw an opportunity
+          to put research to use immediately (and it's where there were jobs)
+    \item Chief health economist on a large federal grant studying COVID-19 among American Indian
+          and Alaska Native (AI/AN) peoples
+    \item Moved to Dunedin last year, great timing
+  \end{itemize}
+\end{frame}
+
+% ---- Course overview ----
+\begin{frame}{Course Overview: Three Parts}
+  \begin{columns}
+    \column{0.33\textwidth}
+      \begin{block}{Part I (Weeks 1--6)}
+        \textbf{The Economics of\\Health \& Health Care}\\[0.4em]
+        {\small Introduction, demand, government, \textbf{ageing}, insurance, hospitals}
+      \end{block}
+    \column{0.33\textwidth}
+      \begin{block}{Part II (Weeks 7-10)}
+        \textbf{Health Economic\\Evaluation}\\[0.4em]
+        {\small Valuing life, cost-effectiveness, QALYs, HRQoL, equity, MCDA}
+      \end{block}
+    \column{0.33\textwidth}
+      \begin{block}{Part III (Weeks 11-12)}
+        \textbf{The Economics\\of Education}\\[0.4em]
+        {\small Government role, human capital, signalling, NZ student loans}
+      \end{block}
+  \end{columns}
+  \vspace{0.6em}
+  \begin{center}
+    \textbf{Together, health + education $\approx$ 13\% of NZ GDP, heavy government involvement, and from an economics perspective, lots of cross-over}
+  \end{center}
+\end{frame}
+
+% ---- Course objectives ----
+\begin{frame}{Course Objectives}
+  \begin{enumerate}
+    \item Apply microeconomic tools (from ECON201/271) to health and education.
+    \item Understand the history and contemporary landscape of health and education policy in NZ, especially challenges.
+    \item Introduce \emph{new} microeconomic tools and concepts as needed (e.g.\ QALYs, MCDA,
+          Value of Statistical Life)
+    \item Equip you to \textbf{understand and critique} economic evaluations of health care
+          interventions, and to apply these skills to \emph{any} project appraisal
+    \item Develop analytical and decision-making skills, including quantitative proficiencies
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Course Objectives - Why?}
+	\begin{alertblock}{title}
+		What you should most want to learn from this course depends on what you want to do with it.
+	\end{alertblock}
+	\begin{enumerate}
+		\item Health policy professional: you will be able to directly apply your knowledge of this course to your job. It will prepare you for graduate study, jobs like places like Pharmac, or how do do 
+	\end{enumerate}
+\end{frame}
+
+% ---- Assessment ----
+\begin{frame}{Assessment}
+  \begin{center}
+    \begin{tabular}{@{}lrp{6.5cm}@{}}
+      \toprule
+      \textbf{Component} & \textbf{Weight} & \textbf{Details} \\
+      \midrule
+      In-class Test & 15\% & Covers Part I; \textbf{Thursday, Week 7} (in class) \\[0.4em]
+      Assignment    & 15\% & Covers Part II; distributed Week 8,
+                              due \textbf{Week 12} (Monday) \\[0.4em]
+      Final Exam    & 70\% & 2-hour exam; potentially covers \emph{all} material ---
+                              lectures, tutorials, and required readings \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \vspace{0.5em}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \begin{alertblock}{Plussage applies}
+        Talk to Austin if you are unsure what this means.
+      \end{alertblock}
+    \column{0.47\textwidth}
+      {\footnotesize Written answers to previous exams will not be provided. Tests and assignments
+      returned in class or from Economics reception (6th floor, OBS), 11am--12pm or 2--3pm.}
+  \end{columns}
+\end{frame}
+
+% ---- Grading scale ----
+\begin{frame}{Grading Scale}
+  \begin{center}
+    \begin{tabular}{@{}ccccccc@{}}
+      \toprule
+      \textbf{A+} & \textbf{A} & \textbf{A-} &
+      \textbf{B+} & \textbf{B} & \textbf{B-} & \\
+      90--100 & 85--89 & 80--84 & 75--79 & 70--74 & 65--69 & \\
+      \midrule
+      \textbf{C+} & \textbf{C} & \textbf{C-} &
+      \textbf{D} & \textbf{E} & & \\
+      60--64 & 55--59 & 50--54 & 40--49 & $<$40 & & \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+% ---- Tutorial overview ----
+\begin{frame}{Tutorials — Six Sessions, Every Other Week}
+  Tutorials begin in \textbf{Week 2} and run on alternating Mondays.
+  They are a core part of the course --- please \emph{prepare} before attending.
+  \vspace{0.5em}
+  \begin{tabular}{@{}lll@{}}
+    \toprule
+    \textbf{Tutorial} & \textbf{Week} & \textbf{Theme} \\
+    \midrule
+    1 & Week 2  & Demand models and Wagstaff comparative statics \\
+    2 & Week 4  & \textbf{Ageing debate}: raising the retirement age in NZ \\
+    3 & Week 6  & Health systems: ``Bob's Party'' case study \& NZ reforms \\
+    4 & Week 8  & Economic evaluation: PHARMAC case studies \\
+    5 & Week 10 & MCDA and equity: prioritising health technologies \\
+    6 & Week 12 & Education policy debate: user-pays vs.\ public funding \\
+    \bottomrule
+  \end{tabular}
+  \vspace{0.5em}
+  \begin{alertblock}{Active learning format}
+    Tutorials are structured for \textbf{debate and discussion} --- not passive note-taking.
+    Austin will facilitate; \emph{you} do the talking.
+  \end{alertblock}
+\end{frame}
+
+% ---- Weekly readings ----
+\begin{frame}{Required Readings}
+  \begin{itemize}
+    \item \textbf{Required Reading}: do it \emph{before} the relevant lecture --- posted on
+          \textbf{Brightspace (Aoroa)} under eReserve
+    \item There will be quizzes with questions based off of every reading (aligning incentives).
+    \item \textbf{Further Reading} (optional): extends your knowledge, intended for those of you interested in further study or a career.
+  \end{itemize}
+  \vspace{0.4em}
+  \begin{block}{A note on jargon}
+    Health economics has many terms with specialised meanings (e.g.\ ``need'' vs.\ ``want'',
+    ``efficiency'' vs.\ ``equity''). Learning the distinctions is often the most important part of
+    learning health economics.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Jargon}
+	\begin{block}{A note on jargon}
+		Health economics has many terms with specialised meanings (e.g.\ ``need'' vs.\ ``want'',
+		``efficiency'' vs.\ ``equity''). Learning the distinctions is often incredibly useful. On Aoroa I've compiled a list of all the terms and concepts that we'll use in the course. I think as an excellent approach to learning the material you should write out all those terms and definitions. It is examinable. 
+	\end{block}
+\end{frame}
+
+% ---- Workload ----
+\begin{frame}{Workload Expectations}
+  \begin{block}{18-point course $\Rightarrow$ approximately 12 hours per week}
+    \begin{itemize}
+      \item 3 hours: lectures
+      \item 1 hour: tutorial (every other week, averaged out)
+      \item \textbf{8--9 hours (on the high end): your own reading, study, and assessment work}
+      \item Check \textbf{Brightspace (Aoroa)} and your student email regularly
+      \item Attendance at all classes is expected and strongly recommended
+    \end{itemize}
+  \end{block}
+
+\end{frame}
+
+
+% ────────────────────────────────────────────────────────────
+% w01_week1
+% ────────────────────────────────────────────────────────────
+% ============================================================
+%  w01_week1.tex — Week 1: Introduction
+%  Lectures: Tue 14 Jul, Thu 16 Jul, Fri 17 Jul
+% ============================================================
+
+\section{Part I: The Economics of Health \& Health Care}
+
+\begin{frame}[plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[OtagoBlue!90] (current page.north west) rectangle (current page.south east);
+    \node[anchor=center, text=white, font=\LARGE\bfseries,
+          text width=0.85\paperwidth, align=center]
+      at ([yshift=1.5cm]current page.center)
+      {Part I: The Economics of Health \& Health Care};
+    \node[anchor=center, text=OtagoGold, font=\large,
+          text width=0.85\paperwidth, align=center]
+      at ([yshift=-0.5cm]current page.center) {Weeks 1--6};
+    \node[anchor=center, text=white!80, font=\normalsize,
+          text width=0.85\paperwidth, align=center]
+      at ([yshift=-1.8cm]current page.center)
+      {Introduction $\cdot$ Demand $\cdot$ Government \& SID $\cdot$ Ageing $\cdot$ Insurance $\cdot$ Hospitals \& Health Systems};
+  \end{tikzpicture}
+\end{frame}
+
+% ================================================================
+%  LECTURE 1 — Tuesday 14 July
+% ================================================================
+
+\begin{frame}{Week 1 Overview}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \textbf{Three lectures this week:}
+      \begin{enumerate}
+        \item What is health economics? Special characteristics of health care
+        \item Positive vs.\ normative analysis; the HC ``problem'' in NZ
+        \item Determinants of health; the health production function
+      \end{enumerate}
+    \column{0.42\textwidth}
+      \begin{block}{Required Reading}
+        {\small
+        \begin{itemize}
+          \item Santerre \& Neun: ``Theories X and Y of health economics''
+          \item Alchian \& Allen: ``Need versus demand''
+          \item \textit{The Economist}, ``Catching Up'' (Jan 2013)
+          \item Folland, Goodman \& Stano: Ch.\ 5, ``The production of health''
+          \item Hansen \& Graham: ``Human organ transplants'' (see handout)
+        \end{itemize}}
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Lecture 1 — Today's Plan}
+  \begin{itemize}
+    \item What is health economics? Definitions and scope
+    \item Is health care an \emph{economic good}?
+    \item The \textbf{six special demand \& supply characteristics} of health care
+    \item Implications for how health care is funded and organised
+    \item Introduction to the course approach: positive vs.\ normative
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{What is ``Health Economics''?}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{block}{Three definitions}
+        \begin{itemize}
+          \item \textit{Kobelt (1996):} ``the application of theories, tools and concepts
+                of economics to the topics of health and health care''
+          \item \textit{NICE (UK):} ``the study or analysis of the cost of using and
+                distributing health care resources''
+          \item \textit{Wikipedia:} ``concerned with efficiency, effectiveness, value and
+                behavior in the production and consumption of health and health care''
+        \end{itemize}
+      \end{block}
+    \column{0.44\textwidth}
+      \begin{alertblock}{Economics, in brief}
+        The study of how individuals and societies use \textbf{scarce resources}.\\[0.4em]
+        Faced with scarcity, how do we make the \textbf{best} choices?
+      \end{alertblock}
+      \vspace{0.4em}
+      \begin{exampleblock}{Why it matters for NZ}
+        Health + education $\approx$ \textbf{13\% of NZ's GDP}\\
+        Health alone: $\approx$\textbf{\$30.6B} per year in 2024/25 ($\sim$8\% GDP)
+      \end{exampleblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Four Fundamental Questions}
+  \begin{enumerate}
+    \item Is health care an \textbf{economic good}?\\
+          {\small (Is health care a fundamental human right?)}
+    \vspace{0.4em}
+    \item How does health care \textbf{differ} from other economic goods?\\
+          {\small (Is health care ``special''?)}
+    \vspace{0.4em}
+    \item Can we study health and health care using \textbf{economic analysis}?\\
+          {\small (Supply and demand?)}
+    \vspace{0.4em}
+    \item What are the \textbf{implications} of these special characteristics for how health
+          care is funded and organised?
+  \end{enumerate}
+  \vspace{0.5em}
+  \begin{alertblock}{A running theme throughout ECON306}
+    These questions will recur in every week of the course.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Special Characteristic 1: Uncertainty}
+  \begin{itemize}
+    \item Classic economics assumes \emph{perfect information} --- but health care violates this
+    \item \textbf{Demand-side uncertainty}: How much HC will you need? When? What type?
+          You do not know in advance. This is fundamentally unlike demand for laptops or t-shirts.
+    \item \textbf{Supply-side uncertainty}: Doctors make decisions under uncertainty --- what
+          is the right diagnosis? The right treatment? Is there a divergence between what is
+          best for a patient vs.\ what is best for a population with scarce resources?
+    \item \textbf{Insurance} (public or private) is the \emph{institutional response} to this
+          uncertainty --- it pools risk across many people
+    \item But insurance itself creates new problems: \textit{moral hazard} and
+          \textit{adverse selection} (Week 5)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Special Characteristic 2: Derived Demand}
+  \begin{itemize}
+    \item People don't want health \emph{care} for its own sake --- they want \textbf{health}
+    \item HC is therefore a \textit{derived demand}: it is demanded only because it (sometimes)
+          produces health
+    \item Policy implication: if other inputs (e.g.\ diet, exercise, clean air) produce health
+          more cost-effectively than HC, \emph{that is where resources should go}
+    \item Demand signals may be weaker when demand is derived --- consumer behaviour is more
+          passive
+  \end{itemize}
+  \vspace{0.3em}
+  \begin{block}{Health Production Function (preview)}
+    $$H = f(\text{HC},\; \text{nutrition},\; \text{housing},\; \text{education},\; \text{environment},\; \ldots)$$
+    Changing relative prices of any input affects the optimal mix.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Special Characteristic 3: Asymmetric Information}
+  \begin{itemize}
+    \item \textbf{Principal-agent problem}: providers know more than patients (well, theoretically) --- but are
+          their incentives perfectly aligned?
+    \item \textbf{Supplier-Induced Demand (SID) hypothesis}: doctors may induce demand for
+          their own services (profit motive, NZ uniquely allows direct-to-consumer pharma ads)
+    \item On the insurance side: patients who know they are high-risk seek comprehensive cover
+          --- \textit{adverse selection}
+    \item Societal responses: licensing, credentialing, standardised treatment protocols,
+          transparency laws
+  \end{itemize}
+  \begin{exampleblock}{NZ note}
+    NZ and the US are the only developed economies that allow \textbf{direct-to-consumer (DTC)
+    pharmaceutical advertising}. This has implications for SID that we will examine in Week 3.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Special Characteristics 4--6}
+  \begin{block}{4. Catastrophic and irreversible consequences}
+    \begin{itemize}
+      \item Health outcomes can be life-threatening at the extremes of the distribution
+      \item Many HC decisions are \textbf{irreversible} --- health is very path-dependent
+      \item Risk of catastrophe may matter more to individuals than expected-value averages
+    \end{itemize}
+  \end{block}
+  \begin{block}{5. Externalities}
+    \begin{itemize}
+      \item \textit{Physical}: immunisation, communicable diseases, food safety, sanitation
+      \item \textit{Psychic (caring)}: we care about the health of others (altruism, social norms)
+    \end{itemize}
+  \end{block}
+  \begin{block}{6. Price discrimination}
+    \begin{itemize}
+      \item First-degree (perfect), second-degree (bulk/bundles), third-degree (by group)
+      \item Insurers use third-degree extensively; regulation governs this in most countries
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Implications: The Case for Government Involvement}
+  \begin{itemize}
+    \item These six characteristics together create \textbf{market failures} in health care ---
+          unregulated markets will not produce efficient or equitable outcomes
+    \item Three forms of government involvement follow:
+    \begin{enumerate}
+      \item \textbf{Funding} (e.g.\ tax-financed public insurance, subsidies)
+      \item \textbf{Provision} (e.g.\ public hospitals, publicly employed doctors)
+      \item \textbf{Regulation} (e.g.\ licensing, pharmaceutical controls, drug pricing)
+    \end{enumerate}
+    \item In NZ: government funds $\approx$77\% of total health spending
+  \end{itemize}
+  \vspace{0.3em}
+  \begin{alertblock}{But government can also fail}
+    Market failure $\Rightarrow$ government intervention \emph{may} improve things, but can also
+    make things worse. We will critically examine both.
+  \end{alertblock}
+\end{frame}
+
+\summaryside{
+  \item Health economics applies economic theory to the production and consumption of health and health care
+  \item Health care has \textbf{six special characteristics} that differentiate it from other goods: uncertainty, derived demand, asymmetric information, catastrophic consequences, externalities, and price discrimination
+  \item These characteristics create \textbf{market failures} that justify government involvement in financing, provision, and regulation
+  \item In NZ, health care accounts for $\approx$8\% of GDP and 21\% of government spending
+}
+
+% ================================================================
+%  LECTURE 2 — Thursday 16 July
+% ================================================================
+
+\recapslide{
+  \item Health care has 6 special characteristics that set it apart from ordinary goods
+  \item Market failures arising from these characteristics justify government involvement
+  \item NZ government funds $\approx$77\% of health spending
+}
+
+\planslide{Positive vs.\ Normative Analysis; the NZ Health Care Problem}{
+  \item Positive vs.\ normative economic analysis
+  \item The health care ``problem'' facing NZ and all countries
+  \item Three levels of prioritisation decision-making
+  \item NZ health spending in context
+}
+
+\begin{frame}{Positive vs.\ Normative Economic Analysis}
+  \begin{columns}
+    \column{0.48\textwidth}
+      \begin{block}{Positive (``What is'')}
+        \begin{itemize}
+          \item Value-free; descriptive; predictive
+          \item Statements are ``true'' or ``false''
+          \item Example: ``Demand curves slope downward''
+          \item Example: ``A subsidy on HC will increase consumption''
+        \end{itemize}
+      \end{block}
+    \column{0.48\textwidth}
+      \begin{alertblock}{Normative (``What ought to be'')}
+        \begin{itemize}
+          \item Value-judgement based; prescriptive
+          \item Statements are ``good'' or ``bad''
+          \item Example: ``Should we subsidise primary care?''
+          \item Example: ``Should we allow a market for organs?''
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.5em}
+  \begin{exampleblock}{Why both matter}
+    Positive analysis tells us \emph{what would happen}; normative analysis tells us
+    \emph{whether we want it to happen}. ECON306 requires facility with both.\\[0.2em]
+    {\footnotesize See: Hansen \& Graham, ``Human organ transplants, for love or money?'' (required reading).}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{The Health Care ``Problem'' Facing NZ}
+  \begin{block}{The core problem}
+    \textbf{Limited (scarce) health care resources} + \textbf{unlimited wants/needs}
+    $\Rightarrow$ prioritisation decisions are unavoidable
+  \end{block}
+  \vspace{0.4em}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \textbf{NZ 2024/25 health spending:}
+      \begin{itemize}
+        \item Total: $\approx$\$30.6 billion per year
+        \item 8\% of GDP; 21\% of government spending
+        \item $\approx$\$6,100 per person per year
+      \end{itemize}
+      \vspace{0.4em}
+      \textbf{Not all technologies can be funded:}
+      \begin{itemize}
+        \item Which drugs, devices, procedures to buy?
+        \item Which patients to treat first?
+      \end{itemize}
+    \column{0.44\textwidth}
+      \begin{alertblock}{Three levels of prioritisation}
+        \begin{enumerate}
+          \item \textbf{Macro}: how much to spend on health vs.\ education vs.\ roads?
+          \item \textbf{Meso}: within health, which programmes?
+          \item \textbf{Micro}: which individual patient gets the last dialysis slot?
+        \end{enumerate}
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{NZ Health Spending in International Context}
+  \begin{itemize}
+    \item NZ's health spending as a share of GDP ($\approx$9.7\% total, including private) is
+          broadly in line with other OECD countries but below the US ($\approx$17\%)
+    \item Publicly funded share (77\%) is typical for countries with single-payer or
+          Beveridge-style systems (cf.\ UK 83\%, Australia 69\%)
+    \item NZ has a \textbf{relatively low} level of spending on pharmaceuticals compared
+          to OECD peers, partly reflecting PHARMAC's monopsony purchasing role
+  \end{itemize}
+  \begin{exampleblock}{PHARMAC --- a distinctively NZ institution}
+    PHARMAC (Pharmaceutical Management Agency) is a Crown Entity that \textbf{decides which
+    medicines are publicly funded in NZ}. It uses cost-utility analysis (Part II of the course)
+    with a threshold of roughly \$45,000--\$50,000 per QALY gained. We will examine this in
+    depth in Weeks 7--10.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{What is ``Health''?}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{block}{Positive (descriptive) definitions}
+        \begin{itemize}
+          \item \textit{WHO:} ``a state of complete physical, mental, and social wellbeing''\\
+                {\footnotesize (but: unrealistic, unattainable, immeasurable)}
+          \item Negative definitions based on: mortality rates, morbidity rates, disability,
+                functional limitation
+          \item ``Perfect health'' = absence of all illness, injury, limitation
+        \end{itemize}
+      \end{block}
+    \column{0.42\textwidth}
+      \begin{alertblock}{Is perfect health normal?}
+        Michael Cooper (1975): 95\% of a British sample reported being unwell in the
+        previous 14 days --- \emph{``to feel unwell is completely normal.''}\\[0.3em]
+        Measurement matters enormously for evaluating HC interventions.
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.4em}
+  \begin{block}{For Part II: we need a quantitative measure of health states}
+    Enter the \textbf{EQ-5D} instrument --- we will cover this in Week 9.
+  \end{block}
+\end{frame}
+
+\summaryside{
+  \item Positive analysis describes \emph{what is}; normative analysis evaluates \emph{what should be}. Both are essential in health economics.
+  \item The core health care problem in NZ and every country: \textbf{scarce resources} and \textbf{unlimited wants} $\Rightarrow$ prioritisation is unavoidable
+  \item NZ spends $\approx$\$30.6B per year on health ($\sim$8\% of GDP); PHARMAC is a key institution for pharmaceutical prioritisation
+  \item Defining and measuring ``health'' is genuinely difficult --- and the measurement choice matters
+}
+
+% ================================================================
+%  LECTURE 3 — Friday 17 July
+% ================================================================
+
+\recapslide{
+  \item Positive vs.\ normative analysis: both essential in health economics
+  \item The NZ health care ``problem'': scarcity forces prioritisation at three levels
+  \item PHARMAC as a key NZ institution for evidence-based drug funding decisions
+}
+
+\planslide{Determinants of Health; the Health Production Function}{
+  \item The health production function: what determines your health?
+  \item The main determinants of health beyond health care
+  \item Marginal products of health care: ``flat of the curve'' vs.\ ``steep of the curve''
+  \item Implications for health policy
+}
+
+\begin{frame}{The Health Production Function}
+  \begin{block}{Central question for health policy}
+    ``The production of health presents a central concern to the health economist and to
+    public policy \ldots\ We must learn about the \emph{determinants} of health and about the
+    \emph{contribution} of health care.'' \\
+    {\footnotesize --- Folland, Goodman \& Stano, \textit{The Economics of Health and Health Care}, 2013}
+  \end{block}
+  \vspace{0.4em}
+  \begin{block}{The function (simplified)}
+    $$H \;=\; f\!\left(\,HC,\; \text{nutrition},\; \text{housing},\; \text{education},\;
+    \text{environment},\; \text{genetics},\; \text{lifestyle},\; \ldots\,\right)$$
+    \begin{itemize}
+      \item $H$ = individual health stock
+      \item $HC$ = health care inputs
+      \item Many other inputs also enter the function
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Main Determinants of Health}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \begin{enumerate}
+        \item \textbf{Health care}: medicines, hospital, GP visits, surgery \ldots
+        \item \textbf{Lifestyle behaviours}: smoking, diet, exercise, alcohol, sleep
+        \item \textbf{Socioeconomic status}: income, education, employment, housing
+        \item \textbf{Physical environment}: air quality, water safety, neighbourhood
+        \item \textbf{Human biology}: age, sex, genetics, ethnicity
+        \item \textbf{Social/community}: social networks, stress, early childhood
+      \end{enumerate}
+    \column{0.46\textwidth}
+      \begin{alertblock}{A critical insight}
+        Health care is \textbf{only one} input into health. In many developed countries,
+        additional HC spending produces much smaller marginal health gains than equivalent
+        spending on housing, nutrition, or early childhood education.
+      \end{alertblock}
+      \vspace{0.3em}
+      \begin{exampleblock}{NZ relevance}
+        The \textbf{Marmot Review} framework and the \textbf{NZ Health Strategy} both recognise
+        the social determinants of health as primary targets for policy.
+      \end{exampleblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Marginal Products and Health Policy}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{block}{Flat-of-the-curve medicine}
+        In \textbf{developed countries}, additional HC spending often produces very small
+        additional health gains\\[0.3em]
+        $\Rightarrow$ Resources may do more good if redirected to other health determinants
+        (housing, nutrition, prevention)
+      \end{block}
+      \vspace{0.4em}
+      \begin{alertblock}{Steep-of-the-curve medicine}
+        In \textbf{developing countries}, basic HC (vaccines, clean water, obstetric care) still
+        has very high marginal returns
+      \end{alertblock}
+    \column{0.44\textwidth}
+      \begin{itemize}
+        \item Health policy is concerned with \textbf{marginal products}: where does the
+              \emph{next dollar} produce the most health?
+        \item This is exactly what economic evaluation (Part II) aims to answer
+        \item \textbf{Prevention vs.\ cure} trade-off arises here
+        \item The health production function framework clarifies why ``more health care''
+              $\neq$ ``better health''
+      \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Te Tiriti o Waitangi and Māori Health}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{itemize}
+        \item Māori are the \textit{tangata whenua} (people of the land) of Aotearoa NZ, and
+              the Crown has obligations to Māori under \textbf{Te Tiriti o Waitangi}
+        \item Substantial Māori health inequities exist across most health indicators:
+              life expectancy, chronic disease burden, access to primary care
+        \item These inequities reflect the broader \textbf{social determinants of health}:
+              historical dispossession, lower average incomes, housing
+        \item Health economics must grapple with these equity dimensions, not just efficiency
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{alertblock}{A recurring theme}
+        Māori health equity, the Treaty, and the \textbf{equity--efficiency trade-off} will
+        recur throughout ECON306, especially in Part II on economic evaluation and priority-setting.
+      \end{alertblock}
+      \vspace{0.3em}
+      \begin{block}{Te Whatu Ora}
+        Health New Zealand (Te Whatu Ora) formally incorporated Te Tiriti principles into NZ's
+        health system in 2022.
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\summaryside{
+  \item Health is produced by many inputs, not just health care: lifestyle, housing, education, environment, biology
+  \item In developed countries, we are often on the ``flat of the curve'' --- additional HC spending has low marginal health returns
+  \item Health \emph{policy} is about comparing marginal products and directing resources where they do the most good
+  \item Equity dimensions --- including Māori health in NZ --- are central to any complete analysis of health economics
+}
+
+
+% ────────────────────────────────────────────────────────────
+% w02_week2
+% ────────────────────────────────────────────────────────────
+% ============================================================
+%  w02_week2.tex — Week 2: The Demand for Health and Health Care
+%  Lectures: Tue 21 Jul, Thu 23 Jul, Fri 24 Jul
+%  Tutorial 1: Monday 21 Jul
+% ============================================================
+
+\section{Week 2: The Demand for Health and Health Care}
+
+\begin{frame}{Week 2 Overview}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \textbf{This week:}
+      \begin{itemize}
+        \item Health capital and the Grossman (1972) model
+        \item The Wagstaff (1986) graphical model in detail
+        \item Comparative statics: price, income, ageing, education
+        \item What the Wagstaff model \emph{doesn't} capture
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{block}{Required Reading}
+        {\small
+        \begin{itemize}
+          \item A. Wagstaff (1986), ``The demand for health: theory and applications'',
+                \textit{J.\ Epidemiology \& Community Health}, 40, 1--11
+        \end{itemize}}
+      \end{block}
+      \vspace{0.3em}
+      \tutorialbox{Tutorial 1 (Mon 21 Jul) --- Wagstaff comparative statics: Think-Pair-Share and group analysis}
+  \end{columns}
+\end{frame}
+
+% ================================================================
+%  LECTURE 1 — Tuesday 21 July
+% ================================================================
+
+\recapslide{
+  \item Health has many determinants beyond HC: nutrition, housing, environment, genetics
+  \item Health care is a \emph{derived demand} for health
+  \item HC is often on the ``flat of the curve'' in developed countries --- marginal returns are low
+}
+
+\planslide{From Health Production to Health Demand: Economic Models}{
+  \item Why we need economic (causal) models of health demand
+  \item Grossman (1972): the health capital framework
+  \item The Wagstaff (1986) model: three components
+}
+
+\begin{frame}{Economic vs.\ Non-economic Models of Health Demand}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \begin{block}{Early, non-economic ``global'' models}
+        \begin{itemize}
+          \item Ad hoc categorisations
+          \item No explicit causal structure
+          \item Cannot generate testable hypotheses
+          \item Example: Andersen's ``Behavioural Model'' (need, enabling, predisposing factors)
+        \end{itemize}
+      \end{block}
+    \column{0.47\textwidth}
+      \begin{alertblock}{Economic models}
+        \begin{itemize}
+          \item Explicit theoretical foundations
+          \item \textbf{Testable predictions}
+          \item Derived from \emph{optimising behaviour}: individuals maximise utility subject
+                to constraints
+          \item Key departure: demand for HC is a \textbf{derived demand} for health
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.4em}
+  \begin{exampleblock}{The goal of economic models of health demand}
+    Separate \textbf{demand for health} ($H^*$) from \textbf{demand for health care} ($HC^*$),
+    and identify how each responds to changes in prices, income, age, and education.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Grossman (1972): Health Capital}
+  \begin{itemize}
+    \item Michael Grossman introduced the concept of \textbf{health capital}:
+          health is a durable stock that depreciates over time and can be augmented by
+          investment
+    \item Individuals are simultaneously \textbf{consumers} and \textbf{producers} of health
+    \item Health stock $H_t$ is both \textbf{exogenous} (we are born with a given stock;
+          random illness shocks) and \textbf{endogenous} (we can invest to raise $H_t$)
+    \item Investment in health requires inputs: HC is one, but so are diet, exercise, rest\ldots
+    \item Health capital produces \textbf{healthy time}: time not lost to illness, which
+          can be used for work and consumption
+    \item As we age, the \textbf{depreciation rate} of health capital rises --- we must invest
+          more just to maintain the same stock
+  \end{itemize}
+  \vspace{0.2em}
+  {\footnotesize Grossman, M.\ (1972). ``On the concept of health capital and the demand for
+  health.'' \textit{Journal of Political Economy}, 80, 223--255.}
+\end{frame}
+
+\begin{frame}{The Wagstaff (1986) Model: Three Components}
+  \begin{block}{Wagstaff simplifies Grossman into a tractable graphical model}
+    Three building blocks:
+    \begin{enumerate}
+      \item \textbf{Indifference curves} --- tastes and preferences between health ($H$) and
+            all other consumption ($C$); slope = marginal rate of substitution (MRS)
+      \item \textbf{Health Production Function} --- $H = f(HC, \text{other inputs})$;
+            each unit of HC produces diminishing marginal returns to health
+      \item \textbf{Budget Constraint} --- Income $= P_{HC} \cdot HC + P_C \cdot C$;
+            slope depends on the relative prices of HC and other goods
+    \end{enumerate}
+  \end{block}
+  \vspace{0.3em}
+  \begin{alertblock}{Equilibrium condition}
+    The individual chooses $H^*$ and $HC^*$ where the indifference curve is tangent to the
+    \emph{transformed} budget constraint in health-consumption space.\\
+    (Technical details in Wagstaff (1986) --- required reading.)
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Component 1: Indifference Curves (Preferences)}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{itemize}
+        \item Axes: \textbf{Health} ($H$) on vertical, \textbf{Other consumption} ($C$) on horizontal
+        \item Indifference curves slope downward: trade-offs between $H$ and $C$
+        \item Convex to origin: diminishing MRS (we are willing to give up less $H$ for $C$
+              as $H$ increases)
+        \item What determines the slope (MRS)?
+        \begin{itemize}
+          \item Tastes and preferences
+          \item Age (older people value health more?)
+          \item Whether health is a ``normal'' or ``superior'' good
+        \end{itemize}
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{block}{Key insight}
+        The MRS measures the \emph{subjective value} of health relative to other consumption ---
+        it is individual-specific and \textbf{not directly observable}.\\[0.3em]
+        This creates challenges for both economic modelling and policy.
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Component 2: Health Production Function}
+  \begin{columns}
+    \column{0.55\textwidth}
+      $$H = f(HC,\; \text{nutrition},\; \text{housing},\; \text{age},\; \ldots)$$
+      \begin{itemize}
+        \item Shows how health inputs (primarily HC) are converted into health
+        \item Exhibits \textbf{diminishing marginal returns}: each extra unit of HC produces
+              less additional health
+        \item Varies across individuals (same HC $\Rightarrow$ different $\Delta H$ depending on
+              age, genetics, initial health)
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{alertblock}{Policy implication}
+        Because marginal returns vary, \textbf{identical HC spending} will produce very
+        different health gains for different groups.\\[0.3em]
+        This is a key motivation for \emph{cost-effectiveness analysis} (Part II).
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Component 3: Budget Constraint}
+  $$\text{Income} = P_{HC} \cdot HC + P_C \cdot C$$
+  \begin{itemize}
+    \item Standard budget constraint with two ``goods'': health care ($HC$) and all other
+          consumption ($C$)
+    \item The slope is $-P_{HC}/P_C$: the \emph{relative price} of HC in terms of foregone
+          consumption
+    \item Importantly: the \textbf{full price} of HC to the consumer includes not just the
+          out-of-pocket fee, but also \textbf{time costs} (waiting, travel)
+    \item Example: a GP visit may cost \$30 out-of-pocket + 1 hour of time at \$30/hour
+          $\Rightarrow$ total price = \$60
+    \item Policy levers: copayments, subsidies, user charges --- all affect $P_{HC}$
+  \end{itemize}
+  \begin{exampleblock}{NZ: Primary Care Co-payments}
+    After-hours GP fees in NZ vary widely. Low-cost access schemes reduce $P_{HC}$ for
+    Community Services Card holders. Time costs remain regardless.
+  \end{exampleblock}
+\end{frame}
+
+\summaryside{
+  \item Grossman (1972) introduced health as a form of \emph{capital} that depreciates with age
+  \item Wagstaff (1986) operationalised this into a three-component graphical model
+  \item The full price of HC includes out-of-pocket costs \emph{plus} time and travel costs
+  \item The model generates clear, testable predictions about how demand for HC responds to changes in prices, income, age, and education
+}
+
+% ================================================================
+%  LECTURE 2 — Thursday 23 July
+% ================================================================
+
+\recapslide{
+  \item Grossman: health capital depreciates with age; HC is investment in health
+  \item Wagstaff model has three components: preferences, health production function, budget constraint
+  \item Full price of HC = out-of-pocket cost + time cost
+}
+
+\planslide{Comparative Statics: Working with the Wagstaff Model}{
+  \item Effect of a fall in the price of HC $\Rightarrow$ deriving a demand curve
+  \item Effect of an increase in income
+  \item Effect of ageing / illness (health stock falls)
+  \item Effect of more education
+  \item Policy implications of each
+}
+
+\begin{frame}{Comparative Statics: Using the Wagstaff Model}
+  \begin{block}{Key question for each experiment}
+    What is the effect on:
+    \begin{enumerate}
+      \item The demand for health ($H^*$)?
+      \item The demand for health care ($HC^*$)?
+    \end{enumerate}
+    And: \textbf{What are the policy implications?}
+  \end{block}
+  \vspace{0.4em}
+  We will work through four ``experiments'':
+  \begin{enumerate}
+    \item A \textbf{fall in the price of HC} $\Rightarrow$ derive a demand curve for HC
+    \item An increase in \textbf{income}
+    \item The individual \textbf{ages or becomes ill} (health stock falls)
+    \item An increase in the individual's \textbf{education}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Experiment 1: Fall in the Price of HC}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{itemize}
+        \item Lower $P_{HC}$ rotates the budget constraint outward (more HC affordable)
+        \item Individual moves to a higher indifference curve
+        \item Effect on \textbf{$HC^*$}: \textcolor{OtagoBlue}{\textbf{increases}} (substitution + income effect)
+        \item Effect on \textbf{$H^*$}: \textcolor{OtagoBlue}{\textbf{increases}} (more HC $\Rightarrow$ more health)
+        \item Tracing out $HC^*$ for different prices of HC \textbf{traces the demand curve for HC}
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{alertblock}{Policy implication}
+        Reducing copayments / user charges \textbf{increases both} HC consumption and health,
+        but at a fiscal cost.\\[0.3em]
+        The gain in health per dollar spent depends on the marginal product of HC at that point
+        on the production function.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Experiment 2: Increase in Income}
+  \begin{itemize}
+    \item Higher income shifts the budget constraint outward \emph{parallel} (both $H$ and $C$
+          can increase)
+    \item If health is a \textbf{normal good}: $HC^*$ increases and $H^*$ increases
+    \item The \textbf{income elasticity of demand for HC} is empirically around 0.2--0.6 at
+          the individual level, but around 1.0--1.5 at the cross-country level
+    \item This difference has implications for how we think about income and health at different
+          scales
+  \end{itemize}
+  \begin{exampleblock}{NZ evidence: income and health}
+    The NZ Health Survey consistently finds steep gradients between household income and
+    self-reported health, unmet need for GP visits, and preventive care utilisation.
+    Low-income individuals face both higher $P_{HC}$ (time costs) and lower budget constraints.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Experiment 3: Ageing / Fall in Health Stock}
+  \begin{itemize}
+    \item As we age, the \textbf{depreciation rate} of the health production function rises:
+          the same HC input produces \emph{less} additional health
+    \item Equivalently: the health production function shifts \emph{downward} / becomes less
+          productive
+    \item Effect on \textbf{$H^*$}: \textcolor{OtagoGold!80!black}{\textbf{falls}} (the production function limits achievable $H$)
+    \item Effect on \textbf{$HC^*$}: \textcolor{OtagoBlue}{\textbf{rises}} --- more HC is needed just to maintain the same health stock
+    \item This is a \textbf{key driver of the positive age--HC consumption relationship}
+  \end{itemize}
+  \begin{alertblock}{Preview: Week 4 (Ageing)}
+    This mechanism is central to understanding why ageing populations imply rapidly rising
+    health expenditure, even holding everything else constant.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Experiment 4: Increase in Education}
+  \begin{itemize}
+    \item Education improves the \textbf{efficiency} of the health production function:
+          a more educated person gets more health from the same HC inputs
+    \item Grossman argues education improves ``health know-how'' --- better ability to
+          navigate the health system, adhere to treatments, make preventive choices
+    \item Victor Fuchs (alternative view): education and health are \emph{jointly caused}
+          by a third factor (low time preference, self-discipline, ability)
+    \item Effect on \textbf{$H^*$}: \textcolor{OtagoBlue}{\textbf{rises}}
+    \item Effect on \textbf{$HC^*$}: \textbf{ambiguous} (better efficiency $\Rightarrow$ less HC needed for same $H$, but also $H^*$ is higher)
+  \end{itemize}
+  \begin{block}{The education--health gradient}
+    Causal identification of education$\rightarrow$health is difficult. We return to
+    this in Part III (human capital theory and the returns to education, Week 12--13).
+  \end{block}
+\end{frame}
+
+\summaryside{
+  \item The Wagstaff model predicts: lower HC price $\uparrow HC$; higher income $\uparrow HC$ (if normal good); ageing $\uparrow HC$ demand (depreciation rises); more education $\uparrow H$ (efficiency effect)
+  \item The income gradient in health care demand is one of the strongest empirical regularities in health economics
+  \item Ageing raises HC demand by increasing the depreciation rate of health capital --- relevant to Week 4
+  \item The causal direction of the education--health relationship is still debated
+}
+
+% ================================================================
+%  LECTURE 3 — Friday 24 July
+% ================================================================
+
+\recapslide{
+  \item Lower HC price raises $HC^*$ and $H^*$; higher income raises demand if health is normal
+  \item Ageing increases the depreciation rate $\Rightarrow$ more HC needed to maintain health stock
+  \item Education raises health production function efficiency (but causality is contested)
+}
+
+\planslide{What the Wagstaff Model Doesn't Capture}{
+  \item Six limitations of the Wagstaff model
+  \item The principal-agent problem and supplier-induced demand
+  \item The role of health insurance in demand
+  \item Implications for empirical health economics
+}
+
+\begin{frame}{What the Wagstaff Model Ignores}
+  \begin{enumerate}
+    \item \textbf{Many types of HC}: $H = f(HC_1, HC_2, \ldots)$ --- some are
+          complements, some are substitutes; cross-price elasticities matter
+    \item \textbf{Quality of HC}: objective (clinical effectiveness) vs.\ subjective
+          (waiting time, amenities) quality
+    \item \textbf{Time costs}: the full price of HC exceeds the out-of-pocket fee
+    \item \textbf{Income measure}: transitory vs.\ permanent (life-cycle) income
+    \item \textbf{Non-economic factors}: age, sex, ethnicity, marital status --- these
+          shift the health production function
+    \item \textbf{Role of providers} in generating demand: the principal-agent problem
+          and the supplier-induced demand (SID) hypothesis
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{The Principal-Agent Problem in Health Care}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{itemize}
+        \item \textbf{Principal}: the patient (who has the health problem and the resources)
+        \item \textbf{Agent}: the doctor (who has the knowledge and makes recommendations)
+        \item The patient \textbf{delegates} the consumption decision to the doctor
+        \item Problem: are the doctor's incentives perfectly aligned with the patient's welfare?
+        \begin{itemize}
+          \item Fee-for-service $\Rightarrow$ over-provision incentive
+          \item Capitation $\Rightarrow$ under-provision incentive
+          \item Salaried $\Rightarrow$ effort incentive weakened
+        \end{itemize}
+      \end{itemize}
+    \column{0.44\textwidth}
+      \begin{alertblock}{Supplier-Induced Demand}
+        The \textbf{SID hypothesis}: doctors can, and do, induce demand for their own services
+        beyond the patient's ``true'' demand.\\[0.3em]
+        Evidence is mixed and hotly debated. More relevant in fee-for-service systems (US) than
+        in NZ's largely salaried/capitation GP system.\\[0.3em]
+        (Week 3 examines SID in depth.)
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Health Insurance and Demand: A Preview}
+  \begin{itemize}
+    \item The Wagstaff model treats $P_{HC}$ as the full out-of-pocket price --- but in most
+          countries a substantial share of HC is publicly or privately insured
+    \item Insurance \textbf{lowers the effective price} of HC to the consumer at point of use
+          $\Rightarrow$ demand increases (moral hazard)
+    \item The welfare implications of this demand increase are complex:
+    \begin{itemize}
+      \item Some of the extra HC generates real health gains
+      \item Some is ``wasteful'' in the sense of producing low marginal health
+    \end{itemize}
+    \item This is the classic \textbf{moral hazard--insurance efficiency trade-off}
+    \item Full treatment in Week 5 (Microeconomics of Health Insurance)
+  \end{itemize}
+\end{frame}
+
+\summaryside{
+  \item The Wagstaff model is a powerful but simplified tool --- it ignores HC quality, time costs, provider-induced demand, and insurance
+  \item The principal-agent problem arises because patients delegate HC decisions to providers whose incentives may not be perfectly aligned
+  \item Health insurance lowers the effective price of HC, raising demand via moral hazard --- a trade-off between insurance benefits and efficiency
+  \item These extensions will be developed in Weeks 3--5
+}
+
+
+% ────────────────────────────────────────────────────────────
+% w03_week3
+% ────────────────────────────────────────────────────────────
+% ============================================================
+%  w03_week3.tex — Week 3: The Role of Government and SID
+%  Lectures: Tue 28 Jul, Thu 30 Jul, Fri 31 Jul
+% ============================================================
+
+\section{Week 3: The Role of Government and Supplier-Induced Demand}
+
+\begin{frame}{Week 3 Overview}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \textbf{This week:}
+      \begin{itemize}
+        \item Why do governments intervene in HC markets?
+        \item Normative theories: market failures
+        \item Positive theories: public choice and regulatory capture
+        \item The supplier-induced demand hypothesis and alternatives
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{block}{Required Reading}
+        {\small
+        \begin{itemize}
+          \item Donaldson \& Gerard: ``Market failure in health care'' (Ch.\ 3)
+          \item Feldstein: ``The legislative workplace'' (pp.\ 437--42)
+          \item Rice \& Unruh: ``Are supply and demand independently determined?'' (pp.\ 161--9)
+        \end{itemize}}
+      \end{block}
+  \end{columns}
+\end{frame}
+
+% ================================================================
+%  LECTURE 1 — Tuesday 28 July
+% ================================================================
+
+\recapslide{
+  \item Wagstaff model: demand for HC depends on price, income, health status, education
+  \item Health insurance reduces the effective price $\Rightarrow$ moral hazard
+  \item Principal-agent problem: provider and patient incentives may diverge
+}
+
+\planslide{Why Do Governments Intervene in Health Care Markets?}{
+  \item The First Fundamental Theorem of Welfare Economics
+  \item Normative theories: market failures (natural monopoly, moral hazard, adverse selection, externalities)
+  \item Positive theories: regulatory capture and public choice
+}
+
+\begin{frame}{Starting Point: Adam Smith's Invisible Hand}
+  \begin{block}{First Fundamental Theorem of Welfare Economics}
+    Under perfectly competitive conditions (full information, no externalities, no market power),
+    market equilibria are \textbf{Pareto optimal} --- resources are allocated efficiently without
+    central coordination.
+  \end{block}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item Where markets \emph{work}, government intervention reduces welfare
+    \item But health care violates almost every condition for perfect competition:
+    \begin{itemize}
+      \item Asymmetric information (not full information)
+      \item Externalities (not no externalities)
+      \item Natural monopoly elements (not competitive)
+    \end{itemize}
+    \item $\Rightarrow$ \textbf{Market failure} $\Rightarrow$ case for government intervention
+    \item But: government intervention can also fail --- ``government failure''
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Normative vs.\ Positive Theories of Government Intervention}
+  \begin{columns}
+    \column{0.48\textwidth}
+      \begin{block}{Normative: ``Should the government intervene?''}
+        \begin{itemize}
+          \item Markets fail in health care $\Rightarrow$ intervention is in the \textbf{public interest}
+          \item Government intervention \emph{should} correct market failures
+          \item Sources: Donaldson \& Gerard (2005)
+        \end{itemize}
+      \end{block}
+    \column{0.48\textwidth}
+      \begin{alertblock}{Positive: ``Why does government intervene?''}
+        \begin{itemize}
+          \item Stigler, Posner, Peltzman: regulation arises because \textbf{special interest groups}
+                use it to protect themselves from competition
+          \item Regulation is supplied through a \textit{political market}
+          \item Government may act in the interest of producers, not consumers
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.4em}
+  \begin{exampleblock}{The NZ pharmaceutical industry lobby}
+    The tension between public-interest regulation (PHARMAC cost-effectiveness criteria) and
+    industry lobbying to expand the funded schedule is a live example of this normative/positive
+    tension in NZ.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Normative Market Failures in Health Care: Overview}
+  \begin{enumerate}
+    \item \textbf{Natural monopoly} (diseconomies of small scale in insurance administration)
+    \item \textbf{Moral hazard} (insurance changes incentives for HC consumption)
+    \item \textbf{Adverse selection} (asymmetric information in insurance markets)
+    \item \textbf{Physical externalities} (immunisation, communicable diseases, sanitation)
+    \item \textbf{Psychic (caring) externalities} (social preferences for others' health)
+    \item \textbf{Supplier market power} (providers are not competitive price-takers)
+  \end{enumerate}
+  \vspace{0.4em}
+  Each failure has a corresponding \textbf{policy instrument}. Let us work through each.
+\end{frame}
+
+\begin{frame}{Market Failure 1: Natural Monopoly in Insurance}
+  \begin{itemize}
+    \item A \textbf{natural monopoly} arises when a single firm can supply the entire market at
+          lower cost than multiple competing firms (high fixed costs, economies of scale,
+          low marginal costs)
+    \item Private health insurance has substantial \textbf{administrative overhead}:
+    \begin{itemize}
+      \item Evans (1984): US insurance admin costs $\approx$5.2\% of HC spending vs.\ Canada 1.5\%
+      \item In 2023, the US employed over 900,000 people in health insurance ($\approx$0.5\% of
+            all full-time workers)
+    \end{itemize}
+    \item \textbf{Policy response}: a single public insurer (e.g.\ ACC in NZ for accidents;
+          Te Whatu Ora for most health services) reduces administrative duplication
+  \end{itemize}
+  \begin{exampleblock}{NZ: Accident Compensation Corporation (ACC)}
+    NZ's ACC is a universal no-fault accident insurance scheme. Every NZ resident contributes via
+    levies; ACC covers treatment and lost income for accidental injury regardless of fault ---
+    eliminating insurance administrative fragmentation for this domain.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Market Failure 2: Moral Hazard}
+  \begin{itemize}
+    \item Insurance changes the \textbf{incentive} to avoid risk and to consume HC
+    \item Two types:
+    \begin{enumerate}
+      \item \textit{Ex-ante moral hazard}: reduced care to avoid illness (take more risks)
+      \item \textit{Ex-post moral hazard}: consume more HC when ill because price at point
+            of use is subsidised
+    \end{enumerate}
+    \item \textbf{Policy solutions}:
+    \begin{itemize}
+      \item Coinsurance: consumer pays $x$\% of market price
+      \item Front-end deductible (``excess''): consumer pays first \$Y
+      \item GP as ``gatekeeper'' to specialist services
+      \item No-claims bonuses (common in private vehicle insurance)
+    \end{itemize}
+  \end{itemize}
+  \begin{alertblock}{The Pauly--Arrow debate}
+    Pauly (1968) argued ex-post moral hazard is a ``standard'' economic response to a lower
+    price --- not ``immoral'' behaviour. Arrow (1968) disagreed. The debate shapes insurance
+    design to this day.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Market Failure 3: Adverse Selection}
+  \begin{itemize}
+    \item \textbf{Adverse selection} (Akerlof's ``market for lemons''): buyers of insurance
+          know more about their risk than sellers
+    \item Low-risk people cannot buy cheap insurance (cross-subsidising high-risk)
+    \item High-risk people face unaffordably expensive insurance
+    \item In the extreme: only the sick buy insurance $\Rightarrow$ insurance market \emph{unravels}
+    \item \textbf{Policy solutions}:
+    \begin{itemize}
+      \item \textbf{Community rating}: everyone pays the same premium (cross-subsidy)
+      \item \textbf{Mandatory insurance}: forces low-risk people into the pool
+      \item \textbf{Public provision}: government as insurer of last resort
+    \end{itemize}
+  \end{itemize}
+  \begin{exampleblock}{ACA in the US}
+    The Affordable Care Act (2010) tried to address adverse selection through a mandate, community
+    rating, and pre-existing condition rules. The removal of the mandate (2019) weakened the
+    risk pool.
+  \end{exampleblock}
+\end{frame}
+
+\summaryside{
+  \item Normative theories: government should intervene to correct \textbf{market failures} (natural monopoly, moral hazard, adverse selection, externalities)
+  \item Positive theories: government does intervene, but often because of \textbf{regulatory capture} by special interests --- not always in the public interest
+  \item NZ-specific examples: PHARMAC (cost-effectiveness regulation), ACC (public no-fault insurance)
+}
+
+% ================================================================
+%  LECTURE 2 — Thursday 30 July
+% ================================================================
+
+\recapslide{
+  \item Market failures in HC: natural monopoly, moral hazard, adverse selection
+  \item Normative (public interest) vs.\ positive (special interest) theories of regulation
+  \item NZ: ACC, PHARMAC, community rating --- all institutional responses to market failures
+}
+
+\planslide{Externalities and Psychic Care; Positive Theories of Government}{
+  \item Physical externalities in health care
+  \item Psychic (caring) externalities and welfare interdependence
+  \item Positive theories: regulatory capture in health care markets
+  \item The NZ political process and health care regulation
+}
+
+\begin{frame}{Market Failure 4: Physical Externalities}
+  \begin{itemize}
+    \item An externality exists when a transaction between two parties affects a third party
+          who is not compensated (negative) or charged (positive)
+    \item Health care generates both \textbf{positive} and \textbf{negative} externalities
+    \item \textbf{Classic positive externalities in health}: immunisation against communicable
+          diseases creates herd immunity --- a public good
+    \item \textbf{Classic negative externalities}: smoking, communicable diseases spread through
+          contact, antibiotic resistance (over-prescribing)
+    \item \textbf{Policy tools}: subsidise positive externalities (free immunisation); tax
+          negative ones (tobacco tax, ``sugar tax''); regulation (quarantine, food standards)
+  \end{itemize}
+  \begin{exampleblock}{NZ immunisation programme}
+    NZ's National Immunisation Schedule is free for all NZ residents. Coverage targets use
+    herd immunity thresholds (e.g.\ 95\% for measles). PHARMAC funds childhood vaccines through
+    the same cost-effectiveness framework as other pharmaceuticals.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Market Failure 5: Psychic (Caring) Externalities}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{itemize}
+        \item Culyer (1971): individuals may not consume \emph{sufficient} health care
+              ``in the opinion of other individuals in society''
+        \item This occurs even when people are rational --- because of low income,
+              uninsurability, short-sightedness, or social disadvantage
+        \item \textbf{Other people's utility depends on my health}: ``I feel better when
+              my neighbour is healthy'' --- welfare interdependence
+      \end{itemize}
+      \begin{block}{Utility function representation}
+        $$U_A = U_A(C_A,\; H_A,\; \alert{H_B})$$
+        Person A's welfare includes Person B's health.
+      \end{block}
+    \column{0.42\textwidth}
+      \begin{alertblock}{Implications}
+        \begin{itemize}
+          \item Private market will under-provide HC if others' health generates positive
+                externalities
+          \item Rationale for \textbf{universal access} to basic health care
+          \item Distinct from pure paternalism --- grounded in welfare economics
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Positive Theories: Regulatory Capture}
+  \begin{itemize}
+    \item Stigler (1971), Posner (1974), Peltzman (1976): regulation arises from a
+          \textbf{demand for regulation} by firms wishing to restrict competition
+    \item The regulatory process is ``captured'' by \textbf{concentrated interests}
+          (producers) rather than \textbf{diffuse interests} (consumers/patients)
+    \item The price of regulation = campaign contributions, electoral support, ``revolving
+          door'' employment
+    \item \textbf{Healthcare examples}:
+    \begin{itemize}
+      \item Medical professional licensing (restricts entry, raises prices)
+      \item Pharmaceutical patent protections (benefits pharma, costs consumers)
+      \item Hospital Certificate of Need laws (restricts competition)
+    \end{itemize}
+  \end{itemize}
+  \begin{alertblock}{NZ context}
+    NZ's Medical Council and pharmacy licensing requirements create professional barriers
+    to entry. These have both efficiency (quality assurance) and rent-seeking interpretations.
+  \end{alertblock}
+\end{frame}
+
+\summaryside{
+  \item Physical externalities (immunisation, communicable disease, food safety) justify public provision and subsidies
+  \item Psychic externalities --- caring about others' health --- provide a welfare-theoretic basis for universal health care access
+  \item Positive theories (Stigler, Peltzman): regulation often serves producer interests rather than the public interest
+  \item Both normative and positive theories are needed to explain the full pattern of government involvement in NZ and globally
+}
+
+% ================================================================
+%  LECTURE 3 — Friday 31 July
+% ================================================================
+
+\recapslide{
+  \item Physical externalities: immunisation, communicable disease, food safety
+  \item Psychic externalities: others' health enters our utility function $\Rightarrow$ under-provision in free markets
+  \item Positive theory: regulatory capture means regulation often benefits producers, not consumers
+}
+
+\planslide{Supplier-Induced Demand: Hypothesis, Evidence, Alternatives}{
+  \item The supplier-induced demand (SID) hypothesis
+  \item Theoretical foundations and empirical challenges
+  \item Alternative explanations: target income, small area variation
+  \item NZ context: DTC pharmaceutical advertising
+}
+
+\begin{frame}{The Supplier-Induced Demand Hypothesis}
+  \begin{block}{SID hypothesis}
+    Due to \textbf{asymmetric information} and the principal-agent relationship, doctors can
+    (and do) \textbf{induce demand} for their own services beyond the level the patient would
+    choose if fully informed.
+  \end{block}
+  \vspace{0.3em}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{itemize}
+        \item Doctors as agents set quantity, not just prices
+        \item In a fee-for-service system, more services $=$ more income
+        \item SID predicts: more doctors $\Rightarrow$ more demand for doctor services
+              (positive supply--demand correlation)
+        \item In a standard competitive market, more suppliers $\Rightarrow$ lower price
+              $\Rightarrow$ lower quantity demanded (negative)
+      \end{itemize}
+    \column{0.44\textwidth}
+      \begin{alertblock}{Target income hypothesis}
+        A related idea: doctors may try to maintain a ``target income''; if fees are cut,
+        they induce more visits to compensate.\\[0.3em]
+        Both SID and target income predict perverse supply responses.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Evidence and Controversies}
+  \begin{itemize}
+    \item \textbf{Small area variation} (Wennberg, 1973): surgical rates vary enormously across
+          geographic areas even after controlling for patient characteristics --- suggests
+          significant discretion by providers
+    \item \textbf{RAND Health Insurance Experiment}: experimental evidence that lower prices
+          increase utilisation without clear health gains --- consistent with SID
+    \item \textbf{Challenges}: supply--demand correlation could reflect that doctors locate
+          where demand is \emph{already} high (endogeneity)
+    \item Rice \& Unruh (2009): argue supply and demand are \textbf{not independently
+          determined} in HC markets --- undermines standard supply--demand framework
+    \item \textbf{NZ context}: SID less of a concern in NZ's largely salaried GP system,
+          but DTC pharmaceutical advertising creates industry-to-patient channels for
+          inducing demand
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{DTC Pharmaceutical Advertising: A NZ Perspective}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{itemize}
+        \item NZ and the US are the \textbf{only two countries} in the world that permit
+              direct-to-consumer (DTC) pharmaceutical advertising
+        \item DTC advertising allows pharmaceutical companies to market prescription medicines
+              directly to patients via TV, print, and online
+        \item This creates a \textbf{patient-driven demand} for specific branded medicines
+        \item Debates: does it increase appropriate diagnoses and treatment adherence, or does
+              it induce unnecessary demand and raise costs?
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{alertblock}{Positive vs.\ normative framing}
+        \textit{Positive}: DTC advertising $\Rightarrow$ higher branded drug demand,
+        higher pharmaceutical spending\\[0.3em]
+        \textit{Normative}: should NZ continue to allow DTC advertising given PHARMAC's
+        budget constraints?\\[0.3em]
+        This is a live NZ policy debate. What are your views?
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\summaryside{
+  \item The SID hypothesis: providers exploit information asymmetry to induce demand beyond patients' ``true'' preferences
+  \item Evidence: small area variation and perverse supply--demand correlations are consistent with SID but not definitive
+  \item Target income hypothesis: perverse response to fee reductions
+  \item NZ is one of only two countries (with the US) allowing DTC pharmaceutical advertising --- a live policy issue
+}
+
+
+% ────────────────────────────────────────────────────────────
+% w04_week4
+% ────────────────────────────────────────────────────────────
+% ============================================================
+%  w04_week4.tex — Week 4 (NEW): Demographics, Ageing & Population Health
+%  Lectures: Tue 4 Aug, Thu 6 Aug, Fri 7 Aug
+%  Tutorial 2: Monday 4 Aug — DEBATE: Should NZ raise the retirement age?
+% ============================================================
+
+\section{Week 4: Demographics, Ageing, and Population Health}
+
+\begin{frame}{Week 4 Overview — NEW CONTENT}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \textbf{This week:} Ageing populations and their consequences
+      \begin{itemize}
+        \item The demographic transition: global and NZ trends
+        \item How ageing affects health care demand and costs
+        \item Labour force participation and economic consequences of ageing
+        \item NZ Superannuation and the fiscal challenge
+        \item Policy responses internationally
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{block}{Key Readings}
+        {\small
+        \begin{itemize}
+          \item WHO: \textit{World Report on Ageing and Health} (2015), selected chapters
+          \item NZ Treasury: \textit{Long-term Fiscal Statement} (2021)
+          \item Stats NZ: \textit{National Population Projections} (2022--2073)
+          \item \textit{The Economist}: ``The silver tsunami'' --- ageing in developed economies
+        \end{itemize}}
+      \end{block}
+      \vspace{0.3em}
+      \tutorialbox{\textbf{Tutorial 2 (Mon 4 Aug)}: Structured debate --- ``NZ should raise the superannuation eligibility age to 67.'' Active sides assigned in advance.}
+  \end{columns}
+\end{frame}
+
+% ================================================================
+%  LECTURE 1 — Tuesday 4 August
+% ================================================================
+
+\recapslide{
+  \item SID hypothesis: providers can induce demand beyond patients' ``true'' preferences
+  \item Positive vs.\ normative theories of government intervention in HC markets
+  \item NZ/US are the only two countries permitting DTC pharmaceutical advertising
+}
+
+\planslide{The Demographic Transition: Global Patterns and NZ Specifics}{
+  \item The demographic transition model
+  \item NZ's ageing population: current facts and projections
+  \item The health implications of an older population
+  \item Health spending and the age profile of costs
+}
+
+\begin{frame}{The Demographic Transition}
+  \begin{block}{What is the demographic transition?}
+    A shift from high birth rates + high death rates (stable, young population) to
+    \textbf{low birth rates + low death rates} (stable, but \emph{older} population).
+    All developed economies have undergone or are undergoing this transition.
+  \end{block}
+  \vspace{0.3em}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \textbf{Four stages:}
+      \begin{enumerate}
+        \item High birth + high death (pre-industrial)
+        \item High birth + falling death (rapid population growth)
+        \item Falling birth + low death (slowing growth)
+        \item Low birth + low death (stable or declining, ageing)
+      \end{enumerate}
+    \column{0.45\textwidth}
+      \begin{alertblock}{Stage 5? Sub-replacement fertility}
+        Many developed countries now below replacement ($<$2.1 births per woman): Japan 1.2,
+        South Korea 0.72 (2023), Germany 1.5, NZ 1.6.\\[0.3em]
+        This accelerates the ageing process beyond stage 4 predictions.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{NZ's Ageing Population: The Numbers}
+  \begin{columns}
+    \column{0.54\textwidth}
+      \textbf{Current situation (2024):}
+      \begin{itemize}
+        \item People aged 65+: $\approx$16\% of NZ population ($\approx$830,000)
+        \item Median age: $\approx$38 years
+        \item Fastest-growing age group: 85+ (``oldest old'')
+        \item Life expectancy at 65: $\approx$20 more years (women), 18 (men)
+      \end{itemize}
+      \vspace{0.4em}
+      \textbf{Stats NZ projections to 2073:}
+      \begin{itemize}
+        \item 65+: projected to reach \textbf{25--27\%} of population
+        \item Population aged 85+: expected to \textbf{triple}
+        \item Median age: projected to reach $\approx$44 years
+      \end{itemize}
+    \column{0.43\textwidth}
+      \begin{alertblock}{Demographic dependency ratio}
+        $$\text{Old-age dependency ratio} = \frac{\text{Pop aged 65+}}{\text{Pop aged 15--64}}$$
+        NZ 2024: $\approx$0.24 (1 older person per $\approx$4 workers)\\
+        NZ 2073 (projected): $\approx$0.44\\[0.3em]
+        Japan (2024): $\approx$0.50 --- \textbf{a preview of NZ's future?}
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Why Ageing Matters for Health Economics}
+  \begin{itemize}
+    \item \textbf{Health care costs rise steeply with age}:
+    \begin{itemize}
+      \item Average per-person health spending for 65+ is approximately \textbf{4--5 times}
+            higher than for working-age adults in NZ
+      \item Most lifetime HC costs are concentrated in the \textbf{last few years of life}
+    \end{itemize}
+    \item \textbf{Disease burden shifts}: from acute conditions to chronic, complex,
+          multi-morbidity conditions (cardiovascular disease, diabetes, dementia,
+          musculoskeletal disorders)
+    \item \textbf{Compression vs.\ expansion of morbidity}:
+    \begin{itemize}
+      \item \textit{Compression} (Fries, 1980): healthy ageing delays illness to the very
+            end of life --- cost increase is modest
+      \item \textit{Expansion} (Gruenberg, 1977): longer lives mean more years of disability
+            and disease --- costs rise substantially
+    \end{itemize}
+    \item \textbf{NZ Treasury projection}: health spending as share of GDP rises from
+          $\approx$8\% to 11--14\% by 2060 under baseline scenarios
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The Age Profile of Health Spending in NZ}
+  \begin{itemize}
+    \item Health spending per person by age follows a distinctive \textbf{U-shape with late-life
+          spike}:
+    \begin{itemize}
+      \item High in infancy and early childhood (births, paediatric conditions)
+      \item Low and flat through working age
+      \item Rising steeply from around age 65
+      \item Very high in the last 2 years of life
+    \end{itemize}
+    \item \textbf{``Proximity to death''} effect: much of the age effect in HC spending is
+          explained by being close to death, not age per se (Zweifel et al., 1999)
+    \item Implication: longer life expectancy \emph{may not} proportionally increase health costs
+          --- it may just delay them
+    \item But: multi-morbidity and dementia may still increase cumulative lifetime costs
+  \end{itemize}
+  \begin{exampleblock}{Policy implication}
+    Policies that \textbf{compress morbidity} (healthy ageing, prevention, early intervention)
+    are potentially both welfare-improving \emph{and} cost-saving.
+  \end{exampleblock}
+\end{frame}
+
+\summaryside{
+  \item The demographic transition has produced older populations in all developed economies; NZ's 65+ share projected to reach 25--27\% by 2073
+  \item Health costs rise steeply with age, especially in the last 2 years of life (``proximity to death'' effect)
+  \item Compression vs.\ expansion of morbidity debate: can healthy ageing limit cost growth?
+  \item NZ Treasury projects health spending rising from $\approx$8\% to 11--14\% of GDP by 2060
+}
+
+% ================================================================
+%  LECTURE 2 — Thursday 6 August
+% ================================================================
+
+\recapslide{
+  \item Demographic transition: all developed economies moving toward older populations
+  \item NZ 65+ projected to reach 25--27\% by 2073; old-age dependency ratio $\approx$doubling
+  \item Per-person health costs 4--5$\times$ higher for 65+ than working-age adults
+}
+
+\planslide{Labour Force Participation, NZ Superannuation, and Fiscal Challenges}{
+  \item Labour force participation rates by age in NZ
+  \item The economics of retirement timing
+  \item NZ Superannuation: design, cost, and sustainability
+  \item The retirement age debate: economics vs.\ politics
+}
+
+\begin{frame}{Labour Force Participation and Ageing}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{itemize}
+        \item \textbf{Labour force participation rate (LFPR)} = share of working-age population
+              employed or actively seeking work
+        \item Among NZ 65+ workers, LFPR has been rising: from $\approx$15\% (2000) to
+              $\approx$26\% (2024)
+        \item Drivers of rising older-worker participation:
+        \begin{itemize}
+          \item Improved health in older cohorts
+          \item Shift from manual to service-sector jobs
+          \item Changes in pension design (incentives to delay retirement)
+          \item Lower mandatory retirement ages phased out
+          \item Rising house prices $\Rightarrow$ financial pressure to keep working
+        \end{itemize}
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{alertblock}{Economic consequences of rising LFPR at 65+}
+        \begin{itemize}
+          \item Partially offsets rising dependency ratios
+          \item But older workers face discrimination and health barriers
+          \item Productivity effects are contested
+          \item Crowd-out of younger workers? (``lump of labour fallacy'' --- generally rejected)
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{NZ Superannuation: Design and Cost}
+  \begin{block}{What is NZ Superannuation?}
+    A \textbf{universal, non-means-tested, publicly funded} pension paid to all NZ residents aged
+    65+, regardless of employment history or assets. Currently $\approx$\$900/week for a couple,
+    $\approx$\$500/week for a single person (2024 rates).
+  \end{block}
+  \vspace{0.3em}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{itemize}
+        \item NZ Super cost $\approx$\$15.7 billion in 2024 ($\approx$4\% of GDP)
+        \item \textbf{Funded from current taxation} (pay-as-you-go, not pre-funded)
+        \item NZ Super Fund (``Cullen Fund''): sovereign wealth fund building reserves for
+              future Super costs --- but insufficient to fully pre-fund
+        \item Eligibility age: 65 (unchanged since 1992)
+      \end{itemize}
+    \column{0.45\textwidth}
+      \begin{alertblock}{Fiscal challenge}
+        As the 65+ population share grows, NZ Super costs as \% of GDP will rise substantially
+        --- potentially crowding out other spending (health, education, infrastructure).\\[0.3em]
+        NZ Treasury (2021): Super costs projected to rise to $\approx$7\% of GDP by 2060 without
+        reform.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{The Retirement Age Debate}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \textbf{Arguments for raising eligibility age (e.g.\ to 67):}
+      \begin{itemize}
+        \item Life expectancy at 65 has risen substantially since 1992 (+4 years)
+        \item Fiscal sustainability requires longer contribution periods
+        \item Older workers are healthier than earlier cohorts
+        \item Many other OECD countries already at 67 (Australia, US) or heading there
+      \end{itemize}
+      \vspace{0.4em}
+      \textbf{Arguments against:}
+      \begin{itemize}
+        \item Manual workers have shorter healthy working lives
+        \item Māori and Pacific peoples have lower life expectancy at 65
+        \item NZ Super is the sole retirement income for many low-income NZers
+        \item Political consensus has been hard to maintain (National (2011) reversed it)
+      \end{itemize}
+    \column{0.45\textwidth}
+      \begin{alertblock}{Tutorial 2: Your debate}
+        ``NZ should raise the superannuation eligibility age to 67''\\[0.3em]
+        Come prepared with:
+        \begin{enumerate}
+          \item An economic argument for your assigned side
+          \item Evidence from the NZ Treasury, Stats NZ, or international comparisons
+          \item A critique of the opposing argument
+        \end{enumerate}
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{International Responses to Ageing}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \textbf{Pension reform strategies:}
+      \begin{itemize}
+        \item \textbf{Raise retirement age}: Sweden, Germany, Australia (67)
+        \item \textbf{Notional defined contribution (NDC)}: Sweden --- each worker's ``account''
+              tracks contributions; pension adjusted for life expectancy
+        \item \textbf{Means-testing}: Australia's ``Super'' system + Age Pension
+        \item \textbf{Mandatory pre-funded savings}: Singapore's Central Provident Fund,
+              NZ's KiwiSaver (voluntary, employer-co-funded)
+      \end{itemize}
+    \column{0.45\textwidth}
+      \textbf{Health system adaptation:}
+      \begin{itemize}
+        \item Shift to long-term care, aged residential care
+        \item Preventive strategies (Active Ageing)
+        \item Technology: telehealth, AI diagnostics, wearables
+        \item Community-based care vs.\ residential care
+      \end{itemize}
+      \vspace{0.3em}
+      \begin{alertblock}{Japan: the extreme case}
+        Japan has the world's oldest population (29\% over 65). Health spending $\approx$11\%
+        of GDP. Workforce shortages are severe. Automation in care is a national priority.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\summaryside{
+  \item NZ Super is universal, non-means-tested, costly ($\approx$4\% GDP), and fiscally unsustainable without reform
+  \item Rising LFPR at 65+ partially offsets ageing dependency ratios
+  \item Key policy debate: raise eligibility age to 67? Arguments on both sides involve efficiency, equity, and life expectancy disparities by ethnicity and occupation
+  \item Sweden, Australia, Singapore illustrate different systemic responses; Japan shows the extreme of demographic ageing
+}
+
+% ================================================================
+%  LECTURE 3 — Friday 8 August
+% ================================================================
+
+\recapslide{
+  \item NZ Super: universal, pay-as-you-go, \$15.7B/yr, projected to rise substantially
+  \item Rising LFPR among 65+ partially offsets fiscal pressure
+  \item Retirement age debate: efficiency vs.\ equity for manual workers, Māori, Pacific peoples
+}
+
+\planslide{Dementia, Chronic Disease, and the Changing Disease Burden}{
+  \item Dementia: epidemiology, costs, and NZ specifics
+  \item Multi-morbidity: the challenge of complex, chronic conditions
+  \item Healthy ageing: economics of prevention
+  \item Overlapping generations models: a brief introduction
+}
+
+\begin{frame}{Dementia: The Coming Crisis}
+  \begin{columns}
+    \column{0.54\textwidth}
+      \begin{itemize}
+        \item \textbf{Dementia} (primarily Alzheimer's disease) is the most costly age-related
+              condition globally
+        \item NZ: $\approx$70,000+ people living with dementia (2024); projected 150,000+ by 2050
+        \item Global cost of dementia: US\$1.3 trillion per year (WHO, 2023) --- the largest
+              share of any single disease
+        \item Unlike most chronic diseases, dementia has \textbf{no proven treatment}
+              (drugs slow progression marginally at best)
+        \item Burden falls disproportionately on \textbf{unpaid family caregivers} (mostly women)
+      \end{itemize}
+    \column{0.43\textwidth}
+      \begin{alertblock}{Economic framework}
+        Dementia forces us to grapple with:
+        \begin{itemize}
+          \item The value of cognitive function (QALYs)
+          \item Who bears the cost? (patient, family, state)
+          \item Long-term care vs.\ acute care: a different cost structure
+          \item The value of end-of-life care and advance directives
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Multi-morbidity: The Dominant Pattern of Older Adult Health}
+  \begin{itemize}
+    \item \textbf{Multi-morbidity}: having two or more chronic conditions simultaneously
+    \item Among NZ adults aged 65+: $>$60\% have two or more chronic conditions
+    \item The combination is often more complex and costly than the sum of individual conditions
+    \item Health systems designed for \textbf{single-disease acute episodes} are poorly
+          suited to multi-morbidity
+    \item Multi-morbidity creates coordination challenges:
+    \begin{itemize}
+      \item Multiple specialists, multiple medications (polypharmacy)
+      \item Conflict between clinical guidelines designed for single conditions
+      \item Higher risk of adverse drug interactions
+    \end{itemize}
+    \item \textbf{Integrated care models} (combining primary, secondary, aged care) are
+          the dominant policy response --- NZ's \textit{localities} framework under Health
+          New Zealand (Te Whatu Ora) targets this
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Healthy Ageing: The Economics of Prevention}
+  \begin{block}{Active Ageing (WHO framework)}
+    Optimising opportunities for health, participation, and security to enhance quality of
+    life as people age --- across the \textbf{whole life course}.
+  \end{block}
+  \begin{itemize}
+    \item Economic argument for prevention: investment in healthy ageing early in the life
+          course generates \textbf{returns} through reduced HC costs later
+    \item But: \textbf{discounting} reduces the present value of future cost savings
+          (more in Part II, Week 9)
+    \item Prevention vs.\ treatment: not always prevention wins on cost-effectiveness grounds
+    \item \textbf{NZ Age-Friendly Cities} initiative (WHO-aligned) and the NZ
+          \textit{Healthy Ageing Strategy 2016--2026} set the policy framework
+  \end{itemize}
+  \begin{alertblock}{Key policy question for NZ}
+    Given resource constraints, what is the optimal allocation between \textbf{prevention}
+    (e.g.\ exercise programmes, falls prevention) and \textbf{treatment} (e.g.\ hip replacements,
+    dementia care) for the ageing population?
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Overlapping Generations Models: A Brief Introduction}
+  \begin{itemize}
+    \item \textbf{Overlapping generations (OLG) models} (Samuelson, 1958; Diamond, 1965) are
+          the standard framework for analysing ageing in macroeconomics
+    \item Basic structure: each generation works when young, retires when old; the young's
+          savings fund the old's consumption
+    \item Key insight: \textbf{pay-as-you-go} pension systems create a transfer from workers
+          to retirees in each period
+    \item Sustainability requires that the growth rate of wages $\times$ workers exceeds
+          the pension payout per retiree $\times$ retirees
+    \item When the dependency ratio rises (fewer workers per retiree), either:
+    \begin{itemize}
+      \item Contribution rates must rise, or
+      \item Pension benefits must fall, or
+      \item Retirement age must rise, or
+      \item Productivity must increase to compensate
+    \end{itemize}
+    \item Immigration policy as a demographic tool: NZ's relatively high immigration
+          rate partially offsets ageing
+  \end{itemize}
+\end{frame}
+
+\summaryside{
+  \item Dementia will cost NZ (and the world) enormously as populations age, with no proven cure and heavy burden on unpaid caregivers
+  \item Multi-morbidity is the dominant pattern in older adults; health systems designed for single acute conditions are ill-suited
+  \item Prevention and healthy ageing have strong economic rationale, but discounting reduces their present-value advantage
+  \item OLG models: ageing dependency ratios require some combination of higher contributions, lower benefits, later retirement, higher productivity, or immigration
+}
+
+
+% ────────────────────────────────────────────────────────────
+% w05_week5
+% ────────────────────────────────────────────────────────────
+% ============================================================
+%  w05_week5.tex — Week 5: Microeconomics of Health Insurance
+%  Lectures: Tue 11 Aug, Thu 13 Aug, Fri 14 Aug
+%  Tutorial 3: Monday 11 Aug — (None; Tutorial 3 in Week 6)
+% ============================================================
+
+\section{Week 5: Microeconomics of Health Insurance}
+
+\begin{frame}{Week 5 Overview}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \textbf{This week:}
+      \begin{itemize}
+        \item Why do people buy health insurance? Utility and risk
+        \item The demand for health insurance: attitudes to risk
+        \item Moral hazard: ex-ante and ex-post
+        \item Adverse selection and the Rothschild--Stiglitz model
+        \item Public vs.\ private insurance design
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{block}{Required Reading}
+        {\small
+        \begin{itemize}
+          \item Feldstein: ``The demand for health insurance'' (Ch.\ 6)
+          \item \textit{The Economist}: ``India's government launches a vast health-insurance scheme'' (Sep 2018)
+        \end{itemize}}
+      \end{block}
+  \end{columns}
+\end{frame}
+
+% LECTURE 1
+\recapslide{
+  \item Ageing populations: rising health costs, fiscal pressure on NZ Super, dependency ratio challenge
+  \item Compression vs.\ expansion of morbidity: key for projecting future health spending
+  \item OLG models: ageing requires higher contributions, lower benefits, or later retirement
+}
+
+\planslide{Why People Buy Health Insurance: Risk and Expected Utility}{
+  \item Actuarially fair premiums and risk pooling
+  \item Risk aversion and the expected utility framework
+  \item The demand for insurance: how much coverage?
+  \item Ageing and insurance markets
+}
+
+\begin{frame}{Why Does Health Insurance Exist?}
+  \begin{block}{The fundamental problem: uncertainty}
+    Individuals do not know when they will become ill, or how much it will cost to treat them.
+    Without insurance, they face potentially \textbf{catastrophic} and \textbf{unaffordable}
+    out-of-pocket costs.
+  \end{block}
+  \begin{itemize}
+    \item \textbf{Risk pooling}: by pooling the risks of many individuals, insurance converts
+          an unpredictable large loss into a predictable small premium
+    \item \textbf{Actuarially fair premium}: $\pi = p \cdot L$, where $p$ = probability of
+          illness and $L$ = cost of treatment
+    \item Risk-averse individuals are willing to pay \emph{more} than the actuarially fair
+          premium to avoid the risk of a large loss --- the \textbf{risk premium}
+    \item This creates a mutually beneficial exchange: insured pays premium $>$ expected loss;
+          insurer bears the risk
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Risk Aversion and Expected Utility}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{block}{Expected Utility (von Neumann--Morgenstern)}
+        An individual with \textbf{concave utility function} $U(W)$ prefers a certain outcome
+        to a fair gamble with the same expected value:
+        $$U(\bar{W}) > p \cdot U(W_H) + (1-p) \cdot U(W_L)$$
+        where $W_H$ and $W_L$ are wealth levels with/without illness.
+      \end{block}
+    \column{0.42\textwidth}
+      \begin{itemize}
+        \item Degree of concavity = degree of risk aversion
+        \item \textbf{Risk neutral}: linear $U(W)$ $\Rightarrow$ indifferent
+        \item \textbf{Risk loving}: convex $U(W)$ $\Rightarrow$ prefers gamble
+        \item \textbf{Arrow-Pratt measure}: $-U''(W)/U'(W)$
+      \end{itemize}
+      \begin{alertblock}{Ageing \& risk aversion}
+        Older individuals typically exhibit \textbf{greater} risk aversion for health outcomes ---
+        consistent with rising insurance demand with age.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Moral Hazard: Two Types}
+  \begin{block}{Definition}
+    Moral hazard arises when insurance \textbf{changes behaviour}: the insured party
+    takes less care to prevent loss (ex-ante) or consumes more of the insured good (ex-post).
+  \end{block}
+  \begin{columns}
+    \column{0.48\textwidth}
+      \textbf{Ex-ante moral hazard:}
+      \begin{itemize}
+        \item Less effort to avoid illness (exercise less, smoke more, take more risks)
+        \item Hard to observe and contract on
+        \item Addressed by: exclusions for self-inflicted harm, wellness incentives
+      \end{itemize}
+    \column{0.48\textwidth}
+      \textbf{Ex-post moral hazard:}
+      \begin{itemize}
+        \item Once insured, consume more HC (effective price at point of use $<$ full cost)
+        \item Pauly (1968): this is just a \emph{normal} price response, not ``immoral''
+        \item Addressed by: copayments, deductibles, gatekeeping
+      \end{itemize}
+  \end{columns}
+  \begin{exampleblock}{NZ GP co-payments}
+    NZ primary care GP visits involve a co-payment ($\approx$\$20--50 depending on enrolment)
+    even for Community Services Card holders --- a deliberate moral hazard reduction mechanism.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Adverse Selection and Insurance Market Failure}
+  \begin{columns}
+    \column{0.54\textwidth}
+      \begin{itemize}
+        \item \textbf{Adverse selection}: high-risk individuals are more likely to seek insurance
+              than low-risk individuals
+        \item If the insurer cannot distinguish high from low risk, it must charge a
+              \textbf{pooled premium}
+        \item Low-risk individuals find this too expensive $\Rightarrow$ opt out
+        \item Premium rises further $\Rightarrow$ more low-risk people opt out (``death spiral'')
+        \item Extreme case: only the highest-risk remain $\Rightarrow$ market unravels
+      \end{itemize}
+    \column{0.43\textwidth}
+      \begin{alertblock}{Rothschild--Stiglitz (1976)}
+        In competitive insurance markets, equilibrium may involve:
+        \begin{itemize}
+          \item \textbf{Separating equilibria}: different contracts screen different risk types
+          \item \textbf{No equilibrium}: adverse selection destroys the market
+        \end{itemize}
+      \end{alertblock}
+      \vspace{0.3em}
+      \begin{block}{Policy response}
+        Community rating (uniform premiums), mandatory coverage, public provision
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\summaryside{
+  \item Risk-averse individuals pay a risk premium above the actuarially fair rate for insurance
+  \item Ex-ante and ex-post moral hazard both arise from insurance; addressed by copayments, deductibles, gatekeeping
+  \item Adverse selection can cause private insurance markets to unravel --- a key rationale for public health insurance
+  \item NZ's primary care co-payment structure is a deliberate design choice balancing access with moral hazard reduction
+}
+
+% LECTURE 2
+\recapslide{
+  \item Expected utility theory: risk-averse individuals prefer a certain outcome over a fair gamble
+  \item Moral hazard (ex-ante and ex-post): insurance changes incentives
+  \item Adverse selection: high-risk individuals disproportionately seek insurance $\Rightarrow$ potential market failure
+}
+
+\planslide{Public vs.\ Private Insurance; International Insurance Systems}{
+  \item Comparison of public and private insurance design
+  \item NZ's hybrid insurance model: public + Southern Cross + ACC
+  \item Insurance design around the world
+  \item Community rating, mandatory coverage, and risk equalisation
+}
+
+\begin{frame}{Public vs.\ Private Insurance Design}
+  \begin{columns}
+    \column{0.48\textwidth}
+      \begin{block}{Public insurance}
+        \begin{itemize}
+          \item Financed by taxes (general or dedicated payroll)
+          \item Mandatory for all (resolves adverse selection)
+          \item Community rated (no risk discrimination)
+          \item Often more egalitarian but faces political economy constraints
+          \item Lower admin costs, monopsony purchasing power
+        \end{itemize}
+      \end{block}
+    \column{0.48\textwidth}
+      \begin{alertblock}{Private insurance}
+        \begin{itemize}
+          \item Financed by premiums; voluntary
+          \item Subject to adverse selection unless regulated
+          \item May offer more choice and higher service quality
+          \item Higher admin costs, fragmented risk pools
+          \item Can coexist with public as supplementary cover (speed, choice)
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.4em}
+  \begin{exampleblock}{NZ's hybrid model}
+    NZ provides \textbf{universal public cover} for most services (funded by taxes via
+    Te Whatu Ora), with \textbf{Southern Cross Health Society} (the dominant private insurer,
+    covering $\approx$1 million NZers) providing faster access to elective procedures.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Southern Cross and Private Insurance in NZ}
+  \begin{itemize}
+    \item \textbf{Southern Cross Health Society}: NZ's largest private health insurer
+          ($\approx$1 million members, $\approx$800 staff), structured as a \textbf{not-for-profit
+          mutual society}
+    \item Primarily covers elective procedures and specialist consultations --- not competing
+          with public cover for emergency and acute care
+    \item Premium subsidies by employers are common --- tax treatment matters for uptake
+    \item Ageing members: as Southern Cross's membership ages, adverse selection and rising
+          costs are a challenge (``death spiral'' dynamics in microcosm)
+    \item \textbf{Economic question}: Does private insurance \emph{complement} or
+          \emph{substitute} for public provision in NZ?
+  \end{itemize}
+  \begin{alertblock}{Ageing and private insurance}
+    As NZ's population ages, the pool of private insurance enrollees will skew older and
+    higher-risk. Sustainable premium design will require careful risk management.
+  \end{alertblock}
+\end{frame}
+
+\summaryside{
+  \item Public insurance solves adverse selection via mandates and community rating, but faces political economy constraints
+  \item Private insurance offers more choice but is prone to adverse selection and market fragmentation
+  \item NZ's hybrid: public cover for all + private (Southern Cross) for elective/specialist speed and choice
+  \item Ageing populations create specific challenges for both public (fiscal cost) and private (rising risk pool average age) insurance systems
+}
+
+% LECTURE 3
+\recapslide{
+  \item Public vs.\ private insurance: adverse selection, moral hazard, admin costs
+  \item NZ's model: universal public + supplementary private (Southern Cross)
+  \item Ageing creates fiscal pressure on public insurance and adverse selection pressure on private
+}
+
+\planslide{Insurance Design Details: Copayments, Deductibles, and Gatekeeping}{
+  \item Coinsurance, front-end and rear-end deductibles
+  \item GP gatekeeping as a demand management tool
+  \item International comparisons: US, Germany, UK, Australia
+  \item PHARMAC and pharmaceutical co-payments in NZ
+}
+
+\begin{frame}{Insurance Design: Copayments and Deductibles}
+  \begin{block}{Three instruments for reducing moral hazard}
+    \begin{itemize}
+      \item \textbf{Coinsurance}: consumer pays $x$\% of the market price (e.g.\ 20\%);
+            insurer pays the rest
+      \item \textbf{Front-end deductible (``excess'')}: consumer pays the first \$Y;
+            insurer pays anything above that
+      \item \textbf{Rear-end deductible (``ceiling'')}: insurer pays up to \$Z;
+            consumer pays anything above (catastrophic cost protection)
+    \end{itemize}
+  \end{block}
+  \begin{columns}
+    \column{0.5\textwidth}
+      Each design creates different \textbf{incentives at the margin}:
+      \begin{itemize}
+        \item Coinsurance reduces all units of consumption equally
+        \item Front-end deductible reduces first-contact demand; may deter necessary care
+        \item Rear-end deductible most important for catastrophic events
+      \end{itemize}
+    \column{0.46\textwidth}
+      \begin{exampleblock}{NZ pharmaceutical co-payments}
+        PHARMAC fully funds most prescribed medicines on the Pharmaceutical Schedule, but a
+        co-payment of \$5/prescription (up to a \$100 annual cap for Community Services Card
+        holders) applies. This is a front-end mechanism.
+      \end{exampleblock}
+  \end{columns}
+\end{frame}
+
+\summaryside{
+  \item Coinsurance, deductibles, and gatekeeping all reduce moral hazard but involve trade-offs with access and necessary care deterrence
+  \item NZ's pharmaceutical co-payment is a front-end mechanism set deliberately low to maintain access
+  \item GP gatekeeping (referral required for specialists) is a demand management tool with both efficiency and access implications
+  \item RAND Health Insurance Experiment: definitive experimental evidence that lower patient costs increase utilisation
+}
+
+
+% ────────────────────────────────────────────────────────────
+% w06_week6
+% ────────────────────────────────────────────────────────────
+% ============================================================
+%  w06_week6.tex — Week 6: Hospital Behaviour and Health Systems
+%  Lectures: Tue 18 Aug, Thu 20 Aug, Fri 21 Aug
+%  Tutorial 3: Monday 18 Aug — "Bob's Party" case study + NZ reform debate
+% ============================================================
+
+\section{Week 6: Hospital Behaviour and Health Systems}
+
+\begin{frame}{Week 6 Overview}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \textbf{This week:}
+      \begin{itemize}
+        \item Economic models of hospitals: what do they maximise?
+        \item International health system types: a comparative framework
+        \item The NZ health system: history and major reforms
+        \item Health system performance measurement
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{block}{Required Reading}
+        {\small
+        \begin{itemize}
+          \item Santerre \& Neun: ``The conduct of the hospital services industry'' (pp.\ 406--12)
+          \item McPake \& Normand: ``Health systems around the world'' (Ch.\ 21)
+          \item Ashton, Mays \& Devlin (2005): ``Continuity through change'' (NZ health reform)
+          \item Logan (1986): ``Bob's Party'' (satire on health reforms) --- \textbf{tutorial reading}
+        \end{itemize}}
+      \end{block}
+      \vspace{0.2em}
+      \tutorialbox{\textbf{Tutorial 3 (Mon 18 Aug):} ``Bob's Party'' case discussion + NZ health system reform debate}
+  \end{columns}
+\end{frame}
+
+% LECTURE 1
+\recapslide{
+  \item Insurance design: copayments, deductibles, and gatekeeping trade off moral hazard against access
+  \item NZ's hybrid: universal public cover + Southern Cross private insurance for electives
+  \item PHARMAC pharmaceutical co-payments: front-end mechanism to limit demand
+}
+
+\planslide{Economic Models of Hospital Behaviour}{
+  \item The hospital as a unique economic institution
+  \item Objectives: profit, quantity, quality maximisation models
+  \item The Newhouse (1970) non-profit model
+  \item Jacobs (1974) taxonomy of hospital models
+}
+
+\begin{frame}{Hospitals as Economic Institutions}
+  \begin{itemize}
+    \item Hospitals are the \textbf{largest single item} of health expenditure in most countries
+    \item Unlike most firms, hospitals are often:
+    \begin{itemize}
+      \item \textbf{Not-for-profit} (charitable, public) --- raises question: what do they maximise?
+      \item \textbf{Multi-product firms}: producing many different services simultaneously
+      \item \textbf{Physician-influenced}: clinical decisions made by doctors, not managers
+      \item \textbf{Insurance-reimbursed}: revenues come mainly from insurers/government, not patients directly
+    \end{itemize}
+    \item \textbf{Special characteristics of hospital markets}:
+    \begin{itemize}
+      \item High barriers to entry (capital costs, regulatory requirements)
+      \item Location-specific natural monopoly elements
+      \item Quality competition vs.\ price competition
+    \end{itemize}
+  \end{itemize}
+  \begin{exampleblock}{NZ context: public hospital dominance}
+    Most NZ hospitals are publicly owned and operated by Health New Zealand (Te Whatu Ora).
+    Private hospitals mainly provide elective surgical services; very limited private emergency care.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Hospital Objective Functions: Jacobs (1974) Taxonomy}
+  \begin{block}{Jacobs classifies hospital models into two families}
+    \begin{itemize}
+      \item \textbf{Organism models}: hospital as a social organism pursuing non-profit goals
+      \item \textbf{Exchange models}: hospital as a coalition of interest groups bargaining over resources
+    \end{itemize}
+  \end{block}
+  \vspace{0.3em}
+  \begin{columns}
+    \column{0.48\textwidth}
+      \textbf{Organism models:}
+      \begin{enumerate}
+        \item \textit{Quantity maximisation} (more patients treated subject to break-even)
+        \item \textit{Quality maximisation} (best care for each patient, regardless of cost)
+        \item \textit{Mixed output}: quantity and quality jointly in objective function
+      \end{enumerate}
+    \column{0.48\textwidth}
+      \textbf{Exchange models:}
+      \begin{enumerate}
+        \item \textit{Physician control}: doctors set the agenda (clinical autonomy)
+        \item \textit{Administrator control}: managers pursue budget and scale
+        \item \textit{Bureaucratic model}: government direction of hospital behaviour
+      \end{enumerate}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Newhouse (1970): Non-Profit Hospital Model}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{itemize}
+        \item Newhouse modelled the non-profit hospital as maximising a utility function
+              over \textbf{quantity} ($Q$) and \textbf{quality} ($Z$):
+              $$\max_{Q,Z} U(Q, Z) \quad \text{s.t.\ } R(Q,Z) = C(Q,Z)$$
+        \item Revenue = Costs (break-even constraint, not profit)
+        \item Key predictions:
+        \begin{itemize}
+          \item Hospital will tend to \emph{over-invest in quality}
+          \item Especially quality dimensions valued by \textbf{physicians and prestige}
+                (equipment, specialist staff), not necessarily patients
+          \item This leads to the ``medical arms race'' phenomenon
+        \end{itemize}
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{alertblock}{The NZ implication}
+        NZ public hospitals operate under government budget constraints rather than voluntary
+        break-even. The relevant objective function may be more about \textbf{output targets}
+        set by the Ministry of Health / Te Whatu Ora than intrinsic quality or quantity
+        maximisation.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\summaryside{
+  \item Hospitals are unique: multi-product, non-profit (often), physician-influenced, insurance-reimbursed
+  \item Jacobs (1974): organism models (quantity/quality maximisation) vs.\ exchange models (physician/administrator/bureaucratic control)
+  \item Newhouse (1970): non-profit hospitals tend to over-invest in quality dimensions valued by prestige, not patients
+  \item NZ public hospitals operate within government budget constraints --- incentives differ from for-profit or not-for-profit models
+}
+
+% LECTURE 2
+\recapslide{
+  \item Hospital models: quantity max, quality max, physician control, bureaucratic
+  \item Newhouse: non-profit hospitals over-invest in physician-valued quality; ``medical arms race''
+  \item NZ public hospitals operate within government budgets set by Te Whatu Ora
+}
+
+\planslide{Health Systems: A Comparative Framework}{
+  \item Dimensions of health system design
+  \item Three main types: private insurance, social insurance, public (Beveridge)
+  \item Performance frameworks: WHO, Commonwealth Fund
+  \item A brief tour of key OECD health systems
+}
+
+\begin{frame}{Classifying Health Systems}
+  \begin{block}{Key design dimensions}
+    \begin{enumerate}
+      \item \textbf{Financing}: taxes, payroll contributions, premiums, out-of-pocket
+      \item \textbf{Purchasing/insurance}: government, social insurance fund, private insurers
+      \item \textbf{Provision}: public, private (not-for-profit, for-profit)
+      \item \textbf{Degree of universality}: universal, employment-based, residual
+    \end{enumerate}
+  \end{block}
+  \vspace{0.3em}
+  Three broad ideal types (with many hybrids):
+  \begin{columns}
+    \column{0.32\textwidth}
+      \begin{block}{1. Private insurance\\(US-style)}
+        {\small Voluntary; employment-based; high fragmentation; high admin costs; residual public safety net}
+      \end{block}
+    \column{0.32\textwidth}
+      \begin{block}{2. Social insurance\\(Bismarck)}
+        {\small Payroll-funded statutory funds; universal via mandates; Germany, France, Japan}
+      \end{block}
+    \column{0.32\textwidth}
+      \begin{alertblock}{3. Public system\\(Beveridge)}
+        {\small Tax-funded; universal; government provider; UK NHS, NZ, Canada, Australia}
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{The NZ Health System: Structure}
+  \begin{itemize}
+    \item NZ operates a \textbf{Beveridge-style} universal public health system
+    \item \textbf{Funded by general taxation}: no hypothecated health tax; funded through
+          Vote: Health in the annual Budget
+    \item \textbf{Health New Zealand $|$ Te Whatu Ora} (established 2022): single national
+          authority replacing the previous 20 District Health Boards (DHBs)
+    \item Primary care: mostly private GPs enrolled with Primary Health Organisations (PHOs)
+          under capitation funding
+    \item Pharmaceuticals: funded by \textbf{PHARMAC} through cost-effectiveness analysis
+    \item ACC: covers all accident and injury (no tort litigation for personal injury in NZ)
+    \item Private sector: Southern Cross + other private insurers for elective services
+  \end{itemize}
+  \begin{alertblock}{Ageing and the NZ system}
+    The shift to Health New Zealand and the \textit{localities} framework is partly a response
+    to the growing need for \textbf{integrated aged care} as the population ages.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{NZ Health System: History of Reforms (1984--2022)}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{block}{1984--1999: Market reforms}
+        \begin{itemize}
+          \item NZ's economic ``revolution'' under Lange/Douglas government
+          \item 1993: Health reforms introduced \textbf{purchaser--provider split}
+          \item Crown Health Enterprises (CHEs): semi-commercial hospitals
+          \item Regional Health Authorities (RHAs): purchasing agents
+          \item Intended to introduce competition; largely failed (see below)
+        \end{itemize}
+      \end{block}
+    \column{0.44\textwidth}
+      \begin{alertblock}{2000--2022: Re-integration}
+        \begin{itemize}
+          \item 2001: District Health Boards (DHBs) replace RHAs and CHEs
+          \item Re-merged purchasing and provision locally
+          \item 2022: Te Whatu Ora replaces all 20 DHBs with a single national entity
+          \item Rationale: reduce duplication, improve equity, integrate aged care
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Why Did the Purchaser--Provider Split Fail?}
+  \begin{itemize}
+    \item \textbf{Contract failure}: healthcare is too complex and contingent to specify
+          fully in a contract between purchaser and provider
+    \item \textbf{Transaction costs}: enormous resources diverted to contracting,
+          monitoring, and disputing contracts
+    \item \textbf{Hospital behaviour}: public hospitals did not behave like
+          profit-maximising firms even when incentivised to do so
+    \item \textbf{Equity concerns}: market mechanisms produced geographic and socioeconomic
+          inequalities in access
+    \item \textbf{Political economy}: voters and health professionals rejected commercialisation
+    \item Ashton, Mays \& Devlin (2005): describe this as ``continuity through change'' ---
+          the rhetoric of reform exceeded the reality
+  \end{itemize}
+  \begin{exampleblock}{Tutorial reading: Logan (1986) ``Bob's Party''}
+    A satirical account of health system reform --- presciently relevant to the NZ experience.
+    What parallels do you see with NZ's 1993 reforms?
+  \end{exampleblock}
+\end{frame}
+
+\summaryside{
+  \item Three health system types: private insurance (US), social insurance (Bismarck), public (Beveridge/NZ)
+  \item NZ: Beveridge-style, tax-funded, universal, now administered by Health New Zealand (Te Whatu Ora)
+  \item 1993 NZ purchaser--provider split largely failed: contract failure, transaction costs, equity concerns
+  \item 2022 reform: reversed DHB fragmentation, creating a single national health entity
+}
+
+% LECTURE 3
+\recapslide{
+  \item Health systems: private insurance, social insurance, public Beveridge-style
+  \item NZ: tax-funded universal system, now under Health New Zealand (Te Whatu Ora) since 2022
+  \item 1993 purchaser-provider split failed due to contract failure, transaction costs, political resistance
+}
+
+\planslide{International Health System Comparisons and Performance}{
+  \item Comparing health system performance: conceptual frameworks
+  \item Commonwealth Fund rankings and what they reveal
+  \item US healthcare: why so expensive, with worse outcomes?
+  \item Lessons for NZ
+}
+
+\begin{frame}{Measuring Health System Performance}
+  \begin{block}{What dimensions matter?}
+    \begin{enumerate}
+      \item \textbf{Health outcomes}: mortality, morbidity, life expectancy, HALE
+      \item \textbf{Equity}: distribution of health outcomes and access across income, ethnicity
+      \item \textbf{Responsiveness}: patient-centred care, timely access, choice
+      \item \textbf{Efficiency}: health outcomes per dollar spent
+      \item \textbf{Financial protection}: protection from catastrophic health costs
+    \end{enumerate}
+  \end{block}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item \textbf{Commonwealth Fund}: annual rankings of 11 high-income health systems ---
+          NZ consistently ranks in the top 4 overall, but weaker on equity and health outcomes
+    \item \textbf{US}: consistently ranks last among high-income countries despite spending
+          $\approx$17\% of GDP (vs.\ NZ $\approx$10\%)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The US Healthcare Paradox}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{block}{Why is US spending so high?}
+        \begin{itemize}
+          \item Administrative complexity (900+ private insurers)
+          \item Lack of monopsony bargaining power for prices
+          \item Fee-for-service $\Rightarrow$ volume incentives
+          \item High specialist and pharmaceutical prices
+          \item Lack of universal prevention
+          \item ``Medical arms race'' in hospital competition
+        \end{itemize}
+      \end{block}
+    \column{0.45\textwidth}
+      \begin{alertblock}{Why are outcomes worse?}
+        \begin{itemize}
+          \item 25--30 million uninsured (pre-ACA, now 25M+)
+          \item Geographic and socioeconomic access gaps
+          \item Racial and ethnic health disparities
+          \item Low primary care utilisation relative to specialist
+          \item Higher rates of obesity, diabetes, gun violence
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.3em}
+  {\footnotesize Anderson et al.\ (2019): ``It's still the prices, stupid.'' The US pays more for identical services and pharmaceuticals than any other country.}
+\end{frame}
+
+\summaryside{
+  \item Health system performance has five dimensions: outcomes, equity, responsiveness, efficiency, financial protection
+  \item NZ ranks well globally (top 4 on Commonwealth Fund) but has equity gaps for Māori, Pacific, and low-income populations
+  \item US spends $\approx$17\% of GDP on healthcare but ranks last among high-income countries --- the ``US paradox'' reflects fragmentation, administrative waste, and access inequalities
+  \item NZ's single-payer, monopsony-purchasing (PHARMAC) model avoids many US-style inefficiencies
+}
+
+
+% ────────────────────────────────────────────────────────────
+% w07_w09_part2
+% ────────────────────────────────────────────────────────────
+% ============================================================
+%  w07_week7.tex — Week 7: Introduction to Part II + 15% Test
+%  Lectures: Tue 9 Sep, Thu 11 Sep (TEST), Fri 12 Sep
+%  Tutorial 4: Monday 8 Sep — PHARMAC case study
+% ============================================================
+
+\section{Part II: Health Economic Evaluation and Decision-Making}
+
+\begin{frame}[plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[OtagoBlue!90] (current page.north west) rectangle (current page.south east);
+    \node[anchor=center, text=white, font=\LARGE\bfseries,
+          text width=0.85\paperwidth, align=center]
+      at ([yshift=1.5cm]current page.center)
+      {Part II: Health Economic Evaluation};
+    \node[anchor=center, text=OtagoGold, font=\large,
+          text width=0.85\paperwidth, align=center]
+      at ([yshift=-0.5cm]current page.center) {and Decision-Making};
+    \node[anchor=center, text=white!80, font=\normalsize,
+          text width=0.85\paperwidth, align=center]
+      at ([yshift=-1.8cm]current page.center)
+      {Weeks 7--11: Economic Evaluation $\cdot$ QALYs $\cdot$ Equity $\cdot$ MCDA};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Week 7 Overview}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \textbf{This week:}
+      \begin{itemize}
+        \item Introduction to economic evaluation in health
+        \item Economics-based approaches to allocating health spending
+        \item Overview of the four main types of evaluation: CMA, CBA, CEA, CUA
+        \item \alert{15\% Test on Thursday (covering Part I)}
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{block}{Required Reading}
+        {\small
+        \begin{itemize}
+          \item Devlin \& Hansen (2000): ``Allocating Vote: Health'' (NZ Treasury WP 00/4)
+          \item Kernick (1998): ``Economic evaluation in health: a thumbnail sketch'' (\textit{BMJ} 316)
+        \end{itemize}}
+      \end{block}
+      \vspace{0.2em}
+      \tutorialbox{\textbf{Tutorial 4 (Mon 8 Sep):} PHARMAC case studies --- applying CUA in practice}
+  \end{columns}
+\end{frame}
+
+\recapslide{
+  \item [From before break]: NZ health system: Beveridge-style, Te Whatu Ora, PHARMAC
+  \item Limited health care resources + unlimited wants $\Rightarrow$ prioritisation is unavoidable
+  \item We need systematic tools for making these decisions --- enter economic evaluation
+}
+
+\planslide{Introduction to Economic Evaluation; Allocation Frameworks}{
+  \item Why we need economic evaluation: from intuitive criteria to evidence-based approaches
+  \item Devlin \& Hansen (2000): the NZ Treasury approach
+  \item Components of an economic evaluation
+  \item Overview: CMA, CBA, CEA, CUA
+}
+
+\begin{frame}{The Problem of Allocating the Health Budget}
+  \begin{block}{Lots of intuitively appealing (but often conflicting) criteria}
+    \begin{itemize}
+      \item Treat the sickest first? (severity of condition)
+      \item Treat those with the most to gain? (benefit maximisation)
+      \item Treat the young before the old? (fair innings argument)
+      \item Treat those who have waited longest? (queue)
+      \item Treat those who can best afford it? (willingness to pay)
+      \item Treat those who need it most? (need-based)
+    \end{itemize}
+  \end{block}
+  \vspace{0.3em}
+  \begin{alertblock}{The economics approach}
+    Allocate resources to maximise \textbf{aggregate health gain} for a given budget ---
+    subject to equity constraints. This requires measuring costs and benefits systematically.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Components of an Economic Evaluation}
+  \begin{block}{All economic evaluations involve two elements}
+    \begin{enumerate}
+      \item \textbf{Costs}: identifying, measuring, and valuing all resources used
+      \item \textbf{Outcomes/consequences}: identifying, measuring, and valuing all health
+            outcomes (and potentially non-health outcomes)
+    \end{enumerate}
+  \end{block}
+  \vspace{0.3em}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \textbf{Types of costs:}
+      \begin{itemize}
+        \item Direct health care costs (drugs, hospitalisation)
+        \item Direct non-HC costs (transport, home care)
+        \item Indirect costs (productivity losses, carer time)
+        \item Intangible costs (pain, grief) --- rarely included
+      \end{itemize}
+    \column{0.47\textwidth}
+      \textbf{Perspective matters:}
+      \begin{itemize}
+        \item Payer perspective (PHARMAC, government)
+        \item Societal perspective (all costs, all benefits)
+        \item Patient perspective
+      \end{itemize}
+      \vspace{0.3em}
+      \begin{alertblock}{CHEERS 2022 standard}
+        Consolidated Health Economic Evaluation Reporting Standards --- the gold standard
+        for publication-quality economic evaluations.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{The Four Types of Economic Evaluation}
+  \begin{center}
+    \begin{tabular}{@{}lll@{}}
+      \toprule
+      \textbf{Type} & \textbf{Costs measured?} & \textbf{Outcomes measured?} \\
+      \midrule
+      CMA & Yes (in \$) & No (assumed equal) \\
+      CBA & Yes (in \$) & Yes (in \$) \\
+      CEA & Yes (in \$) & Yes (natural units) \\
+      CUA & Yes (in \$) & Yes (QALYs) \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \vspace{0.4em}
+  \begin{columns}
+    \column{0.48\textwidth}
+      \begin{block}{CMA}
+        \textbf{Cost-Minimisation Analysis}: if outcomes are proven equal, choose lowest cost
+      \end{block}
+      \begin{block}{CBA}
+        \textbf{Cost-Benefit Analysis}: convert all outcomes to \$ values (using VSL, WTP)
+      \end{block}
+    \column{0.48\textwidth}
+      \begin{alertblock}{CEA}
+        \textbf{Cost-Effectiveness Analysis}: cost per natural unit of health (e.g.\ \$/life-year)
+      \end{alertblock}
+      \begin{alertblock}{CUA}
+        \textbf{Cost-Utility Analysis}: cost per QALY gained. The dominant approach for
+        PHARMAC and most health technology assessment bodies
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{PHARMAC and Economic Evaluation in NZ}
+  \begin{itemize}
+    \item PHARMAC is one of the world's most influential practitioners of \textbf{formal
+          economic evaluation} for pharmaceutical funding decisions
+    \item PHARMAC uses \textbf{cost-utility analysis (CUA)} as its primary evaluation
+          framework, with a threshold of approximately \textbf{\$45,000--\$50,000 per QALY}
+    \item This threshold is \emph{implicit} (not formally published) --- PHARMAC weighs
+          multiple factors beyond cost-per-QALY (equity, budget impact, clinical need)
+    \item PHARMAC's ability to negotiate drug prices is a form of \textbf{monopsony power}:
+          as the sole buyer for publicly funded medicines, it can negotiate much lower prices
+          than in countries with fragmented purchasing
+    \item Result: NZ pays some of the lowest pharmaceutical prices in the OECD
+  \end{itemize}
+  \begin{exampleblock}{Tutorial 4}
+    We will apply CUA reasoning to real PHARMAC funding decisions in tutorial 4.
+    Come prepared having read the required readings.
+  \end{exampleblock}
+\end{frame}
+
+\summaryside{
+  \item Economic evaluation provides a systematic framework for prioritising health spending: measure costs and outcomes, compute a summary ratio
+  \item Four types: CMA (equal outcomes $\rightarrow$ min cost), CBA (outcomes in \$), CEA (outcomes in natural units), CUA (outcomes in QALYs)
+  \item PHARMAC uses CUA with an implicit \$45,000--50,000/QALY threshold --- one of the world's most rigorous HTA bodies
+  \item Components: direct HC costs, indirect costs, perspective (payer vs.\ societal)
+}
+
+% ==============================================================
+% w08_week8.tex — Week 8: Valuing Human Life + Evaluation Types
+% ==============================================================
+
+\section{Week 8: Valuing Human Life and Evaluation Methods}
+
+\begin{frame}{Week 8 Overview}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \textbf{This week:}
+      \begin{itemize}
+        \item What is the value of a human life?
+        \item Approaches: human capital, implied valuation, WTP, VSL
+        \item Applying VSL in CBA
+        \item \alert{15\% Assignment distributed this week}
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{block}{Required Reading}
+        {\small
+        \begin{itemize}
+          \item \textit{The Economist}: ``The price of a life'' (Dec 1993)
+          \item Kobelt: ``Cost-utility analysis'' and ``Cost-benefit analysis'' (pp.\ 75--99)
+          \item Drummond et al.: ``Basic types of economic evaluation'' (Ch.\ 2)
+          \item Salvatore: excerpts from Ch.\ 14 (discounting)
+        \end{itemize}}
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\recapslide{
+  \item Four types of economic evaluation: CMA, CBA, CEA, CUA
+  \item PHARMAC uses CUA with $\approx$\$45K--50K/QALY threshold
+  \item Components: direct costs, indirect costs, perspective
+}
+
+\planslide{Valuing Human Life: Why It Matters and How to Do It}{
+  \item Why government agencies must put a value on life
+  \item The human capital approach (and its problems)
+  \item Implied valuation approach
+  \item Willingness-to-pay and Value of Statistical Life (VSL)
+}
+
+\begin{frame}{Why We Must Value Human Life}
+  \begin{block}{A politically uncomfortable but practically necessary question}
+    Every time a government decides whether to fund a road safety measure, a new drug, or a
+    quarantine, it implicitly assigns a value to the lives that will be saved or lost.
+    Making this valuation \textbf{explicit and consistent} is both more honest and more efficient.
+  \end{block}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item Cost-benefit analysis requires all outcomes, including lives saved, to be expressed
+          in the same units (\$)
+    \item Without a value of life, we cannot compare policies that trade money against lives
+    \item The question is not ``what is an identified person's life worth?'' but
+          ``\textbf{how much are people willing to pay for small reductions in mortality risk?}''
+  \end{itemize}
+  \begin{alertblock}{Value of Statistical Life (VSL) vs.\ Value of Identified Life}
+    VSL is an \emph{ex ante} statistical concept: if 10,000 people each pay \$1,000 to
+    reduce their mortality risk by 1/10,000, the VSL = \$1,000 $\times$ 10,000 = \$10 million.
+    No identified life is valued.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Approach 1: Human Capital}
+  \begin{itemize}
+    \item Value a life = \textbf{present value of future earnings} (discounted stream of
+          foregone productivity)
+    \item Simple, data-based, and widely used historically
+    \item \textbf{Major problems}:
+    \begin{itemize}
+      \item Values retired people, children, and the disabled at zero or near zero
+      \item Does not capture utility from life beyond market earnings
+      \item Ignores pain, suffering, and loss of non-market activities
+      \item Based on \emph{actual} earnings, so discriminates by gender and ethnicity
+    \end{itemize}
+    \item Verdict: \textbf{useful for productivity losses}, but not appropriate as the
+          value of life for policy purposes
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Approach 2: Implied Valuation}
+  \begin{itemize}
+    \item Infer value of life from \textbf{revealed preferences} --- how much \emph{do}
+          governments or individuals actually pay to reduce mortality risk?
+    \item Examples:
+    \begin{itemize}
+      \item Government safety regulation: cost per life saved under road safety codes,
+            building standards, food safety rules
+      \item Individual behaviour: premium required to take risky jobs (``compensating
+            wage differentials'') --- Thaler \& Rosen (1975)
+    \end{itemize}
+    \item \textbf{Problems}: inconsistency (different agencies use wildly different implicit
+          VSLs), revealed preferences may reflect income constraints not true WTP
+  \end{itemize}
+  \begin{exampleblock}{NZ Ministry of Transport VSL}
+    NZ's Ministry of Transport uses a VSL of approximately \textbf{\$4.9 million} (2024 NZ\$)
+    for road safety cost-benefit analyses. This is derived from hedonic wage studies and
+    stated preference surveys of NZ workers.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Approach 4: Willingness to Pay and VSL}
+  \begin{itemize}
+    \item \textbf{Willingness to pay (WTP) approach}: survey individuals about their maximum
+          willingness to pay for a stated reduction in mortality risk (contingent valuation)
+    \item VSL $=$ WTP / $\Delta p$, where $\Delta p$ is the risk reduction
+    \item VSL estimates in high-income countries typically in the range of \textbf{US\$3--15 million}
+          (Meta-analyses: Viscusi \& Aldy, 2003; Robinson et al., 2019)
+    \item \textbf{Benefits transfer}: adjusting VSL from one country to another using
+          income elasticity $\approx$0.5--1.0 (richer countries have higher VSL)
+    \item \textbf{Problems}: hypothetical bias in stated preference surveys, scope insensitivity,
+          income effects
+  \end{itemize}
+  \begin{alertblock}{VSL is \emph{not} the value of saving one identified person's life}
+    It is the statistical value implied by aggregating many small WTP amounts for small
+    risk reductions. This distinction is critical for applying VSL correctly.
+  \end{alertblock}
+\end{frame}
+
+\summaryside{
+  \item Human capital approach values life as discounted future earnings --- flawed for policy but useful for productivity losses
+  \item Implied valuation reveals inconsistencies across policy areas
+  \item VSL from WTP surveys: NZ Ministry of Transport uses $\approx$NZ\$4.9M; OECD range US\$3--15M
+  \item VSL is a statistical concept for risk reductions, not the value of identified lives
+}
+
+\recapslide{
+  \item Four approaches to valuing life: human capital, implied, insurance, WTP/VSL
+  \item NZ's Ministry of Transport VSL: $\approx$NZ\$4.9M (2024)
+  \item VSL is ex-ante statistical, not the value of an identified person's life
+}
+
+\planslide{Discounting and Decision-Making Under Risk}{
+  \item The time value of money: discounting
+  \item Discounting health outcomes (life years)
+  \item Decision matrices: risk vs.\ uncertainty
+  \item Minimax, minimax regret, and expected value criteria
+}
+
+\begin{frame}{Discounting: The Time Value of Money}
+  \begin{block}{Why discount?}
+    A dollar today is worth more than a dollar in the future because:
+    \begin{enumerate}
+      \item \textbf{Opportunity cost}: money today can be invested to earn a return
+      \item \textbf{Time preference}: people prefer present over future consumption
+      \item \textbf{Risk}: future cash flows are uncertain
+    \end{enumerate}
+  \end{block}
+  \vspace{0.3em}
+  \begin{block}{The discount formula}
+    $$\text{PV} = \sum_{t=0}^{T} \frac{C_t}{(1+r)^t}$$
+    where $C_t$ = cost or benefit in year $t$, $r$ = discount rate, $T$ = time horizon
+  \end{block}
+  \begin{itemize}
+    \item \textbf{PHARMAC and NZ HTA}: commonly use a real discount rate of \textbf{3.5--5\%}
+    \item \textbf{UK NICE}: 3.5\% for both costs and health effects
+    \item Discounting \emph{life years} is controversial (see next slide)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Should We Discount Health Outcomes?}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{block}{Arguments for discounting health}
+        \begin{itemize}
+          \item Consistency with discounting money costs
+          \item If health could be ``traded'' for money, same logic applies
+          \item Otherwise: \emph{always} invest in prevention over treatment (regardless of
+                effectiveness)
+          \item Empirical evidence: people do exhibit time preference for health
+        \end{itemize}
+      \end{block}
+    \column{0.45\textwidth}
+      \begin{alertblock}{Arguments against / complications}
+        \begin{itemize}
+          \item Health is not traded in markets like money
+          \item Social discount rate $\neq$ individual time preference
+          \item Discounting favours treatment over prevention (biases policy)
+          \item Should future generations' health be discounted?
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.3em}
+  \begin{exampleblock}{NZ practice}
+    PHARMAC discounts both costs and QALYs at the same rate, following international convention
+    (NICE, ICER guidelines). The rationale: consistency, even if the philosophical case is contested.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Decision-Making Under Risk vs.\ Uncertainty}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \begin{block}{Risk}
+        \textbf{Probabilities are known} (or estimable):\\
+        Expected value criterion:
+        $$EV = \sum_i p_i \cdot \text{outcome}_i$$
+        Risk-adjusted decision trees and Markov models
+      \end{block}
+    \column{0.47\textwidth}
+      \begin{alertblock}{Uncertainty}
+        \textbf{Probabilities are unknown}:\\
+        Need non-probabilistic decision rules:
+        \begin{itemize}
+          \item \textbf{Minimax}: minimise worst case
+          \item \textbf{Minimin}: minimise best case (optimistic)
+          \item \textbf{Minimax regret}: minimise max regret
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.4em}
+  {\footnotesize See: ``Apocalypse maybe'', \textit{The Economist}, 30 March 1996 (required reading) --- applies exactly these concepts to the BSE/CJD crisis in Britain.}
+\end{frame}
+
+\summaryside{
+  \item Discounting converts future costs and benefits to present values; standard rates are 3.5--5\% in NZ and internationally
+  \item Whether to discount health outcomes (life years, QALYs) is philosophically contested but practically necessary for consistency
+  \item Under risk (known probabilities): expected value criterion; under uncertainty: minimax, minimin, or minimax regret
+  \item Minimax regret: choose the option that minimises how bad you'd feel if things go wrong --- a sensible middle ground
+}
+
+% ==============================================================
+% w09_week9.tex — Week 9: QALYs, HRQoL, and Discounting
+% ==============================================================
+
+\section{Week 9: QALYs, HRQoL, and Economic Evaluation in Practice}
+
+\begin{frame}{Week 9 Overview}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \textbf{This week:}
+      \begin{itemize}
+        \item Quality-Adjusted Life Years (QALYs): concepts and methods
+        \item Measuring health-related quality of life (HRQoL): EQ-5D
+        \item Generating utility weights: TTO, SG, VAS
+        \item Applying CUA: cost per QALY calculations
+        \item NZ EQ-5D value sets (Otago contribution)
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{block}{Required Reading}
+        {\small
+        \begin{itemize}
+          \item Kobelt: ``Cost-utility analysis'' (pp.\ 75--89) and ``Cost-benefit analysis'' (pp.\ 94--99)
+          \item \textit{Fairfax NZ News}: ``Outgoing drug boss says it's not easy to play God'' (Sep 2013)
+        \end{itemize}}
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\recapslide{
+  \item CUA uses QALYs as the outcome measure: cost per QALY gained
+  \item Discounting: PV of costs and benefits; rates of 3.5--5\% common in NZ/OECD
+  \item Risk: expected value criterion; uncertainty: minimax / minimax regret
+}
+
+\planslide{QALYs: Concepts and Measurement}{
+  \item The QALY concept: combining quantity and quality of life
+  \item Health state utility weights: 0 (death) to 1 (perfect health)
+  \item The EQ-5D-5L instrument and the NZ value set
+  \item Methods for eliciting utility weights: TTO, SG, VAS
+}
+
+\begin{frame}{What is a QALY?}
+  \begin{block}{Definition}
+    A \textbf{Quality-Adjusted Life Year (QALY)} combines:
+    \begin{itemize}
+      \item \textbf{Quantity of life} (years lived)
+      \item \textbf{Quality of life} (expressed as a utility weight, $u$, on a scale of 0--1)
+    \end{itemize}
+    $$\text{QALYs} = \int_0^T u(t)\, dt \;\approx\; \sum_t u_t \cdot \Delta t$$
+  \end{block}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item One year in \textbf{perfect health} $= 1.0$ QALY
+    \item One year with \textbf{moderate disability} (e.g.\ $u = 0.6$) $= 0.6$ QALY
+    \item \textbf{Death} $= 0$ QALY (anchor point)
+    \item Some states are valued \textbf{worse than death} ($u < 0$) e.g.\ severe pain,
+          complete dependency
+  \end{itemize}
+  \begin{alertblock}{Why QALYs?}
+    QALYs allow comparison across very different diseases and treatments on a common scale.
+    A hip replacement and a blood pressure drug both produce QALYs --- we can compare their
+    cost-effectiveness directly.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{The EQ-5D-5L Instrument}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{block}{Five dimensions, five levels each}
+        \begin{enumerate}
+          \item \textbf{Mobility}: no problems $\to$ unable to walk
+          \item \textbf{Self-care}: no problems $\to$ unable to wash/dress
+          \item \textbf{Usual activities}: no problems $\to$ unable to perform
+          \item \textbf{Pain/discomfort}: none $\to$ extreme
+          \item \textbf{Anxiety/depression}: none $\to$ extreme
+        \end{enumerate}
+      \end{block}
+      In total: $5^5 = 3,125$ possible health states
+    \column{0.42\textwidth}
+      \begin{alertblock}{The NZ EQ-5D value set}
+        The \textbf{NZ EQ-5D-3L value set} (Devlin, Hansen et al., 2000) and
+        \textbf{NZ EQ-5D-5L value set} were generated by Otago Economics-affiliated researchers
+        using Time Trade-Off (TTO) methods with NZ population samples.\\[0.3em]
+        PHARMAC uses the NZ value set for funded medicines evaluations.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Methods for Eliciting Health State Utility Weights}
+  \begin{columns}
+    \column{0.32\textwidth}
+      \begin{block}{Visual Analogue Scale (VAS)}
+        Rate health state on a 0--100 ``feeling thermometer''\\[0.3em]
+        \textit{Pros}: easy, fast\\
+        \textit{Cons}: doesn't involve trade-off; may not reflect preferences
+      \end{block}
+    \column{0.32\textwidth}
+      \begin{alertblock}{Time Trade-Off (TTO)}
+        How many years in perfect health do you value equally to $T$ years in health state $X$?\\[0.3em]
+        \textit{Pros}: intuitive trade-off; anchored at death\\
+        \textit{Cons}: time preference confounds
+      \end{alertblock}
+    \column{0.32\textwidth}
+      \begin{block}{Standard Gamble (SG)}
+        What probability $p$ of perfect health vs.\ $(1-p)$ immediate death is equivalent to
+        certain health state $X$?\\[0.3em]
+        \textit{Pros}: theoretically grounded in EU theory\\
+        \textit{Cons}: difficult for respondents; risk attitude confounds
+      \end{block}
+  \end{columns}
+  \vspace{0.4em}
+  {\footnotesize \textbf{International standard}: EuroQol Group recommends \textbf{TTO} as the
+  preferred method for value set generation. The NZ EQ-5D-5L value set uses hybrid TTO.}
+\end{frame}
+
+\begin{frame}{Applying CUA: The Cost-per-QALY Calculation}
+  \begin{block}{The incremental cost-effectiveness ratio (ICER)}
+    $$\text{ICER} = \frac{\Delta \text{Cost}}{\Delta \text{QALYs}} = \frac{C_{\text{new}} - C_{\text{comparator}}}{Q_{\text{new}} - Q_{\text{comparator}}}$$
+  \end{block}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item Compare the \textbf{new intervention} to the best available \textbf{comparator}
+          (``standard of care'')
+    \item If ICER $<$ threshold $\Rightarrow$ fund the intervention
+    \item If ICER $>$ threshold $\Rightarrow$ do not fund (opportunity cost exceeds gain)
+    \item \textbf{NZ PHARMAC threshold}: $\approx$\$45,000--50,000 per QALY (implicit)
+    \item \textbf{UK NICE threshold}: £20,000--30,000 per QALY
+    \item \textbf{ICER (US)}: \$100,000--150,000 per QALY
+  \end{itemize}
+  \begin{exampleblock}{Why do thresholds differ across countries?}
+    The threshold represents the \textbf{opportunity cost} of the marginal dollar spent on
+    health --- richer countries have higher thresholds. NZ's lower threshold reflects lower GDP
+    per capita and PHARMAC's explicit budget constraint.
+  \end{exampleblock}
+\end{frame}
+
+\summaryside{
+  \item A QALY = years of life $\times$ quality weight (0 = death, 1 = perfect health)
+  \item EQ-5D-5L: five dimensions, five levels each; NZ value set from Otago-affiliated researchers
+  \item Utility elicitation methods: VAS (easy but weak), TTO (preferred), SG (theoretically ideal but hard)
+  \item ICER = $\Delta$Cost / $\Delta$QALYs; fund if ICER $<$ threshold; PHARMAC threshold $\approx$\$45--50K/QALY
+}
+
+\recapslide{
+  \item QALY = life years $\times$ quality weight; ICER = $\Delta$cost / $\Delta$QALY
+  \item EQ-5D-5L instrument; NZ value set (Otago)
+  \item Fund if ICER $<$ threshold; NZ threshold $\approx$\$45--50K/QALY
+}
+
+\planslide{Ageing, QALYs, and the Life-Stage Problem}{
+  \item Do QALYs treat all people equally regardless of age?
+  \item The ``fair innings'' argument
+  \item Dementia, end-of-life care, and the QALY framework
+  \item NZ EQ-5D value set results
+}
+
+\begin{frame}{QALYs, Ageing, and the ``Fair Innings'' Argument}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{itemize}
+        \item Because QALYs are gained over remaining lifetime, \textbf{younger patients
+              gain more QALYs} from the same treatment (more life years ahead)
+        \item Pure QALY maximisation therefore tends to favour treating younger patients
+        \item The \textbf{``fair innings'' argument} (Harris, 1985; Williams, 1997): everyone
+              deserves a ``fair innings'' of healthy life --- perhaps prioritising the young is
+              fair because the old have already had theirs
+        \item Counterargument: treating the elderly has intrinsic value regardless of remaining
+              life expectancy
+      \end{itemize}
+    \column{0.44\textwidth}
+      \begin{alertblock}{NZ equity implications}
+        Māori and Pacific peoples have \textbf{lower life expectancy at 65} than European NZers
+        --- if ``fair innings'' logic is applied, this disadvantages groups who have already had
+        fewer healthy years.\\[0.3em]
+        PHARMAC considers equity weights alongside ICERs to address this.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Dementia and End-of-Life Care: Challenges for CUA}
+  \begin{itemize}
+    \item Dementia creates specific problems for the QALY framework:
+    \begin{itemize}
+      \item Cognitive impairment makes self-reported EQ-5D unreliable (proxy responses needed)
+      \item Proxy-reported utility weights may not reflect the patient's subjective experience
+      \item Dementia care costs are enormous but QALY gains from care are modest
+    \end{itemize}
+    \item \textbf{End-of-life care}: NZ spends disproportionately on care in the last months
+          of life, with limited QALY gains per dollar --- consistent with international evidence
+    \item NICE (2009) introduced an ``end-of-life premium'': treatments at end of life
+          receive a higher effective threshold (£50,000 vs.\ £30,000)
+    \item NZ PHARMAC does not have a formal end-of-life premium --- an ongoing policy debate
+  \end{itemize}
+  \begin{block}{Ageing connection}
+    As NZ's population ages, dementia and end-of-life care will become a growing share of total
+    health spending. The QALY framework needs adaptation for this context.
+  \end{block}
+\end{frame}
+
+\summaryside{
+  \item QALYs favour younger patients (more life years remaining) --- raises fairness questions
+  \item ``Fair innings'' argument: some age-weighting may be ethically justified, but complicates equity for disadvantaged groups with shorter life expectancy
+  \item Dementia creates measurement challenges for CUA; end-of-life premium (as in UK) is one response
+  \item PHARMAC does not currently use a formal end-of-life premium --- a live NZ policy debate
+}
+
+
+% ────────────────────────────────────────────────────────────
+% w10_w11_equity_mcda
+% ────────────────────────────────────────────────────────────
+% ============================================================
+%  w10_week10.tex — Week 10: Equity, Fairness, and Justice
+%  Lectures: Tue 23 Sep, Thu 25 Sep, Fri 26 Sep
+%  Tutorial 5: Monday 22 Sep — MCDA prioritisation exercise
+% ============================================================
+
+\section{Week 10: Equity, Fairness, and Justice in Health Care}
+
+\begin{frame}{Week 10 Overview}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \textbf{This week:}
+      \begin{itemize}
+        \item Is pure QALY maximisation sufficient? What else matters?
+        \item Philosophical frameworks: utilitarianism, Rawlsianism, egalitarianism
+        \item Economics models of social preferences
+        \item Distributional value judgements in health care
+        \item Equity and the PHARMAC decision framework
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{block}{Required Reading}
+        {\small
+        \begin{itemize}
+          \item Gillon (1985): ``Justice and allocation of medical resources'' (\textit{BMJ}, 291)
+          \item \textit{Fairfax NZ News}: ``Outgoing drug boss says it's not easy to play God'' (Sep 2013)
+        \end{itemize}}
+      \end{block}
+      \vspace{0.2em}
+      \tutorialbox{\textbf{Tutorial 5 (Mon 22 Sep):} MCDA prioritisation exercise using 1000Minds or similar tool --- you will rank hypothetical health interventions as a ``mock PHARMAC committee''}
+  \end{columns}
+\end{frame}
+
+\recapslide{
+  \item ICER = $\Delta$cost / $\Delta$QALY; PHARMAC threshold $\approx$\$45--50K/QALY
+  \item QALYs favour younger patients; ``fair innings'' raises equity questions
+  \item Dementia and end-of-life: challenges for standard CUA framework
+}
+
+\planslide{Beyond QALYs: What Else Should Matter in Health Allocation?}{
+  \item Limitations of pure QALY maximisation
+  \item Philosophical frameworks: utilitarianism, Rawlsianism, libertarianism
+  \item ``Rule of rescue'' and other popular value judgements
+  \item Incorporating distributional weights
+}
+
+\begin{frame}{Is QALY Maximisation Enough?}
+  \begin{block}{The case for QALY maximisation}
+    If society's goal is to maximise population health from a fixed budget, then funding
+    interventions in order of cost-per-QALY until the budget is exhausted is \textbf{Pareto
+    efficient}: no other allocation produces more aggregate health.
+  \end{block}
+  \vspace{0.3em}
+  \begin{alertblock}{But society cares about more than aggregate health}
+    \begin{itemize}
+      \item \textbf{Who} benefits? Distribution across groups matters
+      \item \textbf{Severity}: some people are much worse off and deserve priority
+      \item \textbf{Rule of rescue}: powerful intuition to save identifiable individuals
+      \item \textbf{Fairness}: processes and opportunities, not just outcomes
+      \item \textbf{Innovation}: should new treatments be rewarded to incentivise R\&D?
+      \item \textbf{Carer burden}: should unpaid caregiver impacts count?
+    \end{itemize}
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Philosophical Frameworks: Three Traditions}
+  \begin{columns}
+    \column{0.32\textwidth}
+      \begin{block}{Utilitarianism}
+        Maximise \textbf{aggregate welfare} (sum of utilities)\\[0.3em]
+        In health: maximise total QALYs\\[0.3em]
+        \textit{Critique}: ignores distribution; extreme inequalities can be justified if
+        aggregate welfare is high enough
+      \end{block}
+    \column{0.32\textwidth}
+      \begin{alertblock}{Rawlsianism}
+        Maximise the welfare of the \textbf{worst-off} (``maximin'' principle)\\[0.3em]
+        In health: prioritise the sickest/most disadvantaged\\[0.3em]
+        \textit{Critique}: can justify enormous resource use to provide tiny gains to the worst-off
+      \end{alertblock}
+    \column{0.32\textwidth}
+      \begin{block}{Libertarianism}
+        Respect \textbf{individual rights} and voluntary exchange\\[0.3em]
+        In health: allow markets, respect patient preferences\\[0.3em]
+        \textit{Critique}: fails those who cannot afford care; ignores externalities
+      \end{block}
+  \end{columns}
+  \vspace{0.4em}
+  \begin{exampleblock}{NZ's pragmatic approach}
+    PHARMAC applies a mix of utilitarian (QALY max), Rawlsian (equity weighting for Māori and
+    Pacific peoples), and practical constraints. No pure philosophical framework governs decisions.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Common Distributional Value Judgements}
+  \begin{enumerate}
+    \item \textbf{Horizontal equity}: people with equal needs should receive equal treatment,
+          regardless of income, ethnicity, or location
+    \item \textbf{Vertical equity}: people with greater needs should receive more care
+          (i.e.\ treat the sickest first)
+    \item \textbf{Fair innings}: everyone deserves a chance at a full, healthy life ---
+          prioritise those who have had fewer healthy years (often the young, or those with
+          lower life expectancy)
+    \item \textbf{Rule of rescue}: powerful moral intuition to do everything possible for
+          identified individuals facing death, even at disproportionate cost
+    \item \textbf{Severity weighting}: interventions for more severe conditions receive a
+          higher effective threshold (``severity multiplier'', as in Norway)
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Ageing and Equity: Specific Tensions}
+  \begin{itemize}
+    \item Older patients \textbf{receive fewer QALYs} per intervention (fewer remaining
+          life years) --- QALY maximisation disfavours them
+    \item But older patients often have \textbf{greater need} (vertical equity argues for
+          prioritising them)
+    \item \textbf{Māori and Pacific} NZers have shorter average life expectancy --- applying
+          age-weighting or fair innings logic further disadvantages these groups
+    \item Long-term care and dementia: the QALY framework undervalues care that \emph{improves
+          quality of life} for people at the end of life, even if it doesn't extend it
+    \item \textbf{Policy dilemma}: as NZ's population ages, health budgets will be
+          increasingly strained by elderly patients with lower QALY returns --- equity requires
+          us to be explicit about trade-offs
+  \end{itemize}
+\end{frame}
+
+\summaryside{
+  \item Pure QALY maximisation is efficient but may produce inequitable outcomes --- ignores \emph{who} benefits
+  \item Three philosophical frameworks: utilitarianism (max aggregate QALYs), Rawlsianism (maximin), libertarianism (rights)
+  \item Common value judgements: horizontal/vertical equity, fair innings, rule of rescue, severity weighting
+  \item Ageing population creates acute tensions between QALY efficiency and equity for older, Māori, and Pacific patients
+}
+
+\recapslide{
+  \item QALY maximisation may be efficient but violates intuitions about equity and fairness
+  \item Three frameworks: utilitarianism, Rawlsianism, libertarianism
+  \item Value judgements: horizontal equity, vertical equity, fair innings, rule of rescue
+}
+
+\planslide{Economics Models of Social Preferences; Equity Weights}{
+  \item Social welfare functions: Bergson--Samuelson
+  \item Incorporating distributional weights in CUA
+  \item PHARMAC's ``equity of access'' criterion
+  \item International comparisons: Norway severity weights, UK NICE end-of-life premium
+}
+
+\begin{frame}{Economics Models of Social Preferences}
+  \begin{block}{Social welfare function (SWF)}
+    $$W = W(U_1, U_2, \ldots, U_n)$$
+    Different functional forms embed different ethical views:
+    \begin{itemize}
+      \item \textbf{Utilitarian}: $W = \sum_i U_i$ (maximise sum)
+      \item \textbf{Rawlsian}: $W = \min_i U_i$ (maximise minimum)
+      \item \textbf{Inequality-averse}: concave $W$ (give more weight to worse-off)
+    \end{itemize}
+  \end{block}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item Distributional weights $w_i$ applied to QALYs of different groups:
+          $$W = \sum_i w_i \cdot Q_i$$
+    \item If $w_i > 1$ for disadvantaged groups, we give their QALYs extra weight
+    \item \textbf{Challenge}: how to determine $w_i$? --- empirical measurement through
+          public preference surveys (e.g.\ vignette studies, discrete choice)
+  \end{itemize}
+\end{frame}
+
+\summaryside{
+  \item Social welfare functions formalise different ethical views: utilitarian (sum), Rawlsian (minimum), inequality-averse (concave)
+  \item Distributional weights apply higher values to QALYs gained by disadvantaged groups
+  \item PHARMAC explicitly considers equity of access for Māori, Pacific, and other underserved groups
+  \item International models: Norway severity multiplier, UK end-of-life premium, Dutch proportional shortfall
+}
+
+\recapslide{
+  \item SWFs: utilitarian, Rawlsian, inequality-averse
+  \item Distributional weights: $w_i > 1$ for disadvantaged groups
+  \item PHARMAC, Norway, UK each implement equity adjustments differently
+}
+
+\planslide{From Individual Evaluation to System-Level Priority-Setting}{
+  \item The league table approach: ranking interventions by ICER
+  \item Strengths and limitations of the league table
+  \item Moving towards MCDA (preview of Week 11)
+  \item NZ Treasury ``economics approach'' revisited: Devlin \& Hansen (2000)
+}
+
+\begin{frame}{The League Table Approach}
+  \begin{itemize}
+    \item List all candidate interventions, ranked by \textbf{cost per QALY} (ICER)
+    \item Fund from the top down until the budget is exhausted
+    \item \textbf{Appeal}: transparent, consistent, maximises aggregate health
+    \item \textbf{Problems with league tables}:
+    \begin{itemize}
+      \item Different studies use different methods (comparators, perspectives, time horizons)
+      \item Assumes all QALYs are equal (no distributional weights)
+      \item Ignores budget impact (a \$5M drug with a low ICER exhausts the budget)
+      \item Does not account for uncertainty in ICER estimates
+      \item Ignores non-QALY factors: equity, innovation, unmet need
+    \end{itemize}
+    \item \textbf{PHARMAC does not use a formal league table} --- it weighs multiple criteria
+          (including equity, clinical benefit, budget impact) in a committee process
+  \end{itemize}
+\end{frame}
+
+\summaryside{
+  \item The league table: rank by ICER, fund from the top down --- transparent and efficient but ignores equity, budget impact, and uncertainty
+  \item PHARMAC uses a multi-criteria committee process, not a simple league table
+  \item Multiple dimensions beyond ICER matter: equity, budget impact, innovation, unmet need
+  \item This motivates Multi-Criteria Decision Analysis (MCDA) --- Week 11
+}
+
+% ==============================================================
+% w11_week11.tex — Week 11: MCDA and Choice Modelling
+% ==============================================================
+
+\section{Week 11: Multi-Criteria Decision Analysis and Choice Modelling}
+
+\begin{frame}{Week 11 Overview}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \textbf{This week:}
+      \begin{itemize}
+        \item Introduction to MCDA: concepts and methods
+        \item MCDA in health: prioritising technologies and patients
+        \item Hansen \& Devlin (2019): MCDA frameworks for health
+        \item The PAPRIKA method and 1000Minds (Otago research)
+        \item Choice modelling: stated preference methods
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{block}{Required Reading}
+        {\small
+        \begin{itemize}
+          \item Buchanan \& O'Connell (2006): ``A brief history of decision making'' (\textit{HBR})
+          \item Hansen \& Devlin (2019): ``Multi-Criteria Decision Analysis in health care'' (Oxford Research Encyclopedia)
+          \item Golan \& Hansen (2012): ``Which health technologies should be funded?''
+        \end{itemize}}
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\recapslide{
+  \item League tables rank interventions by ICER but ignore equity, budget impact, uncertainty, non-QALY factors
+  \item Social welfare functions formalise different ethical views; distributional weights adjust for equity
+  \item PHARMAC uses a committee process weighing multiple criteria, not a simple ICER threshold
+}
+
+\planslide{Introduction to MCDA}{
+  \item What is MCDA and why does it matter for health economics?
+  \item A brief history of decision analysis
+  \item Common MCDA methods: MAVT, AHP, PROMETHEE, PAPRIKA
+  \item Applying MCDA to pharmaceutical prioritisation
+}
+
+\begin{frame}{What is MCDA?}
+  \begin{block}{Multi-Criteria Decision Analysis (MCDA)}
+    A family of methods for \textbf{structuring and solving complex decisions} that involve
+    multiple, often conflicting, criteria --- where no single option is best on all criteria.
+  \end{block}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item Health allocation decisions \emph{always} involve multiple criteria:
+    \begin{itemize}
+      \item Clinical benefit (QALYs)
+      \item Equity (who benefits)
+      \item Cost and budget impact
+      \item Severity and unmet need
+      \item Quality of evidence
+      \item Innovation incentives
+    \end{itemize}
+    \item CUA captures only some of these; MCDA \textbf{explicitly structures all criteria}
+          and applies weights
+    \item MCDA provides \textbf{transparency}: weights are made explicit, not hidden inside
+          committee deliberations
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{A Brief History of Decision Analysis}
+  \begin{itemize}
+    \item \textbf{1950s--60s}: Operations research and statistical decision theory
+          (Wald, Savage); Milestones in decision matrices
+    \item \textbf{1970s}: Multi-attribute utility theory (MAUT): Keeney \& Raiffa (1976)
+    \item \textbf{1980s}: Analytic Hierarchy Process (AHP): Saaty (1980) --- widely used
+          but criticised for rank reversal
+    \item \textbf{1990s--2000s}: MCDA applied to environmental and public policy;
+          beginning of health applications
+    \item \textbf{2010s}: ISPOR MCDA Emerging Good Practices Task Force (2016);
+          rapid adoption in health technology assessment globally
+    \item \textbf{NZ contribution}: \textbf{Paul Hansen \& Franz Ombler (2008)}: developed
+          the PAPRIKA method, implemented in \textbf{1000Minds} software; now used by
+          NZ Ministry of Health, WHO, and hundreds of organisations globally
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The PAPRIKA Method and 1000Minds}
+  \begin{block}{PAPRIKA: Potentially All Pairwise Rankings of All possible Alternatives}
+    Developed by Otago's Paul Hansen \& Franz Ombler (2008).\\
+    Key innovation: elicit weights through \textbf{pairwise ranking of partial profiles}
+    rather than asking decision-makers to assign numerical weights directly.
+  \end{block}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item \textbf{1000Minds software}: online tool implementing PAPRIKA;
+          used by NZ Ministry of Health (prioritising $>$100,000 patients/year),
+          WHO, health ministries in Australia, UK, and elsewhere
+    \item \textbf{Advantages}: avoids anchoring bias, handles many criteria, produces
+          consistent weights, user-friendly
+    \item \textbf{Tutorial 5}: you will use a simplified version of this approach to
+          prioritise a set of hypothetical health interventions as a ``mock PHARMAC committee''
+  \end{itemize}
+  \begin{exampleblock}{Golan \& Hansen (2012)}
+    Apply PAPRIKA/1000Minds to Israeli pharmaceutical prioritisation --- a worked example
+    of MCDA in practice. Required reading for this week.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Choice Modelling in Health Economics}
+  \begin{itemize}
+    \item \textbf{Discrete Choice Experiments (DCEs)}: present respondents with hypothetical
+          choices between alternatives described by attributes; infer preferences from choices
+    \item Applications in health:
+    \begin{itemize}
+      \item Valuing health-related quality of life (generating EQ-5D value sets)
+      \item Understanding patient preferences for health care features
+      \item Valuing GP attributes (waiting time, doctor continuity, after-hours access)
+      \item Measuring public preferences for health system attributes
+    \end{itemize}
+    \item \textbf{Advantage over surveys}: reveals preferences through choices (analogous
+          to revealed preference), not just stated intentions
+    \item \textbf{NZ application}: Sullivan \& Hansen (2017) used DCEs to determine
+          public preferences for health technology prioritisation criteria in NZ
+  \end{itemize}
+\end{frame}
+
+\summaryside{
+  \item MCDA explicitly structures and weights multiple criteria; more transparent than committee deliberation
+  \item PAPRIKA/1000Minds (Hansen \& Ombler, 2008) is a world-leading MCDA tool, developed at Otago, used by NZ Ministry of Health and WHO
+  \item DCEs reveal preferences for health system attributes through hypothetical choices
+  \item Sullivan \& Hansen (2017): NZ public preferences for health technology prioritisation criteria
+}
+
+\recapslide{
+  \item MCDA: explicit criteria and weights; more transparent than ad-hoc committee decisions
+  \item PAPRIKA: Otago-developed; used by NZ Ministry of Health and WHO for patient prioritisation
+  \item DCEs in health: value health system attributes through hypothetical choices
+}
+
+\planslide{MCDA in Practice: Applications and Challenges}{
+  \item The ISPOR MCDA good practice framework
+  \item Applying MCDA to pharmaceutical funding decisions
+  \item Challenges: weighting, aggregation, legitimacy
+  \item Ageing populations and MCDA: valuing aged care differently?
+}
+
+\begin{frame}{MCDA Good Practice: The ISPOR Framework}
+  \begin{block}{ISPOR MCDA Emerging Good Practices Task Force (2016)}
+    Eight steps for good MCDA practice in health:
+    \begin{enumerate}
+      \item Define the decision problem
+      \item Select and structure criteria
+      \item Measure performance on each criterion
+      \item Score the options
+      \item Weight the criteria
+      \item Calculate an overall value score
+      \item Examine results for robustness (sensitivity analysis)
+      \item Use results to inform (not replace) decision-making
+    \end{enumerate}
+  \end{block}
+  \begin{alertblock}{Key principle}
+    MCDA is a \textbf{decision support} tool, not a decision rule. It informs and structures
+    deliberation; it does not replace human judgement.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Ageing Populations and MCDA: New Challenges}
+  \begin{itemize}
+    \item As populations age, MCDA frameworks face new pressures:
+    \begin{itemize}
+      \item How should \textbf{long-term care quality} be weighted relative to acute treatment?
+      \item Should \textbf{caregiver burden} enter as a criterion?
+      \item How do we weight \textbf{dementia care} when cognitive impairment limits
+            self-reported quality of life?
+      \item Should there be an \textbf{``ageing premium''} analogous to the UK end-of-life
+            premium, to ensure care for the oldest old is not systematically under-funded?
+    \end{itemize}
+    \item The NZ Aged Residential Care (ARC) sector has its own funding constraints distinct
+          from hospital-based care --- MCDA tools are increasingly being applied here
+    \item \textbf{1000Minds} is already used by some NZ aged care providers for needs
+          assessment and care prioritisation
+  \end{itemize}
+\end{frame}
+
+\summaryside{
+  \item ISPOR framework: 8 steps for MCDA in health; it supports rather than replaces decision-making
+  \item Challenges: who weights criteria? How are weights aggregated across stakeholder groups?
+  \item Ageing populations raise new MCDA questions: how to value long-term care, caregiver burden, dementia, end-of-life care
+  \item 1000Minds (Otago) is being applied to aged care as well as acute care prioritisation in NZ
+}
+
+
+% ────────────────────────────────────────────────────────────
+% w12_w13_education
+% ────────────────────────────────────────────────────────────
+% ============================================================
+%  w12_week12.tex — Week 12: Economics of Education
+%  Lectures: Tue 7 Oct, Thu 9 Oct, Fri 10 Oct
+%  Tutorial 6: Monday 6 Oct — education policy debate: user-pays vs. public funding
+%  ASSIGNMENT DUE: Monday 6 Oct
+% ============================================================
+
+\section{Part III: The Economics of Education}
+
+\begin{frame}[plain]
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[OtagoBlue!90] (current page.north west) rectangle (current page.south east);
+    \node[anchor=center, text=white, font=\LARGE\bfseries,
+          text width=0.85\paperwidth, align=center]
+      at ([yshift=1.5cm]current page.center) {Part III: The Economics of Education};
+    \node[anchor=center, text=OtagoGold, font=\large,
+          text width=0.85\paperwidth, align=center]
+      at ([yshift=-0.5cm]current page.center) {Weeks 12--13};
+    \node[anchor=center, text=white!80, font=\normalsize,
+          text width=0.85\paperwidth, align=center]
+      at ([yshift=-1.8cm]current page.center)
+      {Government role $\cdot$ NZ student loans $\cdot$ Human capital $\cdot$ Signalling};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Week 12 Overview}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \textbf{This week:}
+      \begin{itemize}
+        \item Education as an economic good: similarities and differences with health
+        \item Why governments fund and regulate education
+        \item User-pays and NZ student loans: economics and history
+        \item MOOCs and new models of tertiary education
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{block}{Required Reading}
+        {\small
+        \begin{itemize}
+          \item Hansen: ``Borrowing to learn, or learning to borrow?'' (student fees and loans)
+          \item \textit{The Economist}: ``Creative destruction'' (Jun 2014)
+          \item \textit{The Economist}: ``The digital degree'' (Jun 2014)
+          \item \textit{The Economist}: ``Established providers v.\ new contenders'' (Jan 2017)
+        \end{itemize}}
+      \end{block}
+      \vspace{0.2em}
+      \tutorialbox{\textbf{Tutorial 6 (Mon 6 Oct):} Debate --- ``NZ university students should pay the full cost of their education.'' \textbf{Assignment due by 9am Monday.}}
+  \end{columns}
+\end{frame}
+
+% LECTURE 1
+\recapslide{
+  \item MCDA provides transparent, structured decision support for multi-criteria health allocation
+  \item PAPRIKA/1000Minds (Otago): used by NZ Ministry of Health and WHO for patient prioritisation
+  \item Ageing creates new MCDA challenges: long-term care, dementia, caregiver burden
+}
+
+\planslide{Education as an Economic Good; Why Governments Intervene}{
+  \item Parallels and differences between education and health as economic goods
+  \item Market failures in education markets
+  \item Positive externalities, public goods, information asymmetries
+  \item NZ overview: school, tertiary, and vocational education systems
+}
+
+\begin{frame}{Education vs.\ Health: Similarities and Differences}
+  \begin{columns}
+    \column{0.48\textwidth}
+      \begin{block}{Similarities}
+        \begin{itemize}
+          \item Both are major areas of government expenditure
+          \item Both generate substantial positive externalities
+          \item Both involve information asymmetries
+          \item Both have principal-agent problems
+          \item Both are partly ``derived demands'' (education for skills/income; health for well-being)
+        \end{itemize}
+      \end{block}
+    \column{0.48\textwidth}
+      \begin{alertblock}{Important differences}
+        \begin{itemize}
+          \item Education is \textbf{consumed voluntarily} in most cases; much health care is not
+          \item Education outcomes are long-run and delayed; HC outcomes are often immediate
+          \item Education involves \textbf{longer production cycles} (years, not days)
+          \item Education has \textbf{multiple outputs}: private returns, social returns, research,
+                citizenship/socialisation
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Market Failures in Education}
+  \begin{enumerate}
+    \item \textbf{Positive externalities}: education raises productivity and social outcomes
+          for \emph{others} beyond the individual (innovation spillovers, lower crime, better
+          civic participation) $\Rightarrow$ private demand will be \emph{below} socially optimal
+    \item \textbf{Capital market failure}: students cannot easily borrow against future income
+          to fund current education costs $\Rightarrow$ under-investment, especially by
+          low-income families
+    \item \textbf{Imperfect information}: students cannot perfectly evaluate educational
+          quality before they purchase it; employers face information asymmetry about graduate
+          quality
+    \item \textbf{Consumption in childhood}: children cannot make optimal investment decisions
+          on their own behalf $\Rightarrow$ government provides compulsory schooling
+  \end{enumerate}
+  \begin{exampleblock}{NZ response}
+    Free compulsory schooling (Years 1--10); subsidised secondary (Years 11--13);
+    subsidised tertiary (income-contingent Student Loan Scheme for fees and living costs)
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{The NZ Education System: A Brief Overview}
+  \begin{itemize}
+    \item \textbf{Early childhood}: regulated, partly subsidised through ECE funding
+          ($\approx$20 hours/week free from age 3)
+    \item \textbf{Compulsory schooling}: Years 1--10 (ages 5--16); curriculum set by
+          Ministry of Education; locally governed
+    \item \textbf{Secondary}: free public schooling Years 11--13; NCEA qualification framework
+    \item \textbf{Tertiary}: mixture of universities (8), polytechnics (ITPs), wānanga (Māori
+          tertiary institutions), and private training establishments (PTEs)
+    \item Tertiary funding: \textbf{government subsidises} approximately 75--80\% of domestic
+          student tuition through the Tertiary Education Commission (TEC); students pay fees
+          (currently capped at $\approx$NZ\$6,000--9,000/year)
+    \item \textbf{Free first year}: policy introduced in 2018 --- first year of tertiary
+          fully funded by government for domestic students
+    \item \textbf{Student Loan Scheme}: income-contingent loans for fees AND living costs;
+          interest-free for NZ residents
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{NZ Student Loan Scheme: Economics}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{itemize}
+        \item Introduced 1992 to replace grants with loans; designed as income-contingent
+        \item Total outstanding student loan debt: $\approx$NZ\$9.8 billion (2024)
+        \item $\approx$700,000 borrowers; average debt $\approx$\$22,000 at graduation
+        \item \textbf{Income-contingent repayment}: 12\% of income above repayment threshold
+              ($\approx$\$22,828/yr); no repayments while income below threshold
+        \item \textbf{Interest-free} for NZ residents (introduced 2006)
+        \item Estimated \textbf{subsidy cost}: interest write-off costs government
+              $\approx$\$250M/year (Treasury)
+      \end{itemize}
+    \column{0.44\textwidth}
+      \begin{alertblock}{Key economic questions}
+        \begin{itemize}
+          \item Does income-contingent lending solve the capital market failure?
+          \item Is interest-free lending efficient? (Who benefits?)
+          \item What is the private return to tertiary education in NZ?
+          \item Does the scheme achieve equity goals?
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\summaryside{
+  \item Education has the same three rationales for government intervention as health: externalities, capital market failure, information asymmetry
+  \item NZ has a hybrid system: free compulsory schooling, subsidised secondary and tertiary, income-contingent student loans
+  \item NZ Student Loan Scheme: income-contingent, interest-free, $\approx$\$9.8B outstanding; interest-free subsidy costs $\approx$\$250M/year
+}
+
+% LECTURE 2
+\recapslide{
+  \item Education market failures: externalities, capital market failure, imperfect information
+  \item NZ: free schooling Years 1--10; subsidised tertiary; income-contingent student loans
+  \item Student Loan Scheme: $\approx$\$9.8B outstanding; interest-free for NZ residents
+}
+
+\planslide{MOOCs, Digital Disruption, and the Future of Education}{
+  \item MOOCs and the digital education revolution
+  \item Creative destruction in tertiary education
+  \item Implications for the NZ education system and student loan policy
+  \item Education and ageing: lifelong learning
+}
+
+\begin{frame}{MOOCs and Creative Destruction in Education}
+  \begin{block}{What is a MOOC?}
+    A \textbf{Massively Open Online Course}: a free or low-cost online course accessible to
+    unlimited numbers of students worldwide, typically from leading universities (Coursera, edX,
+    Udemy, Khan Academy, etc.)
+  \end{block}
+  \begin{itemize}
+    \item Traditional university business model: charging large fees for scarce access to
+          campus, lecturers, and credentials
+    \item MOOCs challenge the \textbf{scarcity assumption}: the marginal cost of enrolling
+          an additional student online approaches zero
+    \item But: credentials, networking, and the ``on-campus experience'' remain valuable
+          --- MOOCs have not replaced universities
+    \item \textbf{Creative destruction} (Schumpeter): new technologies destroy old forms
+          while creating new ones; the question is which parts of the university model are
+          vulnerable
+    \item NZ institutions face particular challenges: small market, high costs, and competition
+          from global online providers
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Education, Ageing, and Lifelong Learning}
+  \begin{itemize}
+    \item Traditional model: \textbf{education early in life $\Rightarrow$ work $\Rightarrow$ retirement}
+    \item This model is becoming obsolete as populations age and labour markets change rapidly
+    \item \textbf{Lifelong learning}: upskilling and reskilling throughout the working life
+          becomes essential --- driven by technological change, career transitions, longevity
+    \item Human capital theory (next lecture) implies the \textbf{returns to education fall
+          with age} (fewer working years over which to amortise the investment cost)
+    \item But: longer working lives (due to ageing) \emph{raise} the returns to mid-career
+          upskilling
+    \item \textbf{NZ policy challenge}: student loan scheme designed for young full-time
+          students --- does it support lifelong learning for older workers?
+    \item NZ's \textbf{Tertiary Education Commission} funds vocational training and industry
+          partnerships, but uptake by 45+ workers is limited
+  \end{itemize}
+\end{frame}
+
+\summaryside{
+  \item MOOCs provide near-zero-marginal-cost access to education --- creative destruction threatens traditional universities' scarcity model
+  \item But credentials, networking, and campus experience maintain residual demand for traditional tertiary
+  \item Ageing populations require lifelong learning; human capital model predicts lower returns to education at older ages --- but longer working lives partially offset this
+  \item NZ student loan scheme is poorly designed for lifelong learning; TEC vocational funding is an alternative channel
+}
+
+% LECTURE 3
+\recapslide{
+  \item MOOCs: near-zero marginal cost of digital education; creative destruction of traditional models
+  \item Education and ageing: lifelong learning increasingly important; NZ loan scheme not well-designed for it
+  \item Capital market failures are the main economic rationale for student loan schemes
+}
+
+\planslide{Education as Investment: Introduction to Human Capital}{
+  \item The investment model of education
+  \item Private rates of return: internal rate of return and NPV
+  \item Age-earnings profiles in NZ
+  \item Ageing and returns to education
+}
+
+\begin{frame}{Education as Investment: The Human Capital Framework}
+  \begin{block}{Human capital theory (Becker, 1964; Mincer, 1974)}
+    Education is an \textbf{investment} that increases productivity and future earnings,
+    at the cost of current foregone income (opportunity cost) and direct fees.
+  \end{block}
+  \vspace{0.3em}
+  \begin{block}{Net Present Value of tertiary education}
+    $$NPV = \sum_{t=1}^{T} \frac{W_{\text{grad},t} - W_{\text{non-grad},t}}{(1+r)^t}
+    - \sum_{t=0}^{n} \frac{C_t}{(1+r)^t}$$
+    where $W_{\text{grad},t}$ is the wage premium from graduating, $C_t$ are costs
+    (fees + foregone income during study), $r$ is the discount rate, and $T$ is working life.
+  \end{block}
+  \begin{itemize}
+    \item Invest if NPV $> 0$ or Internal Rate of Return $>$ opportunity cost of capital
+    \item \textbf{Ageing implication}: $T$ falls as you age $\Rightarrow$ NPV of education falls
+          as retirement approaches
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Age-Earnings Profiles in NZ}
+  \begin{itemize}
+    \item \textbf{Typical profile}: earnings rise steeply through the 20s--40s (investment in
+          experience and skills), peak in 50s, then flatten or decline before retirement
+    \item \textbf{The graduate premium}: university graduates earn on average \textbf{$\approx$60--80\%}
+          more than non-graduates over a career in NZ (Ministry of Education, 2023)
+    \item But: \textbf{average hides enormous heterogeneity} across disciplines
+    \begin{itemize}
+      \item Engineering, medicine, law: large premiums
+      \item Arts, humanities, social sciences: smaller premiums (though still positive on average)
+    \end{itemize}
+    \item \textbf{Biases in estimated returns}:
+    \begin{itemize}
+      \item Ability bias: smarter people earn more \emph{and} are more likely to go to university
+      \item Selection bias: the population attending university is not random
+    \end{itemize}
+    \item \textbf{NZ Longitudinal Business Database} provides some of the best evidence
+          on earnings returns in NZ --- see Ministry of Education (2023)
+  \end{itemize}
+\end{frame}
+
+\summaryside{
+  \item Human capital theory: education is an investment; positive NPV if wage premium exceeds cost (fees + foregone income)
+  \item NZ graduate wage premium: $\approx$60--80\% over career on average; large heterogeneity by field
+  \item Age-earnings profiles: earnings peak in 50s; graduate premium falls for older students (fewer years to amortise)
+  \item Ability bias and selection bias complicate empirical estimation of education returns
+}
+
+% ==============================================================
+% w13_week13.tex — Week 13: Signalling and Revision
+% ==============================================================
+
+\section{Week 13: Signalling Theory and Exam Preparation}
+
+\begin{frame}{Week 13 Overview}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \textbf{This week:}
+      \begin{itemize}
+        \item Signalling theory: Spence (1973) and the alternative to human capital
+        \item Private vs.\ social returns to education
+        \item Which theory is ``right''? Empirical evidence
+        \item Optional revision / exam preparation session (Monday)
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{block}{Required Reading}
+        {\small
+        \begin{itemize}
+          \item Ehrenberg \& Smith: ``Investments in human capital'' (Ch.\ 9)
+          \item \textit{The Economist}: ``Secrets and agents'' (Jul 2016)
+        \end{itemize}}
+      \end{block}
+      \begin{alertblock}{Revision}
+        Optional revision session available. Exam covers \textbf{all} material from lectures,
+        tutorials, and required readings.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\recapslide{
+  \item Human capital theory: education raises productivity $\Rightarrow$ wage premium
+  \item NZ graduate premium $\approx$60--80\%; falls for older students (shorter horizon)
+  \item Ability bias and selection bias complicate empirical estimation
+}
+
+\planslide{Signalling Theory: An Alternative Explanation}{
+  \item Human capital vs.\ signalling: the key distinction
+  \item Spence (1973) signalling model
+  \item Separating equilibrium: how education can signal ability without raising it
+  \item Empirical implications: private vs.\ social returns
+}
+
+\begin{frame}{The Signalling Theory of Education}
+  \begin{block}{Spence (1973) --- Nobel Prize 2001}
+    Education may \textbf{not} raise productivity at all. Instead, it may serve purely as a
+    \textbf{signal} of pre-existing ability to employers.
+  \end{block}
+  \vspace{0.3em}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{itemize}
+        \item \textbf{Information problem}: employers cannot directly observe worker ability
+              before hiring
+        \item \textbf{Costly signal}: education is costly (time, money) but more costly for
+              \emph{low-ability} workers (they find it harder)
+        \item This means \textbf{high-ability} workers signal ability through education;
+              low-ability workers rationally do not
+        \item Result: a \textbf{separating equilibrium} --- employers correctly infer ability
+              from education level
+      \end{itemize}
+    \column{0.44\textwidth}
+      \begin{alertblock}{The crucial implication}
+        If signalling theory is correct:
+        \begin{itemize}
+          \item Private returns to education are positive (wage premium is real)
+          \item But \textbf{social returns are zero} (education does not raise aggregate
+                productivity --- it just sorts workers)
+          \item Government subsidy of education would be a \textbf{waste of resources}
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Human Capital vs.\ Signalling: Evidence}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \textbf{Evidence for human capital theory:}
+      \begin{itemize}
+        \item Vocational training with clear skill transfer produces wage gains
+        \item Natural experiments (compulsory schooling age changes): extra years of
+              schooling raise wages (Angrist \& Keueger, 1991)
+        \item Returns to education persist even in occupations where credentials are
+              not required for entry
+      \end{itemize}
+    \column{0.45\textwidth}
+      \begin{alertblock}{Evidence for signalling:}
+        \begin{itemize}
+          \item ``Sheepskin effects'': wages jump discontinuously at degree completion,
+                more than at additional years of study (suggests credential value)
+          \item Self-employed workers earn less return to education (no employer to signal to)
+          \item Bryan Caplan (2018): \textit{The Case Against Education} --- provocative
+                signalling-heavy reading
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.3em}
+  \begin{exampleblock}{Likely answer: both matter}
+    Education probably both raises productivity (human capital) \emph{and} signals ability.
+    The relative importance varies by level (postgraduate more human capital) and field.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Private vs.\ Social Returns: NZ Evidence}
+  \begin{itemize}
+    \item \textbf{Private returns} (Mincer equation): NZ graduate wage premium $\approx$60--80\%
+          over career; private IRR estimated at 12--18\% for Bachelor's degrees
+    \item \textbf{Social returns}: include positive externalities (innovation, lower crime,
+          better civic engagement) \emph{minus} signalling component
+    \item NZ evidence suggests social returns are \textbf{positive but lower} than private
+          returns: government subsidy is partially justified but should not be unlimited
+    \item \textbf{Public vs.\ private IRR}: private IRR $\approx$12--18\%; social IRR
+          $\approx$6--10\% --- private return exceeds social, justifying some user-pays but
+          not full fees
+    \item Policy implication: some user contribution (fees) is efficient; capital market failure
+          (borrowing constraint) justifies government loans; externalities justify subsidy
+  \end{itemize}
+\end{frame}
+
+\summaryside{
+  \item Signalling theory (Spence, 1973): education signals ability to employers without necessarily raising it --- private returns positive, social returns potentially zero
+  \item Evidence supports both human capital and signalling, with relative importance varying by level and field
+  \item NZ private IRR $\approx$12--18\%; social IRR $\approx$6--10\% --- justifies partial subsidy + user-pays
+  \item ``Sheepskin effects'' support signalling; compulsory schooling IV results support human capital
+}
+
+\recapslide{
+  \item Signalling: separating equilibrium --- education screens ability; social returns may be below private
+  \item Human capital and signalling both have empirical support
+  \item Policy: partial subsidy + loans justified; full public subsidy not efficient
+}
+
+\planslide{Putting It All Together: Course Review and Exam Preparation}{
+  \item Connecting the three parts of the course
+  \item How ageing links all three parts
+  \item Exam structure and expectations
+  \item What we do not know --- and what we should study next
+}
+
+\begin{frame}{Connecting the Three Parts of ECON306}
+  \begin{columns}
+    \column{0.32\textwidth}
+      \begin{block}{Part I: Health \& HC}
+        {\small Market failures $\cdot$ Demand $\cdot$ Government $\cdot$ \textbf{Ageing} $\cdot$ Insurance $\cdot$ Hospitals}
+      \end{block}
+    \column{0.32\textwidth}
+      \begin{alertblock}{Part II: Evaluation}
+        {\small CUA $\cdot$ VSL $\cdot$ QALYs $\cdot$ EQ-5D $\cdot$ Equity $\cdot$ MCDA}
+      \end{alertblock}
+    \column{0.32\textwidth}
+      \begin{block}{Part III: Education}
+        {\small Externalities $\cdot$ Capital market $\cdot$ Student loans $\cdot$ HC theory $\cdot$ Signalling}
+      \end{block}
+  \end{columns}
+  \vspace{0.6em}
+  \begin{exampleblock}{The thread connecting all three parts: AGEING}
+    \begin{itemize}
+      \item \textbf{Part I}: ageing raises HC costs; drives insurance market pressures;
+            puts fiscal strain on health systems
+      \item \textbf{Part II}: QALY framework interacts with age in complex ways;
+            equity in evaluation requires careful treatment of older patients
+      \item \textbf{Part III}: ageing requires lifelong learning; later retirement
+            raises returns to mid-career education investment
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Exam Expectations}
+  \begin{block}{The two-hour final exam covers \emph{all} material}
+    Lectures, tutorials, and required readings from all three parts.
+  \end{block}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item Expect a mix of:
+    \begin{itemize}
+      \item Conceptual explanation questions (``What is moral hazard? Why does it arise?'')
+      \item Application questions (``Apply the Wagstaff model to predict the effects of X'')
+      \item Evaluation questions (``What are the strengths and limitations of CUA for
+            allocating NZ's health budget?'')
+      \item Calculation questions (discounting NPV, ICER computations)
+    \end{itemize}
+    \item \textbf{NZ-specific content will be examined}: PHARMAC, ACC, Te Whatu Ora,
+          NZ student loans, NZ EQ-5D value set, NZ superannuation
+    \item Use of exam marking guides from previous years is \textbf{not available}
+          (per course policy)
+    \item \textbf{Plussage applies}: see Austin if unsure what this means
+  \end{itemize}
+\end{frame}
+
+\summaryside{
+  \item ECON306 applies microeconomic tools to two of the most important areas of government spending: health and education
+  \item \textbf{Ageing} is the thread connecting all three parts: rising health costs, QALY equity challenges, lifelong learning demands
+  \item NZ-specific content is examinable: PHARMAC, ACC, Te Whatu Ora, student loans, NZ EQ-5D, superannuation
+  \item Good luck with the exam --- and thank you for a great semester
+}
+
+\end{document}
