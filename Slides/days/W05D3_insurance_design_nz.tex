@@ -1,0 +1,119 @@
+% ============================================================
+%  ECON306: W05D3 — Public vs private design; NZ hybrid (Te Whatu
+%          Ora, ACC, Southern Cross); copays, deductibles, gatekeeping
+%  Date: Friday 14 August 2026
+% ============================================================
+
+\documentclass[aspectratio=169, 12pt]{beamer}
+
+\input{../../Preambles/econ306_preamble.tex}
+
+\title[ECON306: W05D3 — Insurance Design Details]{ECON306\\The Economics of Health and Education}
+\subtitle{W05D3: Insurance Design: Copayments, Deductibles, and Gatekeeping}
+\author{Austin Henderson}
+\institute{Department of Economics\\University of Otago}
+\date{Friday 14 August 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\recapslide{
+  \item Public vs.\ private insurance: adverse selection, moral hazard, admin costs
+  \item NZ's model: universal public + supplementary private (Southern Cross)
+  \item ACC: universal no-fault insurance that resolves adverse selection for accidents
+}
+
+\planslide{Insurance Design Details: Copayments, Deductibles, and Gatekeeping}{
+  \item Coinsurance, front-end and rear-end deductibles
+  \item GP gatekeeping as a demand management tool
+  \item International comparisons: US, Germany, UK, Australia
+  \item PHARMAC and pharmaceutical co-payments in NZ
+}
+
+\begin{frame}{Insurance Design: Copayments and Deductibles}
+  \begin{columns}
+    \column{0.54\textwidth}
+      \begin{block}{Three instruments for reducing moral hazard}
+        \small
+        \begin{itemize}
+          \item \textbf{Coinsurance}: consumer pays $x$\% of the market price (e.g.\ 20\%)
+          \item \textbf{Front-end deductible}: consumer pays the first \$Y; insurer pays above
+          \item \textbf{Rear-end deductible}: insurer pays up to \$Z; consumer pays above
+                (catastrophic cost protection)
+        \end{itemize}
+      \end{block}
+    \column{0.43\textwidth}
+      \small Each design creates different \textbf{incentives at the margin}:
+      \begin{itemize}\small
+        \item Coinsurance reduces all units of consumption equally
+        \item Front-end deductible reduces first-contact demand; may deter necessary care
+        \item Rear-end deductible most important for catastrophic events
+      \end{itemize}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{NZ Pharmaceutical Co-payments: PHARMAC}
+  \begin{exampleblock}{NZ pharmaceutical co-payments}
+    PHARMAC fully funds most prescribed medicines on the Pharmaceutical Schedule. A
+    co-payment of \$5/prescription (capped at \$100/year for Community Services Card holders)
+    applies --- a deliberately low front-end mechanism designed to maintain access.
+  \end{exampleblock}
+  \begin{itemize}
+    \item PHARMAC uses \textbf{cost-effectiveness analysis} (cost per QALY) to decide what
+          to fund --- one of the most systematic drug-funding processes in the world
+    \item Budget constraint: fixed budget requires trade-offs between different medicines
+    \item Equity concern: some high-cost medicines (e.g.\ cancer drugs) not funded, creating
+          pressure for supplementary private insurance
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{GP Gatekeeping in NZ}
+  \small
+  \begin{itemize}
+    \item In NZ (as in most Beveridge-style systems), patients must obtain a \textbf{GP referral}
+          to access specialist services (secondary care)
+    \item Gatekeeping serves as a \textbf{demand management tool}: reduces inappropriate
+          specialist referrals; coordinates care; prevents ``self-referral'' to expensive
+          specialists for minor complaints
+    \item \textbf{Efficiency concern}: GP gatekeeping introduces a transaction cost ---
+          the GP consultation itself takes time and money
+    \item \textbf{Access concern}: high GP copayments may deter patients from seeking primary care,
+          leading them to bypass the GP system and attend emergency departments instead
+    \item NZ evidence: high GP fees are associated with unmet primary care need, particularly
+          among low-income and M\=aori/Pacific communities
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The RAND Health Insurance Experiment: Definitive Evidence}
+  \begin{columns}
+    \column{0.54\textwidth}
+      \small
+      \begin{itemize}
+        \item RAND HIE (1974--1982): gold standard experiment in health insurance economics
+        \item Randomly assigned $>$7,000 US families to plans ranging from free care to
+              95\% coinsurance up to a cap
+        \item Lower cost-sharing $\Rightarrow$ \textbf{higher utilisation} (30--40\% more)
+        \item But: \textbf{little difference in health outcomes} for most people
+      \end{itemize}
+    \column{0.43\textwidth}
+      \begin{alertblock}{Key interpretation}
+        \small Most extra utilisation from free care was of low marginal value --- consistent
+        with the ``flat of the curve.''
+
+        \medskip Exception: low-income individuals with hypertension and poor vision \emph{did}
+        benefit. Targeted free care for disadvantaged groups may be welfare-improving.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\summaryside{
+  \item Coinsurance, deductibles, and gatekeeping all reduce moral hazard but involve trade-offs with access and necessary care deterrence
+  \item NZ's pharmaceutical co-payment is a front-end mechanism set deliberately low to maintain access
+  \item GP gatekeeping (referral required for specialists) is a demand management tool with both efficiency and access implications
+  \item RAND Health Insurance Experiment: definitive experimental evidence that lower patient costs increase utilisation, largely without health gains
+}
+
+\end{document}

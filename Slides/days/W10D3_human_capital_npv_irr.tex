@@ -1,0 +1,181 @@
+% ============================================================
+%  ECON306: W10D3 — Human Capital Framework: NPV and IRR of
+%          Education; NZ Age-Earnings Profiles; MOOCs and Lifelong
+%          Learning
+%  Date: Friday 25 September 2026
+%  SOURCE: old w12_week12 (human capital and MOOCs sections) from FULL
+%    deck (lines 3746–3850) --- third lecture portion.
+%  NOTE: Discounting reapplied from W08D3. Tutorial 5 today (Fri 25 Sep).
+% ============================================================
+
+\documentclass[aspectratio=169, 12pt]{beamer}
+
+\input{../../Preambles/econ306_preamble.tex}
+
+\title[ECON306: W10D3 — Human Capital, NPV, IRR]{ECON306\\The Economics of Health and Education}
+\subtitle{W10D3: Human Capital Framework --- NPV and IRR of Education; MOOCs; Lifelong Learning}
+\author{Austin Henderson}
+\institute{Department of Economics\\University of Otago}
+\date{Friday 25 September 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\recapslide{
+  \item Capital market failure: income-contingent loans solve it; interest-free adds a subsidy
+  \item NZ Student Loan Scheme: $\approx$\$9.8B outstanding; interest-free costs $\approx$\$250M/year
+  \item ``Free first year'' limited marginal impact; NZ needs better mid-career lifelong learning finance
+}
+
+\planslide{Education as Investment: Human Capital Framework}{
+  \item The investment model of education: NPV and IRR
+  \item Age-earnings profiles in NZ: what the data show
+  \item Ageing and returns to education
+  \item MOOCs and creative destruction in tertiary education
+  \item Implications for NZ institutions and policy
+}
+
+\begin{frame}{Education as Investment: The Human Capital Framework}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{block}{Human capital theory (Becker, 1964; Mincer, 1974)}
+        \small Education is an \textbf{investment}: increases productivity and future
+        earnings, at the cost of foregone income and direct fees.
+      \end{block}
+      \footnotesize
+      \begin{itemize}
+        \item Invest if NPV $> 0$ or IRR $>$ opportunity cost of capital
+        \item \textbf{Ageing implication}: $T$ (working life) falls as you age $\Rightarrow$
+              NPV falls as retirement approaches
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{block}{NPV of tertiary education}
+        \footnotesize
+        \[NPV = \sum_{t=1}^{T} \frac{\Delta W_t}{(1+r)^t} - \sum_{t=0}^{n} \frac{C_t}{(1+r)^t}\]
+        $\Delta W_t$ = wage premium; $C_t$ = costs; $r$ = discount rate; $T$ = working life.
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{NPV/IRR: A Worked Example}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{block}{NZ bachelor's degree (simplified)}
+        \footnotesize
+        \begin{itemize}
+          \item Costs: foregone income $\approx$\$30k/yr + fees $\approx$\$7k/yr $\times$ 3 years $=$ \$111k
+          \item Wage premium: $\approx$\$20,000/year (conservative)
+          \item Working life after graduation: 40 years; $r = 5\%$
+        \end{itemize}
+        \vspace{0.2em}
+        \footnotesize $NPV = 20{,}000 \times \dfrac{1-(1.05)^{-40}}{0.05} - 111{,}000$\\[0.3em]
+        $\phantom{NPV} \approx 20{,}000 \times 17.16 - 111{,}000 = +\$232{,}200$\\[0.2em]
+        \textbf{Strong positive NPV for a typical 22-year-old.}
+      \end{block}
+    \column{0.44\textwidth}
+      \begin{alertblock}{Sensitivity}
+        \footnotesize At $r = 10\%$: annuity factor $\approx 9.78$;\\
+        $NPV \approx 20{,}000 \times 9.78 - 111{,}000 = +\$84{,}600$.\\[0.2em]
+        Still positive --- robust to higher discount rates.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Age-Earnings Profiles in NZ}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \footnotesize
+      \begin{itemize}
+        \item \textbf{Typical profile}: earnings rise through the 20s--40s, peak in 50s,
+              then flatten before retirement
+        \item \textbf{Graduate premium}: $\approx$\textbf{60--80\%} more than non-graduates
+              over a career in NZ (Ministry of Education, 2023)
+        \item \textbf{Heterogeneity}: Engineering/medicine/law: large premiums; arts/social
+              sciences: smaller (still positive)
+      \end{itemize}
+    \column{0.45\textwidth}
+      \begin{alertblock}{Biases in estimated returns}
+        \footnotesize
+        \begin{itemize}
+          \item \textbf{Ability bias}: smarter people earn more \emph{and} are more likely
+                to attend university
+          \item \textbf{Selection bias}: university attendees are not random
+        \end{itemize}
+      \end{alertblock}
+      \vspace{0.2em}
+      \footnotesize \textbf{NZ Longitudinal Business Database (LBD)} provides the best NZ
+      evidence on earnings returns --- Ministry of Education (2023).
+  \end{columns}
+\end{frame}
+
+\begin{frame}{MOOCs and Creative Destruction in Education}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \footnotesize \textbf{What is a MOOC?} A \textbf{Massively Open Online Course}: free or
+      low-cost, unlimited students worldwide (Coursera, edX, Udemy, Khan Academy).
+      \begin{itemize}
+        \item Traditional university: large fees for scarce access to campus and credentials
+        \item MOOCs challenge the \textbf{scarcity assumption}: marginal cost of enrolling
+              one more student online $\approx 0$
+        \item But: credentials, networking, ``on-campus experience'' remain valuable ---
+              MOOCs have not replaced universities
+      \end{itemize}
+    \column{0.45\textwidth}
+      \begin{alertblock}{Creative destruction (Schumpeter)}
+        \footnotesize New technologies destroy old forms while creating new ones; the question is
+        which parts of the university model are vulnerable.
+      \end{alertblock}
+      \vspace{0.2em}
+      \footnotesize NZ faces particular challenges: small market, high costs, competition
+      from global online providers.
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Education, Ageing, and Lifelong Learning}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \footnotesize
+      \begin{itemize}
+        \item Traditional model: \textbf{education $\Rightarrow$ work $\Rightarrow$ retirement}
+        \item This model is obsolete as populations age and labour markets change rapidly
+        \item \textbf{Lifelong learning}: upskilling throughout working life becomes essential
+              --- driven by technological change, longevity
+        \item HC theory: \textbf{returns fall with age} (fewer years to amortise)
+        \item But \textbf{longer working lives} \emph{raise} returns to mid-career upskilling
+      \end{itemize}
+    \column{0.45\textwidth}
+      \begin{alertblock}{NZ policy challenge}
+        \footnotesize Student loan scheme designed for young, full-time students --- does it
+        support lifelong learning for older workers?\\[0.2em]
+        NZ's TEC funds vocational training and industry partnerships, but uptake by 45+
+        workers is limited.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Tutorial 5 Today}
+  \tutorialbox{%
+    \textbf{Tutorial 5 (Mon 21 Sep / Fri 25 Sep):} PHARMAC case studies --- applying cost-utility
+    analysis to real NZ funding decisions.\\[0.4em]
+    Today's tutorial (Fri 25 Sep) runs 10:00--10:50 am in T204.\\
+    You will compute ICERs for a realistic PHARMAC submission and discuss funding decisions.
+  }
+  \vspace{0.4em}
+  \begin{alertblock}{Assignment reminder}
+    Assignment due \textbf{Mon 5 Oct 2026, 9:00 am} (Teaching Week 12 Monday).\\
+    Full details on Brightspace (Aoroa).
+  \end{alertblock}
+\end{frame}
+
+\summaryside{
+  \footnotesize
+  \item Human capital theory: education is an investment; positive NPV if wage premium exceeds cost (fees + foregone income); NZ NPV shows strong returns at 5\%
+  \item NZ graduate wage premium $\approx$60--80\% over career on average; large heterogeneity by field
+  \item Age-earnings profiles: earnings peak in 50s; graduate premium falls for older students (fewer years to amortise); ability and selection bias complicate estimates
+  \item MOOCs offer near-zero marginal cost; creative destruction threatens traditional university model but credentials and on-campus value persist
+}
+
+\end{document}

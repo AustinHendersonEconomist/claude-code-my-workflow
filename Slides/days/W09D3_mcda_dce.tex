@@ -1,0 +1,179 @@
+% ============================================================
+%  ECON306: W09D3 — Is QALY-Max Enough? MCDA Concepts and Methods
+%          (PAPRIKA, 1000minds); Discrete Choice Experiments;
+%          ISPOR Good Practice
+%  Date: Friday 18 September 2026
+%  SOURCE: COMPRESSION of old w11_week11 (MCDA sections) from FULL deck
+%    (lines 3382–3567). Best frames per Course Map W09D3 LOs.
+%  DROPPED from old deck: Week 11 Overview frame (week numbering wrong),
+%    "Ageing populations and MCDA" frame (content folded into MCDA good
+%    practice frame here), duplicate PAPRIKA description. All logged.
+% ============================================================
+
+\documentclass[aspectratio=169, 12pt]{beamer}
+
+\input{../../Preambles/econ306_preamble.tex}
+
+\title[ECON306: W09D3 — MCDA and DCEs]{ECON306\\The Economics of Health and Education}
+\subtitle{W09D3: Is QALY-Max Enough? MCDA Concepts and Methods; Discrete Choice Experiments}
+\author{Austin Henderson}
+\institute{Department of Economics\\University of Otago}
+\date{Friday 18 September 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\recapslide{
+  \item QALY maximisation is efficient but may violate equity --- who benefits matters
+  \item Distributional weights ($w_i$) and social welfare functions formalise equity concerns
+  \item League tables ignore equity, budget impact, uncertainty --- PHARMAC uses multi-criteria process
+}
+
+\planslide{Beyond QALYs: MCDA, DCEs, and Decision Support}{
+  \item Is QALY maximisation enough? Limitations recap
+  \item What is MCDA and why does it matter for health economics?
+  \item A brief history of decision analysis
+  \item The PAPRIKA method and 1000Minds (Otago)
+  \item Discrete choice experiments in health
+  \item ISPOR good-practice framework
+}
+
+\begin{frame}{What is MCDA?}
+  \small
+  A family of methods for \textbf{structuring and solving complex decisions} involving multiple,
+  often conflicting, criteria --- where no single option is best on all criteria.
+  \vspace{0.2em}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \small Health allocation decisions \emph{always} involve multiple criteria:
+      \begin{itemize}
+        \item Clinical benefit (QALYs)
+        \item Equity (who benefits)
+        \item Cost and budget impact
+        \item Severity and unmet need
+        \item Quality of evidence
+        \item Innovation incentives
+      \end{itemize}
+    \column{0.45\textwidth}
+      \begin{block}{Why MCDA?}
+        \small CUA captures only some of these. MCDA \textbf{explicitly structures all criteria} and applies weights --- making trade-offs transparent, not hidden in committee deliberations.
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{A Brief History of Decision Analysis}
+  \begin{itemize}
+    \item \textbf{1950s--60s}: Operations research and statistical decision theory
+          (Wald, Savage); decision matrices
+    \item \textbf{1970s}: Multi-attribute utility theory (MAUT): Keeney \& Raiffa (1976)
+    \item \textbf{1980s}: Analytic Hierarchy Process (AHP): Saaty (1980) --- widely used
+          but criticised for rank reversal
+    \item \textbf{1990s--2000s}: MCDA applied to environmental and public policy;
+          beginning of health applications
+    \item \textbf{2010s}: ISPOR MCDA Emerging Good Practices Task Force (2016);
+          rapid adoption in health technology assessment globally
+    \item \textbf{NZ contribution}: \textbf{Paul Hansen \& Franz Ombler (2008)}: developed
+          the PAPRIKA method, implemented in \textbf{1000Minds} software; now used by
+          NZ Ministry of Health, WHO, and hundreds of organisations globally
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{The PAPRIKA Method and 1000Minds}
+  \small
+  \textbf{PAPRIKA} (Hansen \& Ombler, 2008): Potentially All Pairwise Rankings of All possible
+  Alternatives. Elicits weights through \textbf{pairwise ranking of partial profiles} --- no
+  numerical weight assignment required.
+  \vspace{0.2em}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \footnotesize
+      \begin{itemize}
+        \item \textbf{1000Minds software}: NZ Ministry of Health ($>$100,000 patients/year),
+              WHO, health ministries in Australia, UK, and elsewhere
+        \item \textbf{Advantages}: avoids anchoring bias, handles many criteria, produces
+              consistent weights, user-friendly
+        \item \textbf{Tutorial 6 (Week 12)}: use 1000Minds for a life-advice MCDM exercise
+              (``what do you value, what to do, where to live'')
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{exampleblock}{Golan \& Hansen (2012)}
+        \footnotesize Apply PAPRIKA/1000Minds to Israeli pharmaceutical prioritisation --- a worked
+        example of MCDA in practice. Required reading for this week.
+      \end{exampleblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Discrete Choice Experiments in Health Economics}
+  \begin{itemize}
+    \item \textbf{Discrete Choice Experiments (DCEs)}: present respondents with hypothetical
+          choices between alternatives described by attributes; infer preferences from choices
+    \item Applications in health:
+    \begin{itemize}
+      \item Valuing health-related quality of life (generating EQ-5D value sets)
+      \item Understanding patient preferences for health care features
+      \item Valuing GP attributes (waiting time, doctor continuity, after-hours access)
+      \item Measuring public preferences for health system attributes
+    \end{itemize}
+    \item \textbf{Advantage over surveys}: reveals preferences through choices (analogous
+          to revealed preference), not just stated intentions
+    \item \textbf{NZ application}: Sullivan \& Hansen (2017) used DCEs to determine
+          public preferences for health technology prioritisation criteria in NZ
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{MCDA Good Practice: The ISPOR Framework}
+  \begin{columns}
+    \column{0.58\textwidth}
+      \small \textbf{ISPOR MCDA Emerging Good Practices (2016):}
+      \footnotesize
+      \begin{enumerate}
+        \item Define the decision problem
+        \item Select and structure criteria
+        \item Measure performance on each criterion
+        \item Score the options
+        \item Weight the criteria
+        \item Calculate an overall value score
+        \item Examine results for robustness (sensitivity analysis)
+        \item Use results to inform (not replace) decision-making
+      \end{enumerate}
+    \column{0.38\textwidth}
+      \begin{alertblock}{Key principle}
+        \footnotesize MCDA is a \textbf{decision support} tool, not a decision rule. It informs and
+        structures deliberation; it does not replace human judgement.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{MCDA and Ageing Populations}
+  \begin{columns}
+    \column{0.58\textwidth}
+      \footnotesize As NZ's population ages, MCDA frameworks face new pressures:
+      \begin{itemize}
+        \item How should \textbf{long-term care quality} be weighted relative to acute treatment?
+        \item Should \textbf{caregiver burden} enter as a criterion?
+        \item How do we weight \textbf{dementia care} when cognitive impairment limits
+              self-reported quality of life?
+        \item Should there be an \textbf{``ageing premium''} analogous to the UK end-of-life premium?
+      \end{itemize}
+      \vspace{0.15em}
+      \footnotesize \textbf{1000Minds} is already used by NZ aged care providers for needs assessment and prioritisation.
+    \column{0.38\textwidth}
+      \begin{block}{Assignment reminder}
+        \small Due \textbf{Mon 5 Oct 2026, 9:00 am}.\\[0.2em]
+        Apply MCDA reasoning in your PHARMAC funding brief.\\[0.15em]
+        Full details on Brightspace (Aoroa).
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\summaryside{
+  \item MCDA explicitly structures and weights multiple criteria; more transparent than ad-hoc committee deliberation
+  \item PAPRIKA/1000Minds (Hansen \& Ombler, 2008): world-leading MCDA tool developed at Otago, used by NZ Ministry of Health and WHO
+  \item DCEs reveal preferences for health system attributes through hypothetical choices; used in NZ for prioritisation criteria (Sullivan \& Hansen, 2017)
+  \item ISPOR framework: 8 steps for MCDA in health; it supports rather than replaces decision-making; Tutorial 6 applies 1000Minds to life choices
+}
+
+\end{document}

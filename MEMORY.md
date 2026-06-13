@@ -70,3 +70,11 @@ When a mistake is corrected, append a `[LEARN:category]` entry below.
 [LEARN:meta] Dogfooding principles must be enforced: plan-first, spec-then-plan, quality gates, session logs → we follow our own guide.
 
 [LEARN:meta] Template development work (building infrastructure, docs) doesn't create session logs in quality_reports/ → those are for user work (slides, analysis), not meta-work. Keeps template clean for users who fork.
+
+## LaTeX / Beamer
+
+[LEARN:latex] Beamer frame overflow (content spilling past the footer or slide edges) produces NO compile warnings — exit-code/log verification cannot catch it. Visual inspection of rendered pages is the only reliable check; budget a visual-audit pass after any bulk slide generation.
+
+[LEARN:latex] Never start a beamer frame body with a bare brace group (e.g., `{\small ...}` right after `\begin{frame}{Title}`) — beamer parses it as the frame SUBTITLE and, if the theme doesn't render subtitles, the content silently vanishes. Use `\small` without braces or place non-brace content first.
+
+[LEARN:agents] Background subagents die silently when the host session ends (plan session limits, sleep, app close); the completion notification never fires and the task record is lost. Design every long-running agent task to be RESUMABLE: maintain an incremental progress ledger on disk (update after each unit of work, never batch), order work so file-creation precedes verification, and on relaunch have the agent read the ledger and continue from the first incomplete unit.

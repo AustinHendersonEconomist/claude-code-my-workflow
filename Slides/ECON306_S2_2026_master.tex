@@ -1,0 +1,91 @@
+% ============================================================
+%  ECON306: Full-Course Master PDF
+%  University of Otago — Semester 2, 2026
+%
+%  This file produces a single PDF containing all lecture slides
+%  in chronological order.
+%
+%  IMPORTANT: Each day file must be compiled to PDF first before
+%  building this master. Run scripts/build_all_slides.sh to compile
+%  all 33 day decks and then produce this master PDF.
+%
+%  The master uses pdfpages to include each day's compiled PDF.
+%  It does NOT attempt to re-compile the day files; it only assembles
+%  the pre-built PDFs.
+%
+%  To build manually:
+%    1. Compile each Slides/days/W*.tex (3-pass XeLaTeX from Slides/days/
+%       with TEXINPUTS=../../Preambles:$TEXINPUTS)
+%    2. From Slides/:
+%       xelatex -interaction=nonstopmode ECON306_S2_2026_master.tex
+%
+%  See scripts/build_all_slides.sh for the automated build.
+% ============================================================
+
+\documentclass[a4paper]{article}
+\usepackage{pdfpages}
+\usepackage{hyperref}
+\hypersetup{
+  pdftitle={ECON306 S2 2026 — Full Course Slides},
+  pdfauthor={Austin Henderson},
+  pdfsubject={The Economics of Health and Education, University of Otago}
+}
+% KNOWN COSMETIC WARNING: on this MiKTeX/kernel, building the master emits ~300
+% non-fatal "keyval Error: artifact undefined" lines (pdfpages × kernel PDF-tagging
+% hooks). The 338-page PDF is produced correctly. Proper fix is `\DocumentMetadata{}`
+% but that needs pdfmanagement-init.sty (not installed here). Flagged for Phase 5.
+
+\begin{document}
+
+%% ── PART I ─────────────────────────────────────────────────────────
+%% Week 1
+\includepdf[pages=-]{days/W01D1_course_intro.pdf}
+\includepdf[pages=-]{days/W01D2_positive_normative_nz.pdf}
+\includepdf[pages=-]{days/W01D3_health_production.pdf}
+%% Week 2
+\includepdf[pages=-]{days/W02D1_demand_models_grossman.pdf}
+\includepdf[pages=-]{days/W02D2_wagstaff_model.pdf}
+\includepdf[pages=-]{days/W02D3_wagstaff_comparative_statics.pdf}
+%% Week 3
+\includepdf[pages=-]{days/W03D1_invisible_hand_normative.pdf}
+\includepdf[pages=-]{days/W03D2_market_failures.pdf}
+\includepdf[pages=-]{days/W03D3_positive_theories_sid.pdf}
+%% Week 4
+\includepdf[pages=-]{days/W04D1_demographic_transition.pdf}
+\includepdf[pages=-]{days/W04D2_ageing_spending_nzsuper.pdf}
+\includepdf[pages=-]{days/W04D3_prevention_olg.pdf}
+%% Week 5
+\includepdf[pages=-]{days/W05D1_insurance_basics.pdf}
+\includepdf[pages=-]{days/W05D2_moral_hazard_adverse_selection.pdf}
+\includepdf[pages=-]{days/W05D3_insurance_design_nz.pdf}
+%% Week 6
+\includepdf[pages=-]{days/W06D1_hospital_economics.pdf}
+\includepdf[pages=-]{days/W06D2_incentives_system_types.pdf}
+\includepdf[pages=-]{days/W06D3_performance_us_paradox.pdf}
+%% Week 7 (W07D3 = test session — no slides)
+\includepdf[pages=-]{days/W07D1_nz_system_history.pdf}
+\includepdf[pages=-]{days/W07D2_part1_review.pdf}
+
+%% ── PART II ─────────────────────────────────────────────────────────
+%% Week 8
+\includepdf[pages=-]{days/W08D1_eval_overview_pharmac.pdf}
+\includepdf[pages=-]{days/W08D2_valuing_life.pdf}
+\includepdf[pages=-]{days/W08D3_discounting_uncertainty.pdf}
+%% Week 9
+\includepdf[pages=-]{days/W09D1_qalys_cua.pdf}
+\includepdf[pages=-]{days/W09D2_equity_fair_innings.pdf}
+\includepdf[pages=-]{days/W09D3_mcda_dce.pdf}
+
+%% ── PART III ────────────────────────────────────────────────────────
+%% Week 10
+\includepdf[pages=-]{days/W10D1_education_as_economic_good.pdf}
+\includepdf[pages=-]{days/W10D2_nz_education_student_loans.pdf}
+\includepdf[pages=-]{days/W10D3_human_capital_npv_irr.pdf}
+%% Week 11
+\includepdf[pages=-]{days/W11D1_signalling_spence.pdf}
+\includepdf[pages=-]{days/W11D2_hc_vs_signalling_evidence.pdf}
+\includepdf[pages=-]{days/W11D3_private_social_returns.pdf}
+%% Week 12 (W12D2 and W12D3 reserved — no slides)
+\includepdf[pages=-]{days/W12D1_course_wrapup.pdf}
+
+\end{document}

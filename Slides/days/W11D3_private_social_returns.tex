@@ -1,0 +1,162 @@
+% ============================================================
+%  ECON306: W11D3 — Private vs. Social Returns (NZ);
+%          User-Pays vs. Public Funding
+%  Date: Friday 2 October 2026
+%  SOURCE: old w13_week13 (private vs. social returns section) from FULL
+%    deck (lines 3956–3977) + Course Map W11D3 LOs.
+% ============================================================
+
+\documentclass[aspectratio=169, 12pt]{beamer}
+
+\input{../../Preambles/econ306_preamble.tex}
+
+\title[ECON306: W11D3 — Private vs. Social Returns]{ECON306\\The Economics of Health and Education}
+\subtitle{W11D3: Private vs.\ Social Returns (NZ); User-Pays vs.\ Public Funding}
+\author{Austin Henderson}
+\institute{Department of Economics\\University of Otago}
+\date{Friday 2 October 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\recapslide{
+  \item Human capital and signalling both have empirical support; level and field determine the balance
+  \item Sheepskin effects support signalling; compulsory schooling IV results support human capital
+  \item Policy: partial subsidy + loans justified; full public subsidy not efficient
+}
+
+\planslide{Private vs.\ Social Returns; User-Pays vs.\ Public Funding}{
+  \item Distinguishing private and social returns to education
+  \item NZ evidence on returns to different levels
+  \item Social returns: externalities vs.\ signalling component
+  \item The user-pays vs.\ public-funding debate
+  \item Tutorial 6 preview: applying MCDM to your own life
+}
+
+\begin{frame}{Private Returns to Education in NZ}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{block}{The Mincer equation (simplified)}
+        \footnotesize $\ln(W) = \alpha + \beta_1 S + \beta_2 \text{EXP} + \beta_3 \text{EXP}^2 + \epsilon$\\[0.15em]
+        $S$ = schooling, EXP = experience, $W$ = wages. $\beta_1$ = private return to an extra year of schooling.
+      \end{block}
+      \vspace{0.15em}
+      \footnotesize
+      \begin{itemize}
+        \item \textbf{NZ private IRR}: $\approx$12--18\% for Bachelor's degrees
+        \item \textbf{Graduate premium}: $\approx$60--80\% wage premium over career on average
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{exampleblock}{Field heterogeneity}
+        \footnotesize
+        \begin{itemize}
+          \item Medicine, law, engineering: $\approx$18--25\%
+          \item Arts, humanities: $\approx$8--12\%
+        \end{itemize}
+      \end{exampleblock}
+      \vspace{0.2em}
+      \begin{alertblock}{Caveats}
+        \footnotesize May overstate returns due to ability bias --- but NZ IV estimates (compulsory schooling laws) suggest genuine productivity gains.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Social Returns to Education}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{block}{Social return = private return + external benefits $-$ signalling}
+        \scriptsize
+        \begin{itemize}
+          \item \textbf{Knowledge spillovers} (Romer, 1990): educated workers generate ideas used by others
+          \item \textbf{Crime reduction} (Lochner \& Moretti, 2004): reduces propensity to offend
+          \item \textbf{Civic participation}: better democratic institutions
+          \item \textbf{Intergenerational}: educated parents invest more in children
+        \end{itemize}
+      \end{block}
+    \column{0.42\textwidth}
+      \begin{alertblock}{Minus signalling}
+        \footnotesize If part of the private return is pure sorting (not productivity), it should \textbf{not} count as social return.
+      \end{alertblock}
+      \begin{exampleblock}{NZ evidence}
+        \footnotesize Social returns \textbf{positive but lower} than private. Social IRR $\approx$6--10\%.
+      \end{exampleblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Private vs.\ Social IRR: The Policy Wedge}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{block}{The efficiency argument for subsidy}
+        \footnotesize
+        \begin{itemize}
+          \item If social return $>$ private return: students \emph{underinvest} relative to the
+                social optimum $\Rightarrow$ subsidy corrects the externality
+          \item If private return $>$ social return: students may \emph{overinvest} $\Rightarrow$
+                user-pays is more efficient
+          \item In practice: private IRR $\approx$12--18\%; social IRR $\approx$6--10\%
+                $\Rightarrow$ \textbf{private $>$ social}
+        \end{itemize}
+      \end{block}
+    \column{0.45\textwidth}
+      \begin{alertblock}{What follows for policy?}
+        \footnotesize
+        \begin{itemize}
+          \item Private return $>$ social: some \textbf{user contribution is efficient}
+          \item Capital market failure justifies \textbf{government loans}
+          \item Positive externalities (social IRR $>$ 0) justify \textbf{some subsidy}
+          \item NZ hybrid (subsidised fees + income-contingent loans) is broadly consistent with this logic
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{The User-Pays Debate}
+  \begin{columns}
+    \column{0.48\textwidth}
+      \begin{block}{Case for user-pays}
+        \footnotesize
+        \begin{itemize}
+          \item Private returns are high: those who benefit should contribute
+          \item Income-contingent loans solve capital market failure without subsidy
+          \item Targeting subsidies on low-income students is more efficient than universal fee waivers
+          \item Full subsidy encourages low-social-return signalling investment
+        \end{itemize}
+      \end{block}
+    \column{0.48\textwidth}
+      \begin{alertblock}{Case for public funding}
+        \footnotesize
+        \begin{itemize}
+          \item Positive externalities (innovation, civic, intergenerational) justify subsidy
+          \item Equity: user-pays deters low-income students even with loans (risk aversion, debt aversion)
+          \item Information failure: students can't perfectly assess returns before enrolling
+          \item Social returns to some fields (medicine, teaching) are very high
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.15em}
+  \footnotesize \textbf{NZ's position:} Partial fees + income-contingent interest-free loans --- a pragmatic compromise between the two extremes.
+\end{frame}
+
+\begin{frame}{Tutorial 6 Next Week: Life Advice with 1000Minds}
+  \tutorialbox{%
+    \small \textbf{Tutorial 6 (Mon 5 Oct / Fri 9 Oct):} Life advice --- applying MCDM to your own life: what do you value, what to do, where to live.\\[0.2em]
+    You will use the \textbf{1000Minds} tool (PAPRIKA method, developed at Otago) to elicit your personal value weights and apply them to a real decision.\\[0.15em]
+    A hands-on capstone to Part II's MCDA content --- and a genuinely useful personal exercise.
+  }
+  \vspace{0.15em}
+  \begin{alertblock}{Assignment due next Monday}
+    \small \textbf{Mon 5 Oct 2026, 9:00 am} --- PHARMAC-style funding brief. Submit via Brightspace (Aoroa). Full rubric posted online.
+  \end{alertblock}
+\end{frame}
+
+\summaryside{
+  \item Private IRR for NZ Bachelor's degrees $\approx$12--18\%; social IRR $\approx$6--10\% --- private exceeds social
+  \item Social return = private return + externalities (spillovers, crime reduction, civic participation) $-$ signalling component
+  \item Private $>$ social: some user contribution is efficient; capital market failure justifies loans; externalities justify partial subsidy
+  \item NZ's hybrid (subsidised fees + income-contingent interest-free loans) is broadly efficient; debate is about calibration
+}
+
+\end{document}
