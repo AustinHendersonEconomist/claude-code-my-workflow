@@ -1,0 +1,186 @@
+% ============================================================
+%  ECON306: W09D2 — Equity: Fair Innings, Distributional Value
+%          Judgements, Social Preferences; League Tables;
+%          Dementia and End-of-Life Challenges
+%  Date: Thursday 17 September 2026
+%  SOURCE: COMPRESSION of old w09_week9 (fair innings, ageing)
+%    (lines 3105–3165) + old w10_week10 (equity sections)
+%    (lines 3178–3380). Best frames per Course Map W09D2 LOs.
+%  DROPPED from old deck: Week 10 Overview frame (wrong week),
+%    Rawlsianism/Libertarianism detail (combined into one frame here),
+%    "Ageing and equity: specific tensions" partial duplication with
+%    W09D1 fair innings content. All dropped frames logged in session log.
+% ============================================================
+
+\documentclass[aspectratio=169, 12pt]{beamer}
+
+\input{../../Preambles/econ306_preamble.tex}
+
+\title[ECON306: W09D2 — Equity and Fair Innings]{ECON306\\The Economics of Health and Education}
+\subtitle{W09D2: Equity, Fair Innings, Distributional Value Judgements; League Tables; End-of-Life}
+\author{Austin Henderson}
+\institute{Department of Economics\\University of Otago}
+\date{Thursday 17 September 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\recapslide{
+  \item QALY = life years $\times$ quality weight; ICER = $\Delta$cost / $\Delta$QALY
+  \item EQ-5D-5L instrument; NZ value set (Devlin, Hansen et al., Otago)
+  \item Fund if ICER $<$ threshold; NZ PHARMAC threshold $\approx$\$45--50K/QALY
+}
+
+\planslide{Equity and Fairness in Health Allocation}{
+  \item QALYs favour younger patients: the fair innings argument
+  \item Philosophical frameworks: utilitarianism, Rawlsianism, libertarianism
+  \item Common equity criteria: horizontal, vertical, rule of rescue
+  \item League tables: strengths and limits
+  \item Dementia and end-of-life care challenges for CUA
+}
+
+\begin{frame}{QALYs, Ageing, and the ``Fair Innings'' Argument}
+  \begin{columns}
+    \column{0.54\textwidth}
+      \footnotesize
+      \begin{itemize}
+        \item QALYs are gained over remaining lifetime, so \textbf{younger patients gain more QALYs} from the same treatment
+        \item Pure QALY maximisation tends to \textbf{favour treating younger patients}
+        \item The \textbf{``fair innings'' argument} (Harris, 1985; Williams, 1997): everyone deserves a ``fair innings'' of healthy life --- prioritising the young may be fair because the old have already had theirs
+        \item Counterargument: treating the elderly has intrinsic value regardless of remaining life expectancy
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{alertblock}{NZ equity implications}
+        \footnotesize M\=aori and Pacific peoples have \textbf{lower life expectancy at 65} than European NZers --- ``fair innings'' logic further disadvantages groups who have had fewer healthy years.\\[0.15em]
+        PHARMAC considers equity weights alongside ICERs to address this.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Is QALY Maximisation Enough?}
+  \begin{columns}
+    \column{0.48\textwidth}
+      \begin{block}{The case for QALY maximisation}
+        \small Funding in order of cost-per-QALY is \textbf{Pareto efficient}: no other allocation produces more aggregate health.
+      \end{block}
+    \column{0.48\textwidth}
+      \begin{alertblock}{But society also cares about\ldots}
+        \footnotesize
+        \begin{itemize}
+          \item \textbf{Who} benefits? Distribution matters
+          \item \textbf{Severity}: worse-off deserve priority
+          \item \textbf{Rule of rescue}: save identifiable individuals
+          \item \textbf{Fairness}: process and opportunity
+          \item \textbf{Innovation}: incentivise R\&D?
+          \item \textbf{Carer burden}: unpaid caregiver impacts
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Three Philosophical Frameworks}
+  \begin{columns}
+    \column{0.32\textwidth}
+      \begin{block}{Utilitarianism}
+        \footnotesize Maximise \textbf{aggregate welfare}. In health: maximise total QALYs.\\[0.15em]
+        \textit{Critique}: ignores distribution; inequalities justified if aggregate welfare is high enough
+      \end{block}
+    \column{0.32\textwidth}
+      \begin{alertblock}{Rawlsianism}
+        \footnotesize Maximise welfare of the \textbf{worst-off} (maximin). In health: prioritise the sickest.\\[0.15em]
+        \textit{Critique}: can justify enormous spending for tiny gains to the worst-off
+      \end{alertblock}
+    \column{0.32\textwidth}
+      \begin{block}{Libertarianism}
+        \footnotesize Respect \textbf{individual rights} and voluntary exchange. In health: allow markets, respect patient preferences.\\[0.15em]
+        \textit{Critique}: fails those who cannot afford care; ignores externalities
+      \end{block}
+  \end{columns}
+  \vspace{0.15em}
+  \begin{exampleblock}{NZ's pragmatic approach}
+    \footnotesize PHARMAC applies a mix of utilitarian (QALY max) and Rawlsian (equity weighting for M\=aori and Pacific peoples). No pure framework governs decisions.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Common Distributional Value Judgements}
+  \begin{enumerate}
+    \item \textbf{Horizontal equity}: people with equal needs should receive equal treatment,
+          regardless of income, ethnicity, or location
+    \item \textbf{Vertical equity}: people with greater needs should receive more care
+          (i.e.\ treat the sickest first)
+    \item \textbf{Fair innings}: everyone deserves a chance at a full, healthy life ---
+          prioritise those who have had fewer healthy years (often the young, or those with
+          lower life expectancy)
+    \item \textbf{Rule of rescue}: powerful moral intuition to do everything possible for
+          identified individuals facing death, even at disproportionate cost
+    \item \textbf{Severity weighting}: interventions for more severe conditions receive a
+          higher effective threshold (``severity multiplier'', as in Norway)
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Economics Models of Social Preferences}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{block}{Social welfare function (SWF)}
+        \small $W = W(U_1, U_2, \ldots, U_n)$. Different forms embed different ethical views:
+        \begin{itemize}
+          \item \textbf{Utilitarian}: $W = \sum_i U_i$ (maximise sum)
+          \item \textbf{Rawlsian}: $W = \min_i U_i$ (maximise minimum)
+          \item \textbf{Inequality-averse}: concave $W$ (more weight to worse-off)
+        \end{itemize}
+      \end{block}
+    \column{0.42\textwidth}
+      \small
+      Distributional weights $w_i$ applied to QALYs:
+      \[ W = \sum_i w_i \cdot Q_i \]
+      If $w_i > 1$ for disadvantaged groups, their QALYs get extra weight.\\[0.2em]
+      \textbf{Challenge}: determine $w_i$ via public preference surveys (vignette studies, discrete choice experiments).
+  \end{columns}
+\end{frame}
+
+\begin{frame}{The League Table: Strengths and Limitations}
+  \begin{itemize}
+    \item List all candidate interventions, ranked by \textbf{cost per QALY} (ICER)
+    \item Fund from the top down until the budget is exhausted
+    \item \textbf{Appeal}: transparent, consistent, maximises aggregate health
+    \item \textbf{Problems with league tables}:
+    \begin{itemize}
+      \item Different studies use different methods (comparators, perspectives, time horizons)
+      \item Assumes all QALYs are equal (no distributional weights)
+      \item Ignores budget impact (a \$5M drug with a low ICER exhausts the budget)
+      \item Does not account for uncertainty in ICER estimates
+      \item Ignores non-QALY factors: equity, innovation, unmet need
+    \end{itemize}
+    \item \textbf{PHARMAC does not use a formal league table} --- it weighs multiple criteria
+          (including equity, clinical benefit, budget impact) in a committee process
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Dementia and End-of-Life Care: Challenges for CUA}
+  \small
+  \begin{columns}
+    \column{0.55\textwidth}
+      \textbf{Dementia and the QALY framework:}
+      \begin{itemize}
+        \item Cognitive impairment makes self-reported EQ-5D unreliable (proxy responses needed)
+        \item Proxy utility weights may not reflect the patient's subjective experience
+        \item Dementia care costs are enormous but QALY gains from care are modest
+      \end{itemize}
+    \column{0.42\textwidth}
+      \textbf{End-of-life care:} NZ spends disproportionately in the last months of life, with limited QALY gains per dollar.\\[0.25em]
+      \textbf{NICE (2009)}: end-of-life premium (£50K vs.\ £30K threshold).\\[0.25em]
+      NZ PHARMAC has no formal end-of-life premium --- ongoing policy debate. As NZ ages, the QALY framework needs adaptation.
+  \end{columns}
+\end{frame}
+
+\summaryside{
+  \item QALYs favour younger patients; fair innings argument partially justifies age-weighting but disadvantages groups with shorter life expectancy (M\=aori, Pacific)
+  \item Three frameworks: utilitarianism (max aggregate QALYs), Rawlsianism (maximin), libertarianism (rights and markets)
+  \item Distributional weights ($w_i > 1$ for disadvantaged groups) and social welfare functions formalise equity concerns
+  \item League tables are transparent but ignore equity, budget impact, and uncertainty; PHARMAC uses a multi-criteria committee process
+}
+
+\end{document}

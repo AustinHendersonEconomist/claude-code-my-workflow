@@ -114,9 +114,11 @@ TEXINPUTS=../Preambles:$TEXINPUTS xelatex -interaction=nonstopmode file.tex
 
 | Artifact | File | Status |
 |----------|------|--------|
-| Master plan (Phases 1–6) | `quality_reports/plans/zazzy-noodling-feather.md` | APPROVED; Phases 1–2 done |
+| Master plan (Phases 1–6) | `quality_reports/plans/zazzy-noodling-feather.md` | APPROVED; Phases 1–2 done; Phase 3 done |
 | Course map (36 days) | `Course_Map.md` | Complete; dates signed off |
-| LaTeX syllabus | `Syllabus/ECON306_Syllabus_S2_2026.tex` | Compiles clean (7 pp) |
-| W01D1 lecture | `Slides/day 1 claude test.tex` | Quality benchmark; becomes `Slides/days/W01D1_course_intro.tex` in Phase 3 |
-| Per-day slide split | `Slides/days/` | Phase 3 (next) |
+| LaTeX syllabus | `Syllabus/ECON306_Syllabus_S2_2026.tex` | Compiles clean (10 pp, incl. Reading List) |
+| W01D1 lecture | `Slides/days/W01D1_course_intro.tex` | Quality benchmark for all day decks |
+| Per-day slide split | `Slides/days/` | **Phase 3 complete**: 33 day files (W01D1–W12D1); W07D3/W12D2/W12D3 = no slides (test/reserved) |
+| Master full-course PDF | `Slides/ECON306_S2_2026_master.tex` | Built: 337 pp (pdfpages; requires day PDFs first). Emits ~300 non-fatal "artifact undefined" warnings — cosmetic, flagged for Phase 5 |
+| Build script | `scripts/build_all_slides.sh` | Compiles all 33 days then master |
 | Readings refresh + bib | `Bibliography_base.bib` | Phase 4 |

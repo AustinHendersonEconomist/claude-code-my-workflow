@@ -1,0 +1,196 @@
+% ============================================================
+%  ECON306: W08D1 — Allocating the Health Budget; Four Types of
+%          Economic Evaluation (CMA/CBA/CEA/CUA); PHARMAC
+%  Date: Wednesday 9 September 2026
+%  SOURCE: old w07_week7 frames from FULL deck (lines 2596–2740)
+%  STALE-FACT FIXES: old deck said "Test on Thursday Week 7" and
+%    "Tutorial 4 Mon 8 Sep: PHARMAC case studies"; corrected to
+%    Tutorial 4 = test debrief + allocation intuitions (Mon 7 Sep /
+%    Fri 11 Sep); assignment distributed this week.
+% ============================================================
+
+\documentclass[aspectratio=169, 12pt]{beamer}
+
+\input{../../Preambles/econ306_preamble.tex}
+
+\title[ECON306: W08D1 — Economic Evaluation Overview]{ECON306\\The Economics of Health and Education}
+\subtitle{W08D1: Allocating the Health Budget; Types of Economic Evaluation; PHARMAC}
+\author{Austin Henderson}
+\institute{Department of Economics\\University of Otago}
+\date{Wednesday 9 September 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\recapslide{
+  \item Part I complete: six characteristics, demand models, market failures, insurance,
+        hospital behaviour, NZ system history
+  \item In-class test (15\%) was Fri 28 Aug --- covered all of Part I
+  \item Tutorial 4 this week (Mon 7 Sep / Fri 11 Sep): test debrief and allocation intuitions
+}
+
+\planslide{Introduction to Economic Evaluation; Allocation Frameworks}{
+  \item Why we need economic evaluation: from intuitive criteria to evidence-based approaches
+  \item Components of an economic evaluation: costs and outcomes
+  \item Overview of the four types: CMA, CBA, CEA, CUA
+  \item PHARMAC and the NZ framework
+}
+
+\begin{frame}{Welcome to Part II}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \footnotesize
+      \textbf{Part II covers (Weeks 8--9):}
+      \begin{itemize}
+        \item Economic evaluation of health technologies
+        \item Valuing human life (VSL, CBA)
+        \item Discounting future benefits and costs
+        \item QALYs and cost-utility analysis
+        \item Equity, fair innings, distributional weights
+        \item Multi-Criteria Decision Analysis (MCDA)
+      \end{itemize}
+      \vspace{0.2em}
+      \textbf{Assignment distributed this week} (due Mon 5 Oct 2026, 9:00 am): PHARMAC-style funding brief.
+    \column{0.42\textwidth}
+      \footnotesize
+      \begin{alertblock}{Part II readings}
+        See Brightspace (Aoroa):\\[0.1em]
+        Devlin \& Hansen (2000); Kernick (1998 \textit{BMJ}); Kobelt; Drummond et al.\ Ch.\ 2;
+        Salvatore Ch.\ 14; \textit{The Economist} on VSL and uncertainty.
+      \end{alertblock}
+      \vspace{0.15em}
+      \tutorialbox{\textbf{Tutorial 4 (Mon 7 Sep / Fri 11 Sep):} Test debrief; how should we allocate the health budget?}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{The Problem of Allocating the Health Budget}
+  \small
+  \textbf{Intuitively appealing criteria — but often conflicting:}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \begin{itemize}
+        \item Treat the \textbf{sickest} first? (severity)
+        \item Treat those with the \textbf{most to gain}? (benefit max.)
+        \item Treat the \textbf{young} before the old? (fair innings)
+      \end{itemize}
+    \column{0.47\textwidth}
+      \begin{itemize}
+        \item Treat those who \textbf{waited longest}? (queue)
+        \item Treat those who can best afford it? (WTP)
+        \item Treat those who \textbf{need it most}? (need-based)
+      \end{itemize}
+  \end{columns}
+  \vspace{0.3em}
+  \begin{alertblock}{The economics approach}
+    Allocate resources to maximise \textbf{aggregate health gain} for a given budget, subject to equity constraints.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Components of an Economic Evaluation}
+  \small
+  Every evaluation compares \textbf{costs} and \textbf{outcomes/consequences} of alternatives.
+  \vspace{0.3em}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \textbf{Types of costs:}
+      \begin{itemize}
+        \item Direct HC costs (drugs, hospitalisation)
+        \item Direct non-HC costs (transport, home care)
+        \item Indirect costs (productivity losses, carer time)
+        \item Intangible costs (pain, grief) --- rarely included
+      \end{itemize}
+    \column{0.47\textwidth}
+      \textbf{Perspective matters:}
+      \begin{itemize}
+        \item Payer perspective (PHARMAC, government)
+        \item Societal perspective (all costs, all benefits)
+        \item Patient perspective
+      \end{itemize}
+      \vspace{0.2em}
+      \begin{alertblock}{CHEERS 2022 standard}
+        \footnotesize Gold standard for reporting publication-quality economic evaluations.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{The Four Types of Economic Evaluation}
+  \begin{center}
+    \small
+    \begin{tabular}{@{}lll@{}}
+      \toprule
+      \textbf{Type} & \textbf{Costs measured?} & \textbf{Outcomes measured?} \\
+      \midrule
+      CMA & Yes (in \$) & No (assumed equal) \\
+      CBA & Yes (in \$) & Yes (in \$) \\
+      CEA & Yes (in \$) & Yes (natural units) \\
+      CUA & Yes (in \$) & Yes (QALYs) \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \vspace{0.5em}
+  \begin{columns}
+    \column{0.48\textwidth}
+      \small
+      \textbf{CMA}: if outcomes are proven equal, choose the lowest-cost option.\\[0.4em]
+      \textbf{CBA}: convert all outcomes to \$ values (using VSL, WTP).
+    \column{0.48\textwidth}
+      \small
+      \textbf{CEA}: cost per natural unit of health (e.g.\ \$/life-year).\\[0.4em]
+      \textbf{CUA}: cost per QALY gained --- dominant approach for PHARMAC and most HTA bodies.
+  \end{columns}
+\end{frame}
+
+\begin{frame}{PHARMAC and Economic Evaluation in NZ}
+  \small
+  \begin{itemize}
+    \item PHARMAC is one of the world's most influential practitioners of \textbf{formal
+          economic evaluation} for pharmaceutical funding decisions
+    \item PHARMAC uses \textbf{cost-utility analysis (CUA)} as its primary evaluation
+          framework, with a threshold of approximately \textbf{\$45,000--\$50,000 per QALY}
+    \item This threshold is \emph{implicit} (not formally published) --- PHARMAC weighs
+          multiple factors beyond cost-per-QALY (equity, budget impact, clinical need)
+    \item PHARMAC's ability to negotiate drug prices is a form of \textbf{monopsony power}:
+          as the sole buyer, it can negotiate much lower prices than in countries with
+          fragmented purchasing
+    \item Result: NZ pays some of the lowest pharmaceutical prices in the OECD
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Assignment: PHARMAC-Style Funding Brief}
+  \begin{exampleblock}{Assignment distributed this week}
+    Conduct a PHARMAC-style funding brief for a real NZ medicine or intervention.
+    Apply CUA reasoning using skills developed in Part II.\\[0.4em]
+    \textbf{Due: Mon 5 Oct 2026, 9:00 am.}
+  \end{exampleblock}
+  \vspace{0.5em}
+  Brightspace (Aoroa) has the full brief template and marking guide.
+\end{frame}
+
+\begin{frame}{Devlin and Hansen (2000): The NZ Treasury Approach}
+  \small
+  \textbf{``Allocating Vote: Health''} (NZ Treasury WP 00/4): NZ should adopt
+  \textbf{explicit economic criteria} using incremental cost-effectiveness analysis.
+  \vspace{0.2em}
+  \begin{itemize}
+    \item \textbf{Informal prioritisation} (political, ad-hoc) produces worse outcomes
+          than systematic economic evaluation
+    \item Introduced an \textbf{implicit cost-per-QALY threshold} for NZ
+    \item Laid groundwork for PHARMAC's current evaluation framework
+  \end{itemize}
+  \vspace{0.2em}
+  \begin{alertblock}{Required reading}
+    \small Read Devlin \& Hansen (2000) before Friday's lecture. (\textit{Devlin}: NZ Treasury / Otago; \textit{Hansen}: Otago Economics)
+  \end{alertblock}
+\end{frame}
+
+\summaryside{
+  \item Economic evaluation provides a systematic framework for prioritising health spending: measure costs and outcomes, compute a summary ratio
+  \item Four types: CMA (equal outcomes $\rightarrow$ min cost), CBA (outcomes in \$), CEA (outcomes in natural units), CUA (outcomes in QALYs)
+  \item PHARMAC uses CUA with an implicit \$45,000--50,000/QALY threshold --- one of the world's most rigorous HTA bodies
+  \item Assignment distributed this week: PHARMAC-style funding brief. Due Mon 5 Oct 2026, 9:00 am.
+}
+
+\end{document}

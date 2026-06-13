@@ -1,0 +1,163 @@
+% ============================================================
+%  ECON306: W03D1 — Invisible hand baseline; normative vs positive
+%          theories of intervention
+%  Date: Wednesday 29 July 2026
+% ============================================================
+
+\documentclass[aspectratio=169, 12pt]{beamer}
+
+\input{../../Preambles/econ306_preamble.tex}
+
+\title[ECON306: W03D1 — Invisible Hand \& Normative Theory]{ECON306\\The Economics of Health and Education}
+\subtitle{W03D1: The Invisible Hand Baseline; Normative vs.\ Positive Theories}
+\author{Austin Henderson}
+\institute{Department of Economics\\University of Otago}
+\date{Wednesday 29 July 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\recapslide{
+  \item Wagstaff model: demand for HC depends on price, income, health status, education
+  \item Health insurance reduces the effective price $\Rightarrow$ moral hazard
+  \item Principal-agent problem: provider and patient incentives may diverge
+}
+
+\planslide{Why Do Governments Intervene in Health Care Markets?}{
+  \item The First Fundamental Theorem of Welfare Economics
+  \item Normative theories: market failures (natural monopoly, moral hazard, adverse selection, externalities)
+  \item Positive theories: regulatory capture and public choice
+}
+
+\begin{frame}{Week 3 Overview}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \textbf{This week:}
+      \begin{itemize}
+        \item Why do governments intervene in HC markets?
+        \item Normative theories: market failures
+        \item Positive theories: public choice and regulatory capture
+        \item The supplier-induced demand hypothesis and alternatives
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{block}{Required Reading}
+        {\small
+        \begin{itemize}
+          \item Donaldson \& Gerard: ``Market failure in health care'' (Ch.\ 3)
+          \item Feldstein: ``The legislative workplace'' (pp.\ 437--42)
+          \item Rice \& Unruh: ``Are supply and demand independently determined?'' (pp.\ 161--9)
+        \end{itemize}}
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Starting Point: Adam Smith's Invisible Hand}
+  \begin{block}{First Fundamental Theorem of Welfare Economics}
+    Under perfectly competitive conditions (full information, no externalities, no market power),
+    market equilibria are \textbf{Pareto optimal} --- resources are allocated efficiently without
+    central coordination.
+  \end{block}
+  \vspace{0.3em}
+  \begin{itemize}
+    \item Where markets \emph{work}, government intervention reduces welfare
+    \item But health care violates almost every condition for perfect competition:
+    \begin{itemize}
+      \item Asymmetric information (not full information)
+      \item Externalities (not no externalities)
+      \item Natural monopoly elements (not competitive)
+    \end{itemize}
+    \item $\Rightarrow$ \textbf{Market failure} $\Rightarrow$ case for government intervention
+    \item But: government intervention can also fail --- ``government failure''
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Normative vs.\ Positive Theories of Government Intervention}
+  \begin{columns}
+    \column{0.48\textwidth}
+      \begin{block}{Normative: ``Should the government intervene?''}
+        \small
+        \begin{itemize}
+          \item Markets fail in health care $\Rightarrow$ intervention is in the \textbf{public interest}
+          \item Government intervention \emph{should} correct market failures
+          \item Sources: Donaldson \& Gerard (2005)
+        \end{itemize}
+      \end{block}
+    \column{0.48\textwidth}
+      \begin{alertblock}{Positive: ``Why does government intervene?''}
+        \small
+        \begin{itemize}
+          \item Stigler, Posner, Peltzman: regulation arises because \textbf{special interest groups}
+                use it to protect themselves from competition
+          \item Regulation is supplied through a \textit{political market}
+          \item Government may act in the interest of producers, not consumers
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.4em}
+  {\small \textbf{NZ example:} PHARMAC's cost-effectiveness criteria (normative) vs.\ industry lobbying
+  to expand the funded schedule (positive) --- a live tension in NZ health policy.}
+\end{frame}
+
+\begin{frame}{Normative Market Failures in Health Care: Overview}
+  \begin{enumerate}
+    \item \textbf{Natural monopoly} (diseconomies of small scale in insurance administration)
+    \item \textbf{Moral hazard} (insurance changes incentives for HC consumption)
+    \item \textbf{Adverse selection} (asymmetric information in insurance markets)
+    \item \textbf{Physical externalities} (immunisation, communicable diseases, sanitation)
+    \item \textbf{Psychic (caring) externalities} (social preferences for others' health)
+    \item \textbf{Supplier market power} (providers are not competitive price-takers)
+  \end{enumerate}
+  \vspace{0.4em}
+  Each failure has a corresponding \textbf{policy instrument}. Let us work through each.
+\end{frame}
+
+\begin{frame}{Market Failure 1: Natural Monopoly in Insurance}
+  \small
+  \begin{itemize}
+    \item A \textbf{natural monopoly} arises when a single firm can supply the entire market at
+          lower cost than multiple competing firms (high fixed costs, economies of scale,
+          low marginal costs)
+    \item Private health insurance has substantial \textbf{administrative overhead}:
+    \begin{itemize}
+      \item Evans (1984): US insurance admin costs $\approx$5.2\% of HC spending vs.\ Canada 1.5\%
+      \item In 2023, the US employed over 900,000 people in health insurance ($\approx$0.5\%
+            of all full-time workers)
+    \end{itemize}
+    \item \textbf{Policy response}: a single public insurer reduces administrative duplication
+  \end{itemize}
+  \begin{exampleblock}{NZ: Accident Compensation Corporation (ACC)}
+    \small Universal no-fault accident insurance. Every NZ resident contributes via levies; ACC
+    covers treatment and lost income for accidental injury regardless of fault.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Market Failures 2--3: Moral Hazard and Adverse Selection}
+  \begin{columns}
+    \column{0.48\textwidth}
+      \begin{block}{Moral hazard (Week 5 in depth)}
+        Insurance changes behaviour: insured parties take less care to avoid loss (ex-ante)
+        or consume more HC when ill (ex-post).\\[0.3em]
+        Policy tools: copayments, deductibles, gatekeeping.
+      \end{block}
+    \column{0.48\textwidth}
+      \begin{alertblock}{Adverse selection (Week 5 in depth)}
+        High-risk individuals disproportionately seek insurance; insurers cannot perfectly
+        screen. Markets can unravel (``death spiral'').\\[0.3em]
+        Policy tools: mandatory insurance, community rating, public provision.
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.5em}
+  Both moral hazard and adverse selection stem from \textbf{asymmetric information} ---
+  the same special characteristic from Week 1. Details in Week 5.
+\end{frame}
+
+\summaryside{
+  \item Normative theories: government should intervene to correct \textbf{market failures} (natural monopoly, moral hazard, adverse selection, externalities)
+  \item Positive theories: government does intervene, but often because of \textbf{regulatory capture} by special interests --- not always in the public interest
+  \item NZ-specific examples: PHARMAC (cost-effectiveness regulation), ACC (public no-fault insurance)
+}
+
+\end{document}

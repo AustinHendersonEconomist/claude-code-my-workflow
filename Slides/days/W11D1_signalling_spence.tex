@@ -1,0 +1,194 @@
+% ============================================================
+%  ECON306: W11D1 — Signalling Theory (Spence 1973);
+%          Separating Equilibria
+%  Date: Wednesday 30 September 2026
+%  SOURCE: old w13_week13 (signalling section) from FULL deck
+%    (lines 3856–3925) --- first lecture portion.
+% ============================================================
+
+\documentclass[aspectratio=169, 12pt]{beamer}
+
+\input{../../Preambles/econ306_preamble.tex}
+
+\title[ECON306: W11D1 — Signalling Theory]{ECON306\\The Economics of Health and Education}
+\subtitle{W11D1: Signalling Theory (Spence 1973); Separating Equilibria}
+\author{Austin Henderson}
+\institute{Department of Economics\\University of Otago}
+\date{Wednesday 30 September 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\recapslide{
+  \item Human capital theory: education raises productivity $\Rightarrow$ positive wage premium
+  \item NZ graduate premium $\approx$60--80\%; falls for older students (shorter horizon)
+  \item Ability bias and selection bias complicate empirical estimation of returns
+}
+
+\planslide{Signalling Theory: An Alternative Explanation}{
+  \item Human capital vs.\ signalling: the key distinction
+  \item Spence (1973) signalling model: setup and logic
+  \item Separating equilibrium: how education signals ability without raising it
+  \item Welfare implications of signalling equilibria
+}
+
+\begin{frame}{The Big Question: Why Does Education Raise Wages?}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \begin{block}{Human capital view}
+        \small Education raises workers' \textbf{productivity} (skills, knowledge, problem-solving).
+        Employers pay more because graduates genuinely produce more.\\[0.2em]
+        \textit{Policy implication}: subsidise education --- it raises social welfare.
+      \end{block}
+    \column{0.47\textwidth}
+      \begin{alertblock}{Signalling view}
+        \small Education \textbf{does not} raise productivity. Instead, it serves as a \textbf{signal}
+        of pre-existing ability to employers who cannot observe ability directly.\\[0.2em]
+        \textit{Policy implication}: subsidising education may be wasteful --- it just
+        shifts the goalposts on the signalling game.
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.2em}
+  \begin{exampleblock}{Both views consistent with the same data}
+    \small Graduates earn more than non-graduates. Both theories predict this. Distinguishing them
+    empirically is one of the central challenges of labour economics.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Spence (1973): The Signalling Model}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \footnotesize \textbf{Michael Spence --- Nobel Prize 2001} (with Akerlof and Stiglitz)\\[0.2em]
+      Education may \textbf{not} raise productivity at all --- it may serve purely as a
+      \textbf{signal} of pre-existing ability to employers.
+      \begin{itemize}
+        \item \textbf{Information problem}: employers cannot observe worker ability before
+              hiring (asymmetric information)
+        \item \textbf{Costly signal}: education is costly but \emph{more costly} for
+              \textbf{low-ability} workers (they find it harder)
+        \item \textbf{High-ability} workers signal through education; low-ability do not
+        \item Result: a \textbf{separating equilibrium}
+      \end{itemize}
+    \column{0.44\textwidth}
+      \begin{alertblock}{The crucial implication}
+        \footnotesize If signalling theory is correct:
+        \begin{itemize}
+          \item Private returns are \textbf{positive} (wage premium is real)
+          \item But \textbf{social returns are zero} (education just sorts workers)
+          \item Government subsidy would be a \textbf{waste of resources}
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{The Separating Equilibrium: Setup}
+  \begin{block}{Setup (simplified)}
+    \small Two types of workers: \textbf{High ability} ($H$) and \textbf{Low ability} ($L$).
+    \begin{itemize}
+      \item $H$ workers produce \$150K/year; $L$ workers produce \$80K/year
+      \item Employers cannot tell them apart before hiring
+      \item Education costs \textbf{\$10K/year} for $H$ but \textbf{\$25K/year} for $L$
+            (low-ability workers find education harder/costlier)
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{The Separating Equilibrium: The Logic}
+  \begin{block}{The separating equilibrium}
+    \small Suppose employers pay \$150K to graduates, \$80K to non-graduates:
+    \begin{itemize}
+      \item $H$ workers: benefit $=$ \$70K; cost of 4 years $= 4\times\$10\text{K} = \$40\text{K}$.
+            \textbf{Net gain $=$ \$30K. Get the degree.}
+      \item $L$ workers: benefit $=$ \$70K; cost $= 4\times\$25\text{K} = \$100\text{K}$.
+            \textbf{Net loss $=$ -\$30K. Don't get the degree.}
+      \item Employers' beliefs are confirmed. \textbf{Equilibrium.}
+    \end{itemize}
+  \end{block}
+  \vspace{0.3em}
+  \small \textbf{Key insight}: Education doesn't need to teach anything to sustain this equilibrium
+  --- it only needs to be differentially costly across worker types.
+\end{frame}
+
+\begin{frame}{Key Properties of the Signalling Equilibrium}
+  \small
+  \begin{enumerate}
+    \item \textbf{Stability}: no agent wants to deviate given others' beliefs
+    \begin{itemize}
+      \item $H$ workers don't want to stop educating (they'd be paid \$80K)
+      \item $L$ workers don't want to start educating (cost exceeds benefit)
+      \item Employers' wage-setting is confirmed by actual worker quality
+    \end{itemize}
+    \item \textbf{Pooling equilibrium alternative}: if employers cannot distinguish, they pay
+          the average wage; but then $H$ workers have incentive to signal
+    \item \textbf{Welfare implications}:
+    \begin{itemize}
+      \item Total wages paid = same as without signalling (productivity unchanged)
+      \item But resources are wasted on education that produced no skills
+      \item Real education consumes resources; sorting is costly
+    \end{itemize}
+    \item \textbf{``Arms race'' dynamic}: if everyone gets more education, the signal
+          threshold may rise, leaving everyone worse off (signalling inflation)
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Conditions for a Signalling Equilibrium}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{alertblock}{The single-crossing property}
+        \small For a separating equilibrium to exist:
+        \[\text{Cost}_L > \text{Wage gap} > \text{Cost}_H\]
+        Indifference curves of $H$ and $L$ workers cross only once in education--wage space.
+      \end{alertblock}
+    \column{0.45\textwidth}
+      \begin{block}{What makes education a good signal?}
+        \small
+        \begin{itemize}
+          \item Costly to fake (time and effort even if it teaches little)
+          \item High-ability workers find it less costly (stronger performance, faster completion)
+          \item Credentials hard to counterfeit (graded exams, external assessment)
+        \end{itemize}
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Policy Implications of Signalling Theory}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{alertblock}{If signalling theory is mostly true:}
+        \footnotesize
+        \begin{itemize}
+          \item Subsidising tertiary education accelerates signalling inflation
+          \item Private returns positive; social returns $\approx 0$
+          \item Government subsidy is welfare-reducing (resources wasted)
+          \item \textbf{Policy}: reduce subsidies; let markets sort
+        \end{itemize}
+      \end{alertblock}
+    \column{0.45\textwidth}
+      \begin{block}{If human capital theory is mostly true:}
+        \footnotesize
+        \begin{itemize}
+          \item Education genuinely raises productivity and social welfare
+          \item Externalities justify subsidy beyond capital market correction
+          \item \textbf{Policy}: subsidise, especially for low-income students
+        \end{itemize}
+      \end{block}
+  \end{columns}
+  \vspace{0.15em}
+  \begin{exampleblock}{The honest answer}
+    \small Both theories are partially true. The NZ policy debate is about the \emph{relative}
+    magnitudes --- examined in W11D2 and W11D3.
+  \end{exampleblock}
+\end{frame}
+
+\summaryside{
+  \footnotesize
+  \item Spence (1973) signalling model: education may signal pre-existing ability without raising productivity; Nobel Prize 2001
+  \item Separating equilibrium: high-ability workers signal with education; low-ability do not, because signalling costs differ
+  \item Single-crossing property: cost of education must be lower for high-ability workers than the wage gap to sustain equilibrium
+  \item Policy implication: if pure signalling, subsidising education wastes resources and inflates the signalling threshold
+}
+
+\end{document}

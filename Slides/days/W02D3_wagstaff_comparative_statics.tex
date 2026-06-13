@@ -1,0 +1,131 @@
+% ============================================================
+%  ECON306: W02D3 — Comparative statics; what the model ignores;
+%          principal-agent preview
+%  Date: Friday 24 July 2026
+% ============================================================
+
+\documentclass[aspectratio=169, 12pt]{beamer}
+
+\input{../../Preambles/econ306_preamble.tex}
+
+\title[ECON306: W02D3 — Wagstaff Comparative Statics]{ECON306\\The Economics of Health and Education}
+\subtitle{W02D3: What the Wagstaff Model Ignores; Principal--Agent Preview}
+\author{Austin Henderson}
+\institute{Department of Economics\\University of Otago}
+\date{Friday 24 July 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\recapslide{
+  \item Lower HC price raises $\text{HC}^*$ and $H^*$; higher income raises demand if health is normal
+  \item Ageing increases the depreciation rate $\Rightarrow$ more HC needed to maintain health stock
+  \item Education raises health production function efficiency (but causality is contested)
+}
+
+\planslide{What the Wagstaff Model Doesn't Capture}{
+  \item Six limitations of the Wagstaff model
+  \item The principal-agent problem and supplier-induced demand
+  \item The role of health insurance in demand
+  \item Implications for empirical health economics
+}
+
+\begin{frame}{What the Wagstaff Model Ignores}
+  \begin{enumerate}
+    \item \textbf{Many types of HC}: $H = f(\text{HC}_1, \text{HC}_2, \ldots)$ --- some are
+          complements, some are substitutes; cross-price elasticities matter
+    \item \textbf{Quality of HC}: objective (clinical effectiveness) vs.\ subjective
+          (waiting time, amenities) quality
+    \item \textbf{Time costs}: the full price of HC exceeds the out-of-pocket fee
+    \item \textbf{Income measure}: transitory vs.\ permanent (life-cycle) income
+    \item \textbf{Non-economic factors}: age, sex, ethnicity, marital status --- these
+          shift the health production function
+    \item \textbf{Role of providers} in generating demand: the principal-agent problem
+          and the supplier-induced demand (SID) hypothesis
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{The Principal-Agent Problem in Health Care}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{itemize}
+        \item \textbf{Principal}: patient (has the health problem and resources)
+        \item \textbf{Agent}: doctor (has the knowledge; makes recommendations)
+        \item Patient \textbf{delegates} consumption decision to the doctor
+        \item Are the doctor's incentives aligned with patient welfare?
+      \end{itemize}
+    \column{0.44\textwidth}
+      \begin{alertblock}{Supplier-Induced Demand}
+        \small The \textbf{SID hypothesis}: doctors can induce demand beyond the
+        patient's ``true'' demand.\\[0.2em]
+        Evidence is mixed. More relevant in fee-for-service (US) than NZ's
+        salaried/capitation GP system.
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.4em}
+  \textbf{Payment incentives:}
+  \begin{itemize}
+    \item Fee-for-service $\Rightarrow$ over-provision incentive
+    \item Capitation $\Rightarrow$ under-provision incentive
+    \item Salaried $\Rightarrow$ effort incentive weakened
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Health Insurance and Demand: A Preview}
+  \begin{itemize}
+    \item The Wagstaff model treats $P_\text{HC}$ as the full out-of-pocket price --- but in most
+          countries a substantial share of HC is publicly or privately insured
+    \item Insurance \textbf{lowers the effective price} of HC to the consumer at point of use
+          $\Rightarrow$ demand increases (moral hazard)
+    \item The welfare implications of this demand increase are complex:
+    \begin{itemize}
+      \item Some of the extra HC generates real health gains
+      \item Some is ``wasteful'' in the sense of producing low marginal health
+    \end{itemize}
+    \item This is the classic \textbf{moral hazard--insurance efficiency trade-off}
+    \item Full treatment in Week 5 (Microeconomics of Health Insurance)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Putting It Together: What the Model Does and Doesn't Do}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \begin{block}{The Wagstaff model \emph{does}:}
+        \footnotesize
+        \begin{itemize}
+          \item Generate testable comparative statics
+          \item Link individual behaviour to health system design
+          \item Motivate the demand for insurance
+          \item Show why HC demand rises with age
+          \item Show the role of income in HC demand
+        \end{itemize}
+      \end{block}
+    \column{0.47\textwidth}
+      \begin{alertblock}{The Wagstaff model \emph{doesn't}:}
+        \footnotesize
+        \begin{itemize}
+          \item Model the provider's side of the market
+          \item Incorporate insurance endogenously
+          \item Handle multiple simultaneous conditions
+          \item Capture social norms or network effects
+          \item Distinguish short-run from long-run demand
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.2em}
+  \begin{exampleblock}{Coming weeks build on these gaps}
+    \small Week 3: Government role, SID \quad Week 5: Insurance (moral hazard, adverse selection)
+  \end{exampleblock}
+\end{frame}
+
+\summaryside{
+  \item The Wagstaff model is a powerful but simplified tool --- it ignores HC quality, time costs, provider-induced demand, and insurance
+  \item The principal-agent problem arises because patients delegate HC decisions to providers whose incentives may not be perfectly aligned
+  \item Health insurance lowers the effective price of HC, raising demand via moral hazard --- a trade-off between insurance benefits and efficiency
+  \item These extensions will be developed in Weeks 3--5; Tutorial 1 (Mon/Fri) works through comparative statics
+}
+
+\end{document}

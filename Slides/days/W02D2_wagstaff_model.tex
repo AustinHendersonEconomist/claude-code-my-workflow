@@ -1,0 +1,134 @@
+% ============================================================
+%  ECON306: W02D2 — Wagstaff model: indifference curves, health
+%          production function, budget constraint
+%  Date: Thursday 23 July 2026
+% ============================================================
+
+\documentclass[aspectratio=169, 12pt]{beamer}
+
+\input{../../Preambles/econ306_preamble.tex}
+
+\title[ECON306: W02D2 — Wagstaff Model]{ECON306\\The Economics of Health and Education}
+\subtitle{W02D2: The Wagstaff Model in Depth}
+\author{Austin Henderson}
+\institute{Department of Economics\\University of Otago}
+\date{Thursday 23 July 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\recapslide{
+  \item Grossman: health capital depreciates with age; HC is investment in health
+  \item Wagstaff model has three components: preferences, health production function, budget constraint
+  \item Full price of HC = out-of-pocket cost + time cost
+}
+
+\planslide{Comparative Statics: Working with the Wagstaff Model}{
+  \item Effect of a fall in the price of HC $\Rightarrow$ deriving a demand curve
+  \item Effect of an increase in income
+  \item Effect of ageing / illness (health stock falls)
+  \item Effect of more education
+  \item Policy implications of each
+}
+
+\begin{frame}{Comparative Statics: Using the Wagstaff Model}
+  \begin{block}{Key question for each experiment}
+    What is the effect on:
+    \begin{enumerate}
+      \item The demand for health ($H^*$)?
+      \item The demand for health care ($\text{HC}^*$)?
+    \end{enumerate}
+    And: \textbf{What are the policy implications?}
+  \end{block}
+  \vspace{0.4em}
+  We will work through four ``experiments'':
+  \begin{enumerate}
+    \item A \textbf{fall in the price of HC} $\Rightarrow$ derive a demand curve for HC
+    \item An increase in \textbf{income}
+    \item The individual \textbf{ages or becomes ill} (health stock falls)
+    \item An increase in the individual's \textbf{education}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Experiment 1: Fall in the Price of HC}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{itemize}
+        \item Lower $P_\text{HC}$ rotates the budget constraint outward (more HC affordable)
+        \item Individual moves to a higher indifference curve
+        \item Effect on \textbf{$\text{HC}^*$}: \textcolor{OtagoBlue}{\textbf{increases}} (substitution + income effect)
+        \item Effect on \textbf{$H^*$}: \textcolor{OtagoBlue}{\textbf{increases}} (more HC $\Rightarrow$ more health)
+        \item Tracing out $\text{HC}^*$ for different prices of HC \textbf{traces the demand curve for HC}
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{alertblock}{Policy implication}
+        Reducing copayments / user charges \textbf{increases both} HC consumption and health,
+        but at a fiscal cost.\\[0.3em]
+        The gain in health per dollar spent depends on the marginal product of HC at that point
+        on the production function.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Experiment 2: Increase in Income}
+  \begin{itemize}
+    \item Higher income shifts the budget constraint outward \emph{parallel} (both $H$ and $C$
+          can increase)
+    \item If health is a \textbf{normal good}: $\text{HC}^*$ increases and $H^*$ increases
+    \item The \textbf{income elasticity of demand for HC} is empirically around 0.2--0.6 at
+          the individual level, but around 1.0--1.5 at the cross-country level
+    \item This difference has implications for how we think about income and health at different
+          scales
+  \end{itemize}
+  \begin{exampleblock}{NZ evidence: income and health}
+    The NZ Health Survey consistently finds steep gradients between household income and
+    self-reported health, unmet need for GP visits, and preventive care utilisation.
+    Low-income individuals face both higher $P_\text{HC}$ (time costs) and lower budget constraints.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Experiment 3: Ageing / Fall in Health Stock}
+  \begin{itemize}
+    \item As we age, the \textbf{depreciation rate} of the health production function rises:
+          the same HC input produces \emph{less} additional health
+    \item Equivalently: the health production function shifts \emph{downward} / becomes less
+          productive
+    \item Effect on \textbf{$H^*$}: \textcolor{OtagoGold!80!black}{\textbf{falls}} (the production function limits achievable $H$)
+    \item Effect on \textbf{$\text{HC}^*$}: \textcolor{OtagoBlue}{\textbf{rises}} --- more HC is needed just to maintain the same health stock
+    \item This is a \textbf{key driver of the positive age--HC consumption relationship}
+  \end{itemize}
+  \begin{alertblock}{Preview: Week 4 (Ageing)}
+    This mechanism is central to understanding why ageing populations imply rapidly rising
+    health expenditure, even holding everything else constant.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Experiment 4: Increase in Education}
+  \begin{itemize}
+    \item Education improves the \textbf{efficiency} of the health production function:
+          a more educated person gets more health from the same HC inputs
+    \item Grossman argues education improves ``health know-how'' --- better ability to
+          navigate the health system, adhere to treatments, make preventive choices
+    \item Victor Fuchs (alternative view): education and health are \emph{jointly caused}
+          by a third factor (low time preference, self-discipline, ability)
+    \item Effect on \textbf{$H^*$}: \textcolor{OtagoBlue}{\textbf{rises}}
+    \item Effect on \textbf{$\text{HC}^*$}: \textbf{ambiguous} (better efficiency $\Rightarrow$ less HC needed
+          for same $H$, but also $H^*$ is higher)
+  \end{itemize}
+  \begin{block}{The education--health gradient}
+    Causal identification of education$\rightarrow$health is difficult. We return to
+    this in Part III (human capital theory and the returns to education, Weeks 10--11).
+  \end{block}
+\end{frame}
+
+\summaryside{
+  \item The Wagstaff model predicts: lower HC price $\uparrow \text{HC}$; higher income $\uparrow \text{HC}$ (if normal good); ageing $\uparrow \text{HC}$ demand (depreciation rises); more education $\uparrow H$ (efficiency effect)
+  \item The income gradient in health care demand is one of the strongest empirical regularities in health economics
+  \item Ageing raises HC demand by increasing the depreciation rate of health capital --- relevant to Week 4
+  \item The causal direction of the education--health relationship is still debated
+}
+
+\end{document}

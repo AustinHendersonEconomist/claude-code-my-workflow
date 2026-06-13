@@ -1,0 +1,192 @@
+% ============================================================
+%  ECON306: W02D1 — Economic vs non-economic models of health demand;
+%          Grossman health capital; Wagstaff introduction
+%  Date: Wednesday 22 July 2026
+% ============================================================
+
+\documentclass[aspectratio=169, 12pt]{beamer}
+
+\input{../../Preambles/econ306_preamble.tex}
+
+\title[ECON306: W02D1 — Demand Models \& Grossman]{ECON306\\The Economics of Health and Education}
+\subtitle{W02D1: Economic Models of Health Demand; Grossman Health Capital}
+\author{Austin Henderson}
+\institute{Department of Economics\\University of Otago}
+\date{Wednesday 22 July 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\recapslide{
+  \item Health is produced by many inputs, not just health care: nutrition, housing, education, environment
+  \item Health care is a \emph{derived demand} for health
+  \item HC is often on the ``flat of the curve'' in developed countries --- marginal returns are low
+}
+
+\planslide{From Health Production to Health Demand: Economic Models}{
+  \item Why we need economic (causal) models of health demand
+  \item Grossman (1972): the health capital framework
+  \item The Wagstaff (1986) model: three components
+}
+
+\begin{frame}{Week 2 Overview}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \textbf{This week:}
+      \begin{itemize}
+        \item Health capital and the Grossman (1972) model
+        \item The Wagstaff (1986) graphical model in detail
+        \item Comparative statics: price, income, ageing, education
+        \item What the Wagstaff model \emph{doesn't} capture
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{block}{Required Reading}
+        {\small
+        \begin{itemize}
+          \item A.\ Wagstaff (1986), ``The demand for health: theory and applications'',
+                \textit{J.\ Epidemiology \& Community Health}, 40, 1--11
+        \end{itemize}}
+      \end{block}
+      \vspace{0.3em}
+      \tutorialbox{Tutorial 1 (Mon 20 Jul / Fri 24 Jul) --- Wagstaff comparative statics: Think-Pair-Share and group analysis}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Economic vs.\ Non-economic Models of Health Demand}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \begin{block}{Early, non-economic ``global'' models}
+        \small
+        \begin{itemize}
+          \item Ad hoc categorisations
+          \item No explicit causal structure
+          \item Cannot generate testable hypotheses
+          \item Example: Andersen's ``Behavioural Model'' (need, enabling, predisposing factors)
+        \end{itemize}
+      \end{block}
+    \column{0.47\textwidth}
+      \begin{alertblock}{Economic models}
+        \small
+        \begin{itemize}
+          \item Explicit theoretical foundations
+          \item \textbf{Testable predictions}
+          \item Derived from \emph{optimising behaviour}: individuals maximise utility subject
+                to constraints
+          \item Key departure: demand for HC is a \textbf{derived demand} for health
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.3em}
+  \begin{exampleblock}{The goal}
+    \small Separate \textbf{demand for health} ($H^*$) from \textbf{demand for health care} ($\text{HC}^*$),
+    and identify how each responds to changes in prices, income, age, and education.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Grossman (1972): Health Capital}
+  \small
+  \begin{itemize}
+    \item Michael Grossman introduced \textbf{health capital}: a durable stock that
+          depreciates over time and can be augmented by investment
+    \item Individuals are simultaneously \textbf{consumers} and \textbf{producers} of health
+    \item Health stock $H_t$ is both \textbf{exogenous} (born with a given stock; random
+          illness shocks) and \textbf{endogenous} (we can invest to raise $H_t$)
+    \item Investment requires inputs: HC is one, but so are diet, exercise, rest\ldots
+    \item Health capital produces \textbf{healthy time}: time not lost to illness, available
+          for work and consumption
+    \item As we age, the \textbf{depreciation rate} rises --- we must invest more just to
+          maintain the same stock
+  \end{itemize}
+  \vspace{0.2em}
+  {\footnotesize Grossman, M.\ (1972). \textit{Journal of Political Economy}, 80, 223--255.}
+\end{frame}
+
+\begin{frame}{The Wagstaff (1986) Model: Three Components}
+  \begin{block}{Three building blocks}
+    \small
+    \begin{enumerate}
+      \item \textbf{Indifference curves}: preferences over health ($H$) vs.\ other consumption ($C$); slope = MRS
+      \item \textbf{Health Production Function}: $H = f(\text{HC}, \ldots)$; diminishing marginal returns
+      \item \textbf{Budget Constraint}: Income $= P_\text{HC} \cdot \text{HC} + P_C \cdot C$
+    \end{enumerate}
+  \end{block}
+  \vspace{0.4em}
+  {\small \textbf{Equilibrium:} The individual chooses $H^*$ and $\text{HC}^*$ where the indifference
+  curve is tangent to the \emph{transformed} budget constraint in health-consumption space.}
+  \vspace{0.2em}\\
+  {\footnotesize Technical details: Wagstaff (1986) --- required reading.}
+\end{frame}
+
+\begin{frame}{Component 1: Indifference Curves (Preferences)}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{itemize}
+        \item Axes: \textbf{Health} ($H$) on vertical, \textbf{Other consumption} ($C$) on horizontal
+        \item Indifference curves slope downward: trade-offs between $H$ and $C$
+        \item Convex to origin: diminishing MRS (we are willing to give up less $H$ for $C$
+              as $H$ increases)
+        \item What determines the slope (MRS)?
+        \begin{itemize}
+          \item Tastes and preferences
+          \item Age (older people value health more?)
+          \item Whether health is a ``normal'' or ``superior'' good
+        \end{itemize}
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{block}{Key insight}
+        The MRS measures the \emph{subjective value} of health relative to other consumption ---
+        it is individual-specific and \textbf{not directly observable}.\\[0.3em]
+        This creates challenges for both economic modelling and policy.
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Component 2: Health Production Function}
+  \begin{columns}
+    \column{0.55\textwidth}
+      $$H = f(\text{HC},\; \text{nutrition},\; \text{housing},\; \text{age},\; \ldots)$$
+      \begin{itemize}
+        \item Shows how health inputs (primarily HC) are converted into health
+        \item Exhibits \textbf{diminishing marginal returns}: each extra unit of HC produces
+              less additional health
+        \item Varies across individuals (same HC $\Rightarrow$ different $\Delta H$ depending on
+              age, genetics, initial health)
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{alertblock}{Policy implication}
+        Because marginal returns vary, \textbf{identical HC spending} will produce very
+        different health gains for different groups.\\[0.3em]
+        This is a key motivation for \emph{cost-effectiveness analysis} (Part II).
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Component 3: Budget Constraint}
+  $$\text{Income} = P_\text{HC} \cdot \text{HC} + P_C \cdot C$$
+  \small
+  \begin{itemize}
+    \item Slope is $-P_\text{HC}/P_C$: the \emph{relative price} of HC in terms of foregone
+          consumption
+    \item \textbf{Full price} of HC includes out-of-pocket fee \emph{plus} \textbf{time costs}
+          (waiting, travel)
+    \item Example: GP visit = \$30 out-of-pocket + 1 hr at \$30/hr $\Rightarrow$ total = \$60
+    \item Policy levers: copayments, subsidies, user charges --- all affect $P_\text{HC}$
+  \end{itemize}
+  \vspace{0.2em}
+  \begin{exampleblock}{NZ: Primary Care Co-payments}
+    \small After-hours GP fees vary widely in NZ. Low-cost access schemes reduce $P_\text{HC}$
+    for Community Services Card holders. Time costs remain regardless.
+  \end{exampleblock}
+\end{frame}
+
+\summaryside{
+  \item Grossman (1972) introduced health as a form of \emph{capital} that depreciates with age
+  \item Wagstaff (1986) operationalised this into a three-component graphical model
+  \item The full price of HC includes out-of-pocket costs \emph{plus} time and travel costs
+  \item The model generates clear, testable predictions about how demand for HC responds to changes in prices, income, age, and education
+}
+
+\end{document}

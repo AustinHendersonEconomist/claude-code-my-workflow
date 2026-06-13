@@ -1,0 +1,187 @@
+% ============================================================
+%  ECON306: W11D2 — Human Capital vs. Signalling: Evidence;
+%          Sheepskin Effects
+%  Date: Thursday 1 October 2026
+%  SOURCE: old w13_week13 (evidence section) from FULL deck
+%    (lines 3927–3976) + Course Map W11D2 LOs.
+% ============================================================
+
+\documentclass[aspectratio=169, 12pt]{beamer}
+
+\input{../../Preambles/econ306_preamble.tex}
+
+\title[ECON306: W11D2 — HC vs. Signalling Evidence]{ECON306\\The Economics of Health and Education}
+\subtitle{W11D2: Human Capital vs.\ Signalling: Evidence; Sheepskin Effects}
+\author{Austin Henderson}
+\institute{Department of Economics\\University of Otago}
+\date{Thursday 1 October 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\recapslide{
+  \item Spence (1973): education may signal ability without raising productivity --- social returns potentially zero
+  \item Separating equilibrium: high-ability workers signal; low-ability do not (cost differential is the key)
+  \item Single-crossing property must hold for separating equilibrium to be stable
+}
+
+\planslide{Human Capital vs.\ Signalling: What Does the Evidence Say?}{
+  \item Empirical strategies for distinguishing HC from signalling
+  \item Evidence for human capital theory: natural experiments
+  \item Evidence for signalling: sheepskin effects and self-employed wage returns
+  \item The consensus: probably both matter --- but how much of each?
+  \item Policy implications of the balance of evidence
+}
+
+\begin{frame}{Why Is This Hard to Test?}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \small \textbf{The identification problem:} Both theories predict the same stylised fact
+      --- graduates earn more. To distinguish them, we need variation in education
+      \textbf{unrelated to ability}.
+      \begin{itemize}
+        \item \textbf{Ability bias}: more able people earn more \emph{and} are more likely
+              to attend university
+        \item \textbf{Selection bias}: choosers differ systematically from non-choosers
+        \item Both biases \emph{overstate} returns in naive OLS
+      \end{itemize}
+    \column{0.45\textwidth}
+      \begin{alertblock}{Solution strategies}
+        \small
+        \begin{itemize}
+          \item \textbf{IV/natural experiments}: compulsory schooling law changes (Angrist \& Krueger, 1991)
+          \item \textbf{Twin studies}: identical twins with different education levels
+          \item \textbf{Sheepskin tests}: wages at degree completion milestones
+          \item \textbf{Self-employed comparison}: no employer to signal to
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Evidence for Human Capital Theory}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \footnotesize \textbf{Natural experiments (IV):}
+      \begin{itemize}
+        \item \textbf{Angrist \& Krueger (1991)}: quarter of birth as instrument for
+              years of schooling; extra schooling raises wages --- suggests real productivity gain
+        \item Similar results from compulsory schooling law changes in UK, Denmark, Sweden, NZ
+      \end{itemize}
+      \textbf{Vocational training:}
+      \begin{itemize}
+        \item Apprenticeships and vocational training produce wage gains even where there is no
+              signalling component
+      \end{itemize}
+    \column{0.45\textwidth}
+      \begin{exampleblock}{NZ evidence}
+        \footnotesize Using the NZ Longitudinal Business Database (LBD), extra years of schooling
+        raise wages even after controlling for ability proxies.\\[0.2em]
+        Returns persist for occupations where degrees are not formally required for entry ---
+        hard to explain under pure signalling.
+      \end{exampleblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Evidence for Signalling: Sheepskin Effects}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{block}{The sheepskin effect}
+        \footnotesize ``Sheepskin'' = degree certificate (historically on sheepskin).\\[0.1em]
+        \textbf{Key finding}: wages jump \textbf{discontinuously} at degree completion,
+        beyond what an extra year of study predicts under HC theory.
+        \begin{itemize}
+          \item Years 1--3: small incremental wage gains
+          \item Year 4 (graduation): disproportionately large wage jump
+        \end{itemize}
+      \end{block}
+      \footnotesize More consistent with \textbf{signalling} than pure HC (skills accumulate gradually, credentials do not).
+    \column{0.42\textwidth}
+      \begin{alertblock}{NZ and international evidence}
+        \footnotesize Sheepskin effects documented in NZ, US, UK, and Australia. Effect size
+        typically 2--4 \textit{extra} years of education. Consistent with credential-based
+        signalling.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Evidence for Signalling: Self-Employed Workers}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{alertblock}{Key test}
+        \small Under signalling theory:
+        \begin{itemize}
+          \item Education signals ability to \textbf{employers}
+          \item Self-employed have no employer to signal to
+          \item $\Rightarrow$ Returns should be \textbf{lower for the self-employed}
+        \end{itemize}
+      \end{alertblock}
+    \column{0.45\textwidth}
+      \begin{block}{Evidence}
+        \small US, UK, and NZ: returns to schooling are \textbf{lower for self-employed} than
+        employees.\\[0.2em]
+        Difference is \textbf{partial}, not complete --- consistent with a mixed HC +
+        signalling story.
+      \end{block}
+  \end{columns}
+  \vspace{0.1em}
+  \begin{exampleblock}{Bryan Caplan (2018): \textit{The Case Against Education}}
+    \footnotesize Argues signalling accounts for $\approx$80\% of the wage premium ---
+    provocative but an important corrective to naive HC theory.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{The Balance of Evidence}
+  \begin{columns}
+    \column{0.48\textwidth}
+      \begin{block}{Evidence favouring human capital}
+        \footnotesize
+        \begin{itemize}
+          \item IV estimates (Angrist-Krueger, compulsory schooling laws)
+          \item Vocational training wage gains
+          \item Returns persist in occupations with no formal credential requirement
+          \item Employer-reported skill shortages in graduate fields
+        \end{itemize}
+      \end{block}
+    \column{0.48\textwidth}
+      \begin{alertblock}{Evidence favouring signalling}
+        \footnotesize
+        \begin{itemize}
+          \item Sheepskin effects (wage jump at graduation)
+          \item Lower returns for self-employed
+          \item ``Signalling inflation'' in credential requirements over time
+          \item Credential screening even for non-degree tasks
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.3em}
+  \footnotesize \textbf{The likely answer: both matter.} Importance varies by level (postgraduate $\Rightarrow$ more HC) and field (medicine/engineering $\Rightarrow$ more HC; arts $\Rightarrow$ more signalling).
+\end{frame}
+
+\begin{frame}{Implications for NZ Education Policy}
+  \small
+  \begin{enumerate}
+    \item \textbf{If HC dominates}: strong case for public subsidy (positive externalities +
+          positive social returns $\Rightarrow$ under-investment without subsidy)
+    \item \textbf{If signalling dominates}: subsidising education accelerates the signalling
+          arms race; reducing subsidies and moving towards user-pays may be more efficient
+    \item \textbf{If both matter (likely)}: some subsidy is justified to internalise
+          externalities; income-contingent loans solve the capital market failure component;
+          exact mix depends on empirical estimates of social returns
+    \item \textbf{The level matters}: primary and secondary education is more human capital;
+          graduate/postgraduate has a larger signalling component
+          $\Rightarrow$ tapering subsidy rates with level may be efficient
+  \end{enumerate}
+\end{frame}
+
+\summaryside{
+  \footnotesize
+  \item Identifying the HC--signalling split requires exogenous variation in education (IV, natural experiments, twin studies, self-employment)
+  \item Evidence for HC: compulsory schooling IV (Angrist \& Krueger, 1991); vocational training wage gains; NZ LBD results
+  \item Evidence for signalling: sheepskin effects (discontinuous wage jump at graduation); lower returns for self-employed
+  \item Likely answer: both matter; relative importance varies by education level and field; policy subsidy should reflect net social returns
+}
+
+\end{document}

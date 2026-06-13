@@ -1,0 +1,194 @@
+% ============================================================
+%  ECON306: W08D3 — Discounting and Time Value;
+%          Decision-Making Under Risk vs. Uncertainty
+%  Date: Friday 11 September 2026
+%  SOURCE: old w08_week8 (discounting section) from FULL deck
+%    (lines 2868–2960) + Course Map W08D3 learning objectives.
+%  NOTE: Assignment distributed this week (already noted W08D1).
+%    Tutorial 4 today (Fri 11 Sep): test debrief + allocation intuitions.
+% ============================================================
+
+\documentclass[aspectratio=169, 12pt]{beamer}
+
+\input{../../Preambles/econ306_preamble.tex}
+
+\title[ECON306: W08D3 — Discounting and Uncertainty]{ECON306\\The Economics of Health and Education}
+\subtitle{W08D3: Discounting and Time Value; Decision-Making Under Risk vs.\ Uncertainty}
+\author{Austin Henderson}
+\institute{Department of Economics\\University of Otago}
+\date{Friday 11 September 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\recapslide{
+  \item Four approaches to valuing life: human capital, implied, WTP/VSL
+  \item NZ Ministry of Transport VSL: $\approx$NZ\$4.9M (2024)
+  \item VSL is ex-ante statistical, not the value of an identified person's life
+}
+
+\planslide{Discounting and Decision-Making Under Risk}{
+  \item The time value of money: discounting
+  \item Discounting health outcomes (life years, QALYs)
+  \item Decision matrices: risk vs.\ uncertainty
+  \item Minimax, minimax regret, and expected value criteria
+}
+
+\begin{frame}{Discounting: The Time Value of Money}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \small
+      \textbf{Why discount?} A dollar today is worth more than a dollar in the future:
+      \begin{itemize}
+        \item \textbf{Opportunity cost}: money today can be invested
+        \item \textbf{Time preference}: prefer present over future consumption
+        \item \textbf{Risk}: future cash flows are uncertain
+      \end{itemize}
+      \vspace{0.2em}
+      \textbf{PHARMAC / NZ HTA}: 3.5--5\%;\quad \textbf{UK NICE}: 3.5\%
+    \column{0.42\textwidth}
+      \begin{block}{The discount formula}
+        \[ \text{PV} = \sum_{t=0}^{T} \frac{C_t}{(1+r)^t} \]
+        \small $C_t$ = cost/benefit year $t$; $r$ = discount rate; $T$ = horizon
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Should We Discount Health Outcomes?}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{block}{Arguments for discounting health}
+        \footnotesize
+        \begin{itemize}
+          \item Consistency with discounting money costs
+          \item If health can be ``traded'' for money, same logic applies
+          \item Otherwise: \emph{always} invest in prevention over treatment
+          \item People do exhibit time preference for health
+        \end{itemize}
+      \end{block}
+    \column{0.45\textwidth}
+      \begin{alertblock}{Arguments against}
+        \footnotesize
+        \begin{itemize}
+          \item Health is not traded in markets like money
+          \item Social discount rate $\neq$ individual time preference
+          \item Discounting favours treatment over prevention
+          \item Should future generations' health be discounted?
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.1em}
+  \begin{exampleblock}{NZ practice}
+    \footnotesize PHARMAC discounts both costs and QALYs at the same rate (NICE, ICER guidelines) --- consistency, even if the philosophical case is contested.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Discounting in Practice: A Worked Example}
+  \begin{block}{Preventive vaccine vs.\ acute treatment}
+    \small Vaccine costs \$100/person now; prevents illness in year 5 costing \$200/person to treat. Worth funding at $r = 5\%$?\\[0.2em]
+    PV of treatment cost avoided $= \dfrac{200}{(1.05)^5} = \dfrac{200}{1.276} \approx \$156.7$\\[0.1em]
+    Net benefit $= \$156.7 - \$100 = +\$56.7 \Rightarrow$ fund it
+  \end{block}
+  \vspace{0.2em}
+  \begin{alertblock}{Sensitivity to discount rate}
+    \small $r = 10\%$: PV $\approx \$124$ (still positive);\quad $r = 20\%$: PV $\approx \$80$ (still positive).\\
+    Discount rate matters most when benefits are \emph{far} in the future (decades).
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Decision-Making Under Risk vs.\ Uncertainty}
+  \begin{columns}
+    \column{0.5\textwidth}
+      \begin{block}{Risk}
+        \textbf{Probabilities are known} (or estimable):\\[0.3em]
+        Expected value criterion:
+        $$EV = \sum_i p_i \cdot \text{outcome}_i$$
+        \vspace{0.3em}
+        Risk-adjusted decision trees and Markov models
+      \end{block}
+    \column{0.47\textwidth}
+      \begin{alertblock}{Uncertainty}
+        \textbf{Probabilities are unknown}:\\[0.3em]
+        Need non-probabilistic decision rules:
+        \begin{itemize}
+          \item \textbf{Minimax}: minimise worst case
+          \item \textbf{Minimin}: choose best-case option (optimistic)
+          \item \textbf{Minimax regret}: minimise maximum regret
+        \end{itemize}
+      \end{alertblock}
+  \end{columns}
+  \vspace{0.4em}
+  {\footnotesize See: ``Apocalypse maybe'', \textit{The Economist}, 30 March 1996 (required reading) --- applies exactly these concepts to the BSE/CJD crisis in Britain.}
+\end{frame}
+
+\begin{frame}{Decision Matrices: A Worked Example}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \begin{block}{Should NZ fund a new vaccine?}
+        \small Two actions: \textbf{Fund} / \textbf{Don't Fund}. Two states: \textbf{Epidemic} / \textbf{No epidemic}. Payoff (lives saved, net costs):
+        \begin{center}
+          \footnotesize
+          \begin{tabular}{@{}lcc@{}}
+            \toprule
+            & \textbf{Epidemic} & \textbf{No epidemic} \\
+            \midrule
+            \textbf{Fund} & $+500$ & $-50$ \\
+            \textbf{Don't fund} & $-200$ & $0$ \\
+            \bottomrule
+          \end{tabular}
+        \end{center}
+      \end{block}
+    \column{0.45\textwidth}
+      \small
+      \textbf{Minimax}: worst of Fund $= -50$; worst of Don't Fund $= -200$. \textbf{Fund} wins.\\[0.2em]
+      \textbf{Minimax regret}: regret(Fund, No epi.) $= 50$; regret(Don't Fund, Epi.) $= 700$. \textbf{Fund} wins.
+  \end{columns}
+\end{frame}
+
+\begin{frame}{The BSE/CJD Example from ``Apocalypse Maybe''}
+  \begin{columns}
+    \column{0.6\textwidth}
+      \small
+      \begin{itemize}
+        \item UK government in the early 1990s: deep \emph{uncertainty} about whether BSE
+              caused variant CJD in humans
+        \item Probabilities unknown; death toll ranged from zero to hundreds of thousands
+        \item \textbf{Expected value}: if probability was low, the ban might not be justified
+        \item \textbf{Minimax regret}: cost of being wrong (mass deaths) was so high the ban
+              was clearly justified
+      \end{itemize}
+    \column{0.37\textwidth}
+      \begin{exampleblock}{Link to Part I}
+        \small Characteristic 4: \textbf{catastrophic and irreversible consequences}. BSE illustrates why expected-value reasoning can fail for tail risks.
+      \end{exampleblock}
+      \vspace{0.3em}
+      \small \textbf{Policy lesson}: for catastrophic risks, precautionary principles rooted in minimax regret are often appropriate.
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Tutorial 4 Today}
+  \tutorialbox{%
+    \textbf{Tutorial 4 (Mon 7 Sep / Fri 11 Sep)}: Test debrief; how \emph{should} we
+    allocate the health budget? Allocation intuitions vs.\ economic criteria.\\[0.4em]
+    Today's tutorial (Fri 11 Sep) runs 10:00--10:50 am in T204.\\
+    Come prepared to discuss your test performance and challenge your allocation intuitions.
+  }
+  \vspace{0.5em}
+  \begin{alertblock}{Assignment reminder}
+    Assignment distributed this week: PHARMAC-style funding brief.\\
+    \textbf{Due: Monday 5 October 2026, 9:00 am} (Week 12 Monday).\\
+    Full details on Brightspace (Aoroa).
+  \end{alertblock}
+\end{frame}
+
+\summaryside{
+  \item Discounting converts future costs and benefits to PV; standard rates 3.5--5\% in NZ and internationally
+  \item Whether to discount health outcomes (QALYs) is contested but practically necessary for consistency
+  \item Under risk (known probabilities): expected value; under uncertainty: minimax, minimin, or minimax regret
+  \item Minimax regret: minimise how bad you'd feel if wrong --- appropriate for catastrophic, irreversible health risks
+}
+
+\end{document}

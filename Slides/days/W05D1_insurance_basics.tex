@@ -1,0 +1,148 @@
+% ============================================================
+%  ECON306: W05D1 — Why insurance exists; risk aversion and
+%          expected utility; actuarially fair premiums and pooling
+%  Date: Wednesday 12 August 2026
+% ============================================================
+
+\documentclass[aspectratio=169, 12pt]{beamer}
+
+\input{../../Preambles/econ306_preamble.tex}
+
+\title[ECON306: W05D1 — Insurance Basics]{ECON306\\The Economics of Health and Education}
+\subtitle{W05D1: Why Health Insurance Exists; Risk Aversion}
+\author{Austin Henderson}
+\institute{Department of Economics\\University of Otago}
+\date{Wednesday 12 August 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\recapslide{
+  \item Ageing populations: rising health costs, fiscal pressure on NZ Super, dependency ratio challenge
+  \item Compression vs.\ expansion of morbidity: key for projecting future health spending
+  \item OLG models: ageing requires higher contributions, lower benefits, or later retirement
+}
+
+\planslide{Why People Buy Health Insurance: Risk and Expected Utility}{
+  \item Actuarially fair premiums and risk pooling
+  \item Risk aversion and the expected utility framework
+  \item The demand for insurance: how much coverage?
+  \item Ageing and insurance markets
+}
+
+\begin{frame}{Week 5 Overview}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \textbf{This week:}
+      \begin{itemize}
+        \item Why do people buy health insurance? Utility and risk
+        \item The demand for health insurance: attitudes to risk
+        \item Moral hazard: ex-ante and ex-post
+        \item Adverse selection and the Rothschild--Stiglitz model
+        \item Public vs.\ private insurance design; NZ hybrid
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{block}{Required Reading}
+        {\small
+        \begin{itemize}
+          \item Feldstein: ``The demand for health insurance'' (Ch.\ 6)
+        \end{itemize}}
+      \end{block}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Why Does Health Insurance Exist?}
+  \begin{block}{The fundamental problem: uncertainty}
+    Individuals do not know when they will become ill, or how much it will cost to treat them.
+    Without insurance, they face potentially \textbf{catastrophic} and \textbf{unaffordable}
+    out-of-pocket costs.
+  \end{block}
+  \begin{itemize}
+    \item \textbf{Risk pooling}: by pooling the risks of many individuals, insurance converts
+          an unpredictable large loss into a predictable small premium
+    \item \textbf{Actuarially fair premium}: $\pi = p \cdot L$, where $p$ = probability of
+          illness and $L$ = cost of treatment
+    \item Risk-averse individuals are willing to pay \emph{more} than the actuarially fair
+          premium to avoid the risk of a large loss --- the \textbf{risk premium}
+    \item This creates a mutually beneficial exchange: insured pays premium $>$ expected loss;
+          insurer bears the risk
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Risk Aversion and Expected Utility}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{block}{Expected Utility (von Neumann--Morgenstern)}
+        \small With \textbf{concave utility} $U(W)$, a certain outcome is preferred to a fair
+        gamble: $U(\bar{W}) > p \cdot U(W_H) + (1-p) \cdot U(W_L)$, where $W_H$, $W_L$ are
+        wealth levels with/without illness.
+      \end{block}
+    \column{0.42\textwidth}
+      \small
+      \begin{itemize}
+        \item Concavity degree = risk aversion degree
+        \item \textbf{Risk neutral}: linear $U(W)$ $\Rightarrow$ indifferent
+        \item \textbf{Risk loving}: convex $U(W)$ $\Rightarrow$ prefers gamble
+        \item \textbf{Arrow-Pratt}: $-U''(W)/U'(W)$
+      \end{itemize}
+  \end{columns}
+  \begin{alertblock}{Ageing \& risk aversion}
+    \small Older individuals typically exhibit \textbf{greater} risk aversion for health outcomes
+    --- consistent with rising insurance demand with age.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{Moral Hazard: Two Types}
+  \begin{columns}
+    \column{0.50\textwidth}
+      \begin{alertblock}{Ex-ante moral hazard}
+        \small Less effort to prevent illness (exercise less, take more risks). Hard to observe;
+        addressed by exclusions for self-inflicted harm and wellness incentives.
+      \end{alertblock}
+    \column{0.48\textwidth}
+      \begin{alertblock}{Ex-post moral hazard}
+        \small Once insured, consume more HC (effective price $<$ full cost). Pauly (1968): a
+        \emph{normal} price response. Addressed by copayments, deductibles, gatekeeping.
+      \end{alertblock}
+  \end{columns}
+  \begin{exampleblock}{NZ example: GP co-payments}
+    \small NZ primary care visits involve a co-payment ($\approx$\$20--50) even for Community
+    Services Card holders --- a deliberate moral hazard reduction mechanism.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Adverse Selection and Insurance Market Failure}
+  \begin{columns}
+    \column{0.54\textwidth}
+      \small
+      \begin{itemize}
+        \item \textbf{Adverse selection}: high-risk individuals more likely to seek insurance
+        \item Insurer cannot distinguish risk types $\Rightarrow$ charges \textbf{pooled premium}
+        \item Low-risk individuals find this too expensive $\Rightarrow$ opt out
+        \item Premium rises further $\Rightarrow$ ``death spiral''
+        \item Extreme: only highest-risk remain $\Rightarrow$ market unravels
+      \end{itemize}
+    \column{0.43\textwidth}
+      \begin{alertblock}{Rothschild--Stiglitz (1976)}
+        \small In competitive markets, equilibrium may involve:
+        \begin{itemize}
+          \item \textbf{Separating equilibria}: contracts screen risk types
+          \item \textbf{No equilibrium}: market destroyed
+        \end{itemize}
+      \end{alertblock}
+      \small\textbf{Policy response:} community rating (uniform premiums), mandatory coverage,
+      public provision
+  \end{columns}
+\end{frame}
+
+\summaryside{
+  \item Risk-averse individuals pay a risk premium above the actuarially fair rate for insurance
+  \item Ex-ante and ex-post moral hazard both arise from insurance; addressed by copayments, deductibles, gatekeeping
+  \item Adverse selection can cause private insurance markets to unravel --- a key rationale for public health insurance
+  \item NZ's primary care co-payment structure is a deliberate design choice balancing access with moral hazard reduction
+}
+
+\end{document}

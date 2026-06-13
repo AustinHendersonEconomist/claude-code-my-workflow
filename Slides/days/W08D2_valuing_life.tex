@@ -1,0 +1,154 @@
+% ============================================================
+%  ECON306: W08D2 — Valuing Human Life: Human Capital,
+%          Implied Valuation, WTP/VSL
+%  Date: Thursday 10 September 2026
+%  SOURCE: old w08_week8 frames from FULL deck (lines 2770–2866)
+%  STALE-FACT FIX: old deck said "Assignment distributed this week"
+%    in the W8 overview (correct) but Tutorial 4 was
+%    labelled PHARMAC case studies --- now corrected to test debrief.
+% ============================================================
+
+\documentclass[aspectratio=169, 12pt]{beamer}
+
+\input{../../Preambles/econ306_preamble.tex}
+
+\title[ECON306: W08D2 — Valuing Human Life]{ECON306\\The Economics of Health and Education}
+\subtitle{W08D2: Valuing Human Life --- Human Capital, Implied Valuation, WTP/VSL}
+\author{Austin Henderson}
+\institute{Department of Economics\\University of Otago}
+\date{Thursday 10 September 2026}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\recapslide{
+  \item Four types of economic evaluation: CMA, CBA, CEA, CUA
+  \item PHARMAC uses CUA with $\approx$\$45K--50K/QALY threshold
+  \item Components: direct costs, indirect costs, perspective (payer vs.\ societal)
+}
+
+\planslide{Valuing Human Life: Why It Matters and How to Do It}{
+  \item Why government agencies must put a value on life
+  \item The human capital approach --- and its problems
+  \item Implied valuation approach
+  \item Willingness-to-pay and Value of Statistical Life (VSL)
+}
+
+\begin{frame}{Why We Must Value Human Life}
+  \small
+  Every government decision on road safety, new drugs, or quarantine \textbf{implicitly assigns a value} to lives. Making it explicit is more honest and efficient.
+  \vspace{0.25em}
+  \begin{columns}
+    \column{0.55\textwidth}
+      \begin{itemize}
+        \item CBA requires all outcomes, including lives saved, in \$ units
+        \item Without a value of life, we cannot compare money-against-life trade-offs
+        \item The right question: \textbf{how much are people willing to pay for small reductions in mortality risk?}
+      \end{itemize}
+    \column{0.42\textwidth}
+      \begin{alertblock}{VSL vs.\ Identified Life}
+        If 10,000 people each pay \$1,000 to cut mortality risk by 1/10,000, VSL $= \$10$M. No identified life is valued.
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Approach 1: Human Capital}
+  \begin{columns}
+    \column{0.57\textwidth}
+      \small
+      Value a life = \textbf{present value of future earnings} (discounted foregone productivity). Simple, data-based, widely used historically.\\[0.3em]
+      \textbf{Major problems:}
+      \begin{itemize}
+        \item Values retired, disabled, and children at zero
+        \item Ignores utility from life beyond market earnings
+        \item Ignores pain, suffering, non-market activities
+        \item Based on \emph{actual} earnings: discriminates by gender/ethnicity
+      \end{itemize}
+    \column{0.4\textwidth}
+      \begin{exampleblock}{Connection to education}
+        \small The human capital model reappears in Week 10: NPV of a university degree = PV of future wage premium over foregone earnings.
+      \end{exampleblock}
+      \vspace{0.3em}
+      \small \textbf{Verdict}: useful for productivity losses, not appropriate as the value of life for policy.
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Approach 2: Implied Valuation}
+  \begin{columns}
+    \column{0.57\textwidth}
+      \small
+      Infer value of life from \textbf{revealed preferences} --- how much do governments/individuals actually pay to reduce mortality risk?\\[0.25em]
+      \textbf{Examples:}
+      \begin{itemize}
+        \item Government regulation: cost per life saved under road safety codes, building standards
+        \item Individual behaviour: premium for risky jobs (compensating wage differentials, Thaler \& Rosen 1975)
+      \end{itemize}
+      \textbf{Problems:} agencies use wildly different implicit VSLs; revealed preferences may reflect income constraints, not true WTP.
+    \column{0.4\textwidth}
+      \begin{exampleblock}{NZ Ministry of Transport VSL}
+        \small VSL $\approx$ \textbf{\$4.9M} (2024 NZ\$) for road safety CBA, from hedonic wage studies and stated preference surveys of NZ workers.
+      \end{exampleblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Approach 3: Willingness to Pay and VSL}
+  \small
+  \begin{itemize}
+    \item \textbf{WTP approach}: survey individuals about maximum WTP for a stated reduction
+          in mortality risk (contingent valuation)
+    \item VSL $=$ WTP / $\Delta p$, where $\Delta p$ is the risk reduction
+    \item VSL in high-income countries: \textbf{US\$3--15M} (Viscusi \& Aldy, 2003; Robinson et al., 2019)
+    \item \textbf{Benefits transfer}: adjust VSL across countries using income elasticity
+          $\approx$0.5--1.0 (richer countries have higher VSL)
+    \item \textbf{Problems}: hypothetical bias, scope insensitivity, income effects
+  \end{itemize}
+  \begin{alertblock}{VSL is \emph{not} the value of saving one identified person's life}
+    \small Statistical value from aggregating many small WTP amounts for small risk reductions --- critical for applying VSL correctly.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{VSL in NZ Policy Context}
+  \begin{columns}
+    \column{0.52\textwidth}
+      \footnotesize
+      \begin{itemize}
+        \item \textbf{Ministry of Transport}: VSL $\approx$NZ\$4.9M (2024)
+        \item \textbf{Environment Guide / MfE}: broader guidance for benefit-cost analyses affecting mortality risk
+        \item \textbf{Treasury}: ``Wellbeing budget'' considers quality of life beyond income (not formally VSL-based)
+        \item Different agencies use different implicit VSLs --- ongoing inconsistency in NZ public policy
+      \end{itemize}
+    \column{0.44\textwidth}
+      \begin{alertblock}{Application: pandemic policy}
+        \footnotesize During COVID-19 (2020--21), NZ's lockdown decisions implicitly valued lives at very high levels --- the economic cost per statistical life saved was far above MoT's VSL. Was this consistent?
+      \end{alertblock}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{VSL: Applying in a CBA}
+  \begin{block}{Example calculation}
+    \small Road intervention: 5 deaths/year for 20 years, \$30M upfront.
+    \begin{itemize}
+      \item VSL (NZ Transport) $= \$4.9$M; Annual benefit $= 5 \times \$4.9$M $= \$24.5$M
+      \item PV of benefits at $r = 5\%$ over 20 years:
+            $\text{PV} = 24.5 \times \frac{1 - (1.05)^{-20}}{0.05} \approx 24.5 \times 12.5 = \$306$M
+      \item Net benefit $= \$306$M $- \$30$M $= +\$276$M $\Rightarrow$ fund it
+    \end{itemize}
+  \end{block}
+  \vspace{0.15em}
+  \begin{alertblock}{Note: discounting health benefits}
+    \small Discount the \emph{number of lives saved} per year, not the VSL itself.
+    Discounting the VSL would be double-counting.
+  \end{alertblock}
+\end{frame}
+
+\summaryside{
+  \item Human capital: value life as PV of future earnings --- flawed for policy; useful for productivity losses
+  \item Implied valuation: different NZ agencies use different implicit VSLs
+  \item VSL from WTP surveys: NZ MoT $\approx$NZ\$4.9M; OECD range US\$3--15M
+  \item VSL is a statistical concept for risk reductions, not the value of identified lives
+}
+
+\end{document}
