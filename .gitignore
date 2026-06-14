@@ -52,3 +52,8 @@ CLAUDE.local.md
 # Output artifacts — uncomment lines below based on your preference
 # *.rds
 # output/**/*.rds
+
+# Copyrighted reading PDFs (eReserve materials) — never commit to a public repo
+# Root-anchored (/) so it does NOT also match quality_reports/readings/ on a
+# case-insensitive filesystem (Windows).
+/Readings/
